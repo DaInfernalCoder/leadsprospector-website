@@ -21,7 +21,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center">
           <AnimatedSection variant="fadeDown" delay={0}>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              Get the exact system installed in your business that we
+              Get the exact system installed in your business that we{" "}
               <br className="hidden md:block" />
               used to book 400+ calls in 2025.
             </h1>
