@@ -64,7 +64,7 @@ export default function Home() {
                 }
                 title="Try Once"
                 titleAccent="Before Committing"
-                description="A one-time payment builds your entire outbound system and secures your first 5 meetings. From there, we keep filling your calendar on either a retainer or performance basis."
+                description="We build your entire outbound system and secure your first 3 meetings. All you have to do is pay for infrastructure. From there, we keep filling your calendar on either a retainer or performance basis."
               />
             </StaggerItem>
             <StaggerItem>
@@ -74,7 +74,7 @@ export default function Home() {
                 }
                 title="Work With"
                 titleAccent="Industry Insiders"
-                description="We've worked directly in the industries we serve — staffing &amp; recruitment, marketing, SaaS, and accounting &amp; finance — so we know exactly how to reach your buyers."
+                description="We've worked directly in the industries we serve, staffing &amp; recruitment, marketing, SaaS, and accounting &amp; finance, so we know exactly how to reach your buyers."
               />
             </StaggerItem>
             <StaggerItem>
@@ -87,7 +87,7 @@ export default function Home() {
                 }
                 title="Custom-Built"
                 titleAccent="& Yours to Keep"
-                description="We build a bespoke outbound system — targeting, copy, and infrastructure — tailored to your market. You keep it all, so you can keep booking meetings whether we run it or not."
+                description="We build a bespoke outbound system, targeting, copy, and infrastructure, tailored to your market. You keep it all, so you can keep booking meetings whether we run it or not."
               />
             </StaggerItem>
           </StaggerContainer>
