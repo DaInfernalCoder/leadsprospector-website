@@ -21,9 +21,9 @@ export default function FeatureCard({
       <h3 className="text-2xl font-bold mb-2">
         {title}
         <br />
-        <span className="text-[#1d4ed8]">{titleAccent}</span>
+        <span className="text-[#0d9488]">{titleAccent}</span>
       </h3>
-      <p className="text-gray-600 max-w-xs leading-relaxed">{description}</p>
+      <p className="text-[#64748b] max-w-xs leading-relaxed">{description}</p>
     </div>
   );
 }

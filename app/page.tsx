@@ -19,7 +19,7 @@ export default function Home() {
             <br className="hidden md:block" />
             used to book 400+ calls in 2025.
           </h1>
-          <p className="text-xl md:text-2xl text-[#1d4ed8] font-bold mb-12">
+          <p className="text-xl md:text-2xl text-[#0d9488] font-bold mb-12">
             We&apos;ll build &amp; run it for you for 90 days, land you 15 high-
             <br className="hidden md:block" />
             ticket meetings and you own the entire system forever.
@@ -38,7 +38,7 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Why <span className="text-[#1d4ed8]">LeadsProspectr?</span>
+            Why <span className="text-[#0d9488]">LeadsProspectr?</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard
@@ -79,7 +79,7 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            How We <span className="text-[#1d4ed8]">Work</span>
+            How We <span className="text-[#0d9488]">Work</span>
           </h2>
           <ProcessStep
             number={1}
@@ -119,7 +119,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             See What&apos;s Included For{" "}
-            <span className="text-[#1d4ed8]">Your Campaigns</span>
+            <span className="text-[#0d9488]">Your Campaigns</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-2 max-w-3xl mx-auto">
             <div>
