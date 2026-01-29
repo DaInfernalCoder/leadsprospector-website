@@ -38,27 +38,27 @@ export default function CaseStudyCard({
       {/* Top Section - Logo and Content */}
       <div className="flex flex-col md:flex-row border-b border-gray-200">
         {/* Left Side - Logo */}
-        <div className="md:w-1/4 p-6 md:p-8 flex items-start justify-center border-b md:border-b-0 md:border-r border-gray-200">
+        <div className="md:w-1/3 p-8 md:p-10 flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-200">
           <Link
             href={companyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="block group/logo w-full"
           >
-            <div className="relative h-20 md:h-24 w-full flex items-center justify-center rounded-lg overflow-hidden bg-gray-50">
+            <div className="relative h-32 md:h-40 w-full flex items-center justify-center rounded-lg overflow-hidden bg-gray-50">
               <Image
                 src={logoSrc}
                 alt={`${companyName} logo`}
                 fill
                 className="object-contain group-hover/logo:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </Link>
         </div>
 
         {/* Right Side - Content */}
-        <div className="md:w-3/4 p-6 md:p-8 flex flex-col">
+        <div className="md:w-2/3 p-6 md:p-8 flex flex-col">
           {/* Description */}
           <p className="text-base md:text-lg text-[#64748b] mb-6 leading-relaxed">
             {description}
