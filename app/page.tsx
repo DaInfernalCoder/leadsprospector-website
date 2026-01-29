@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import StaggerContainer from "@/components/StaggerContainer";
 import StaggerItem from "@/components/StaggerItem";
+import CaseStudyCard from "@/components/CaseStudyCard";
 
 export default function Home() {
   const CALENDLY_URL =
@@ -28,7 +29,8 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection variant="fadeUp" delay={0.2}>
             <p className="text-xl md:text-2xl text-[#0d9488] font-bold mb-12">
-              We&apos;ll build &amp; run it for you for 90 days, land you 15 high-
+              We&apos;ll build &amp; run it for you for 90 days, land you 15
+              high-
               <br className="hidden md:block" />
               ticket meetings and you own the entire system forever.
             </p>
@@ -42,6 +44,92 @@ export default function Home() {
           <AnimatedSection variant="fadeUp">
             <CalendlyEmbed url={CALENDLY_URL} />
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection variant="fadeUp">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Our <span className="text-[#0d9488]">Case Studies</span>
+            </h2>
+          </AnimatedSection>
+          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+            <StaggerItem>
+              <CaseStudyCard
+                companyName="Outbound Consulting"
+                companyUrl="https://outbound.consulting/"
+                logoSrc="/case-studies/outbound-consulting-logo.png"
+                screenshotSrc="/case-studies/outbound-consulting-results.png"
+                description="Outbound Consulting are consultants who specialise in consulting B2B firms on Outbound measures that drive revenue."
+                result={{
+                  headline: "68 Closed Clients",
+                  subtext: "After four 90 Day Engagements",
+                }}
+                process={[
+                  "14-day domain warmup per engagement",
+                  "First call booked 3 days after each campaign launch",
+                  "1 Million emails sent across all engagements",
+                  "68 clients closed",
+                ]}
+                costEfficiency={{
+                  previousCost: "£550",
+                  newCost: "£222",
+                  reduction: "60%",
+                }}
+              />
+            </StaggerItem>
+            <StaggerItem>
+              <CaseStudyCard
+                companyName="Scribe Media"
+                companyUrl="https://scribemedia.com/"
+                logoSrc="/case-studies/scribe-media-logo.png"
+                screenshotSrc="/case-studies/scribe-media-results.png"
+                description="Scribe Media publishes books. It enables leaders' book authorship. Served clients like David Goggins. Secured 23 NYT Best Sellers."
+                result={{
+                  headline: "60 Meetings",
+                  subtext:
+                    "£50k Closed Up Front Revenue. Delivered in 30 days.",
+                }}
+                process={[
+                  "14-day domain warmup period",
+                  "First qualified call booked 3 days after campaign launch",
+                  "1,923 emails sent over 30 days",
+                  "60 meetings booked, £50K closed upfront",
+                ]}
+                costEfficiency={{
+                  previousCost: "£485",
+                  newCost: "£222",
+                  reduction: "54%",
+                }}
+              />
+            </StaggerItem>
+            <StaggerItem>
+              <CaseStudyCard
+                companyName="Arch Visualizations"
+                companyUrl="https://www.archvisualizations.com/"
+                logoSrc="/case-studies/arch-visualizations-logo.png"
+                screenshotSrc="/case-studies/arch-visualizations-results.png"
+                description="Arch Visualisations needed to penetrate new market segments. We installed the revenue engine. Secured pipeline within 30 days."
+                result={{
+                  headline: "£290K Pipeline",
+                  subtext: "Secured within 30 days.",
+                }}
+                process={[
+                  "14-day domain warmup period",
+                  "First call booked 2 days after campaign launch",
+                  "80,000 emails sent over 30 days",
+                  "£290K pipeline secured within 30 days",
+                ]}
+                costEfficiency={{
+                  previousCost: "£520",
+                  newCost: "£222",
+                  reduction: "57.3%",
+                }}
+              />
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
