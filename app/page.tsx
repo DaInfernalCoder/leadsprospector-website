@@ -39,7 +39,7 @@ export default function Home() {
       </section>
 
       {/* Calendly Section */}
-      <section className="py-16 px-4">
+      <section className="pt-16 pb-8 px-4">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fadeUp">
             <CalendlyEmbed url={CALENDLY_URL} />
@@ -48,14 +48,14 @@ export default function Home() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="pt-8 pb-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection variant="fadeUp">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               Our <span className="text-[#0d9488]">Case Studies</span>
             </h2>
           </AnimatedSection>
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="space-y-8">
             <StaggerItem>
               <CaseStudyCard
                 companyName="Outbound Consulting"
