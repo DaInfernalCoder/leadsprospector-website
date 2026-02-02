@@ -52,7 +52,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection variant="fadeUp">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Our <span className="text-[#0d9488]">Case Studies</span>
+              Recent <span className="text-[#0d9488]">Case Studies</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="space-y-8">
@@ -152,7 +152,7 @@ export default function Home() {
                 }
                 title="Try Once"
                 titleAccent="Before Committing"
-                description="We build your entire outbound system and secure your first 3 meetings. All you have to do is pay for infrastructure. From there, we keep filling your calendar on either a retainer or performance basis."
+                description="We build your entire outbound system and secure your first 2 meetings. All you have to do is pay for infrastructure. From there, we keep filling your calendar on either a retainer or performance basis."
               />
             </StaggerItem>
             <StaggerItem>

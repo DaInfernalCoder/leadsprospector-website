@@ -109,7 +109,7 @@ export default function CaseStudyCard({
               </div>
               <div className="flex justify-between items-center text-sm md:text-base">
                 <span className="text-gray-600">
-                  Marchbridge cost per call:
+                  LeadsProspectr cost per call:
                 </span>
                 <span className="font-semibold text-[#0d9488]">
                   {costEfficiency.newCost}
