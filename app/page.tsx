@@ -74,8 +74,8 @@ export default function Home() {
                   "68 clients closed",
                 ]}
                 costEfficiency={{
-                  previousCost: "£550",
-                  newCost: "£222",
+                  previousCost: "$550",
+                  newCost: "$222",
                   reduction: "60%",
                 }}
               />
@@ -90,17 +90,17 @@ export default function Home() {
                 result={{
                   headline: "60 Meetings",
                   subtext:
-                    "£50k Closed Up Front Revenue. Delivered in 30 days.",
+                    "$50k Closed Up Front Revenue. Delivered in 30 days.",
                 }}
                 process={[
                   "14-day domain warmup period",
                   "First qualified call booked 3 days after campaign launch",
                   "1,923 emails sent over 30 days",
-                  "60 meetings booked, £50K closed upfront",
+                  "60 meetings booked, $50K closed upfront",
                 ]}
                 costEfficiency={{
-                  previousCost: "£485",
-                  newCost: "£222",
+                  previousCost: "$485",
+                  newCost: "$222",
                   reduction: "54%",
                 }}
               />
@@ -113,18 +113,18 @@ export default function Home() {
                 screenshotSrc="/case-studies/arch-visualizations-results.png"
                 description="Arch Visualisations needed to penetrate new market segments. We installed the revenue engine. Secured pipeline within 30 days."
                 result={{
-                  headline: "£290K Pipeline",
+                  headline: "$290K Pipeline",
                   subtext: "Secured within 30 days.",
                 }}
                 process={[
                   "14-day domain warmup period",
                   "First call booked 2 days after campaign launch",
                   "80,000 emails sent over 30 days",
-                  "£290K pipeline secured within 30 days",
+                  "$290K pipeline secured within 30 days",
                 ]}
                 costEfficiency={{
-                  previousCost: "£520",
-                  newCost: "£222",
+                  previousCost: "$520",
+                  newCost: "$222",
                   reduction: "57.3%",
                 }}
               />
