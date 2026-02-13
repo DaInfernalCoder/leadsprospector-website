@@ -24,7 +24,7 @@ export default function Home() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
               Get the exact system installed in your business that we{" "}
               <br className="hidden md:block" />
-              used to book 400+ calls in 2025.
+              used to book 400+ calls in 2025 for B2B marketing agencies over 1m/year.
             </h1>
           </AnimatedSection>
           <AnimatedSection variant="fadeUp" delay={0.2}>
