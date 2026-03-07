@@ -1,13 +1,10 @@
 "use client";
 
-import { CreditCard, Users, RefreshCcw, Radio, Layers, Zap, ChevronDown, Network } from "lucide-react";
+import { Radio, Layers, Zap, ChevronDown, Network, Activity, RefreshCcw, TrendingUp } from "lucide-react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
-import FeatureCard from "@/components/FeatureCard";
 import RoutingLayerCard from "@/components/RoutingLayerCard";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import StaggerContainer from "@/components/StaggerContainer";
-import StaggerItem from "@/components/StaggerItem";
 
 export default function Home() {
   const CALENDLY_URL =
@@ -45,52 +42,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why LeadsProspectr Section */}
-      <section className="py-16 px-4">
+      {/* Infrastructure Performance Section */}
+      <section className="py-16 px-4 bg-[#0f172a] text-white">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection variant="fadeUp">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-              Why <span className="text-[#0d9488]">LeadsProspectr?</span>
+          <AnimatedSection variant="fadeDown">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
+              NETWORK METRICS
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
+              Infrastructure Performance
             </h2>
+            <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
+              Real-time visibility into routing operations. Scale measured in
+              throughput, not transactions.
+            </p>
           </AnimatedSection>
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
-            <StaggerItem>
-              <FeatureCard
-                icon={
-                  <CreditCard
-                    className="w-24 h-24 text-gray-700"
-                    strokeWidth={1}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+            <AnimatedSection variant="fadeUp" delay={0.05}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  ROUTES PROCESSED
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">
+                  847k <span className="text-sm font-normal text-white/70">total</span>
+                </p>
+                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
+                  <TrendingUp className="w-4 h-4" /> +23%
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <Activity className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  ROUTING VELOCITY
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">
+                  2.4k <span className="text-sm font-normal text-white/70">/day</span>
+                </p>
+                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
+                  <TrendingUp className="w-4 h-4" /> +18%
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.15}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <Network className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  QUALIFICATION RATE
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">87%</p>
+                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
+                  <TrendingUp className="w-4 h-4" /> +5%
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.2}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <RefreshCcw className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  CONNECTION DENSITY
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">94%</p>
+                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
+                  <TrendingUp className="w-4 h-4" /> +12%
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12">
+            <AnimatedSection variant="fadeUp" delay={0.25}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  NETWORK UPTIME
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">99.97%</p>
+                <p className="text-sm text-white/70 mb-3">Last 30 days</p>
+                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-linear-to-r from-[#0d9488] to-emerald-500"
+                    style={{ width: "99.97%" }}
                   />
-                }
-                title="Try Once"
-                titleAccent="Before Committing"
-                description="We build your entire outbound system and secure your first 2 meetings. All you have to do is pay for infrastructure. From there, we keep filling your calendar on either a retainer or performance basis."
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <FeatureCard
-                icon={
-                  <Users className="w-24 h-24 text-gray-700" strokeWidth={1} />
-                }
-                title="Work With"
-                titleAccent="Industry Insiders"
-                description="We've worked directly in the industries we serve, staffing &amp; recruitment, marketing, SaaS, and accounting &amp; finance, so we know exactly how to reach your buyers."
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <FeatureCard
-                icon={
-                  <RefreshCcw
-                    className="w-24 h-24 text-gray-700"
-                    strokeWidth={1}
+                </div>
+                <p className="text-sm text-[#0d9488] font-medium mt-2 text-right">
+                  Operational
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.3}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
+                  AVG RESPONSE TIME
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white">
+                  &lt;120ms
+                </p>
+                <p className="text-sm text-white/70 mb-3">P95 latency</p>
+                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-linear-to-r from-[#0d9488] to-emerald-500"
+                    style={{ width: "65%" }}
                   />
-                }
-                title="Custom-Built"
-                titleAccent="& Yours to Keep"
-                description="We build a bespoke outbound system, targeting, copy, and infrastructure, tailored to your market. You keep it all, so you can keep booking meetings whether we run it or not."
-              />
-            </StaggerItem>
-          </StaggerContainer>
+                </div>
+                <p className="text-sm text-white mt-2 text-right">185ms</p>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          <AnimatedSection variant="fadeUp">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-3">
+              INFRASTRUCTURE SCOPE
+            </p>
+            <p className="text-base md:text-lg text-white/90 text-center">
+              $1.2B+ in total routed transaction value • 450+ active network
+              nodes • 12 enterprise sectors
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
