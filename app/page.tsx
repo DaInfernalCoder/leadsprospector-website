@@ -1,10 +1,9 @@
 "use client";
 
-import { CreditCard, Users, RefreshCcw, Radio, Layers, Zap, ChevronDown } from "lucide-react";
+import { CreditCard, Users, RefreshCcw, Radio, Layers, Zap, ChevronDown, Network } from "lucide-react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import FeatureCard from "@/components/FeatureCard";
 import RoutingLayerCard from "@/components/RoutingLayerCard";
-import ChecklistItem from "@/components/ChecklistItem";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import StaggerContainer from "@/components/StaggerContainer";
@@ -147,51 +146,120 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What&apos;s Included Section */}
-      <section className="py-16 px-4">
+      {/* Old Way vs. New Way (What&apos;s Included) */}
+      <section className="py-16 px-4 bg-[#0f172a] text-white">
         <div className="max-w-5xl mx-auto">
-          <AnimatedSection variant="fadeUp">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              See What&apos;s Included For{" "}
-              <span className="text-[#0d9488]">Your Campaigns</span>
+          <AnimatedSection variant="fadeDown">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
+              TRADITIONAL METHODS VS. ROUTING INFRASTRUCTURE
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
+              Old Way vs. New Way
             </h2>
+            <p className="text-lg text-white/80 text-center mb-12">
+              Traditional methods make you search. Infrastructure brings them to
+              you.
+            </p>
           </AnimatedSection>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-2 max-w-3xl mx-auto">
-            <StaggerContainer staggerDelay={0.08}>
-              <StaggerItem>
-                <ChecklistItem text="Dedicated Account Manager" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Tailored Copywriting" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Pay-Per-Meeting Only" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="1-On-1 Support" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Done-For-You Managed Email Campaigns" />
-              </StaggerItem>
-            </StaggerContainer>
-            <StaggerContainer staggerDelay={0.08}>
-              <StaggerItem>
-                <ChecklistItem text="Lead List Built" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Inbox Setup" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Weekly Reporting" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Monthly Check-In Call" />
-              </StaggerItem>
-              <StaggerItem>
-                <ChecklistItem text="Hyper-personalized emails" />
-              </StaggerItem>
-            </StaggerContainer>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 h-full flex flex-col">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                  Traditional Methods
+                </h3>
+                <p className="text-sm text-[#0d9488] mb-6">
+                  Manual outreach and searching
+                </p>
+                <ul className="space-y-3 text-white/90 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Search for prospects
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Run campaigns
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Hire teams to prospect
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Pay per contact
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Chase conversations
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Hope to be discovered
+                  </li>
+                </ul>
+                <p className="mt-auto text-sm font-medium text-[#0d9488] uppercase tracking-wide">
+                  Operating Level: Individual
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection variant="fadeUp" delay={0.2}>
+              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/30 p-6 md:p-8 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-1">
+                  <Network
+                    className="w-8 h-8 md:w-9 md:h-9 text-[#0d9488] shrink-0"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                    myoProcess
+                  </h3>
+                </div>
+                <p className="text-sm text-[#0d9488] mb-6">
+                  Routing infrastructure
+                </p>
+                <ul className="space-y-3 text-white/90 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Prospects route to you
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Introductions flow automatically
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Infrastructure handles routing
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Pay for infrastructure access
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    Conversations come to you
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
+                    ICP routes through you
+                  </li>
+                </ul>
+                <p className="mt-auto text-sm font-medium text-[#0d9488] uppercase tracking-wide">
+                  Operating Level: Systems
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
+
+          <AnimatedSection variant="fadeUp">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
+              THE FUNDAMENTAL SHIFT
+            </p>
+            <p className="text-lg md:text-xl text-white/90 text-center max-w-3xl mx-auto leading-relaxed">
+              Banks don&apos;t facilitate transactions—they route capital.
+              Telecoms don&apos;t connect calls—they route data. B2B companies
+              don&apos;t search for their ICP—their ICP routes through them.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
