@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* Calendly Section */}
-      <section className="pt-16 pb-8 px-4">
+      <section className="pt-16 pb-8 px-4 bg-[#0f172a] text-white">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fadeUp">
             <CalendlyEmbed url={CALENDLY_URL} />
