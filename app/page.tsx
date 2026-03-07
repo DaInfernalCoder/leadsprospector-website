@@ -1,9 +1,9 @@
 "use client";
 
-import { CreditCard, Users, RefreshCcw } from "lucide-react";
+import { CreditCard, Users, RefreshCcw, Radio, Layers, Zap, ChevronDown } from "lucide-react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import FeatureCard from "@/components/FeatureCard";
-import ProcessStep from "@/components/ProcessStep";
+import RoutingLayerCard from "@/components/RoutingLayerCard";
 import ChecklistItem from "@/components/ChecklistItem";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -95,44 +95,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How We Work Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection variant="fadeUp">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              How We <span className="text-[#0d9488]">Work</span>
+      {/* The Routing Layer Section */}
+      <section className="py-16 px-4 bg-[#0f172a] text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <AnimatedSection variant="fadeDown">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] mb-4">
+              THE ROUTING LAYER
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Connect with Your Ideal Clients
             </h2>
+            <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
+              B2B executives and business owners partner with myoProcess to get
+              connected directly with their ideal client profile through our
+              intelligent routing infrastructure.
+            </p>
           </AnimatedSection>
-          <ProcessStep
-            number={1}
-            title="Fill out our onboarding form"
-            description="After signing our proposal, we'll have you fill out an onboarding form so we can understand more about you and your business."
-          />
-          <ProcessStep
-            number={2}
-            title="Schedule a kickoff call"
-            description="Our account managers will go over your onboarding form on a call with you to formulate an initial campaign strategy."
-          />
-          <ProcessStep
-            number={3}
-            title="Onboarding Setup"
-            description="We'll take all the information from the kickoff call to set up your inboxes, build your lead list, and write your campaign cadence."
-          />
-          <ProcessStep
-            number={4}
-            title="Campaign Launch"
-            description="After the campaign cadence and lead list has been approved, our team will launch your campaign."
-          />
-          <ProcessStep
-            number={5}
-            title="Meetings Delivered"
-            description="Once we've confirmed a meeting-ready-lead, we'll book them into your calendar and brief you on everything you need to know."
-          />
-          <ProcessStep
-            number={6}
-            title="Campaign Adjustments"
-            description="Aside from the weekly reports, our Customer Success Managers will do a monthly check-in call to go over campaign performance and make any necessary adjustments."
-          />
+          <div className="space-y-4">
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <RoutingLayerCard
+                stepNumber={1}
+                title="Signal Layer"
+                description="Incoming buyer signals, intent data, and qualification triggers"
+                icon={<Radio className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
+              />
+            </AnimatedSection>
+            <div className="flex justify-center text-[#0d9488]">
+              <ChevronDown className="w-8 h-8" strokeWidth={2} />
+            </div>
+            <AnimatedSection variant="fadeUp" delay={0.2}>
+              <RoutingLayerCard
+                stepNumber={2}
+                title="Routing Layer"
+                description="Real-time matching, qualification filtering, and pathway control"
+                icon={<Layers className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
+                youAreHere
+              />
+            </AnimatedSection>
+            <div className="flex justify-center text-[#0d9488]">
+              <ChevronDown className="w-8 h-8" strokeWidth={2} />
+            </div>
+            <AnimatedSection variant="fadeUp" delay={0.3}>
+              <RoutingLayerCard
+                stepNumber={3}
+                title="Connection Layer"
+                description="Executed routes, completed handoffs, and transaction flow"
+                icon={<Zap className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
