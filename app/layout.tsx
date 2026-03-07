@@ -10,7 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "LeadsProspectr - Book More Meetings on Autopilot",
-  description: "Get the exact system installed in your business that we use to generate high-ticket meetings. We build and run it for you.",
+  description:
+    "Get the exact system installed in your business that we use to generate high-ticket meetings. We build and run it for you.",
 };
 
 export default function RootLayout({
@@ -20,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
 }

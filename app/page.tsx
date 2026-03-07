@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import StaggerContainer from "@/components/StaggerContainer";
 import StaggerItem from "@/components/StaggerItem";
-import CaseStudyCard from "@/components/CaseStudyCard";
 
 export default function Home() {
   const CALENDLY_URL =
@@ -18,21 +17,21 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="py-16 md:py-24 px-4 bg-[#0f172a] text-white">
+        <div className="max-w-5xl mx-auto text-left">
           <AnimatedSection variant="fadeDown" delay={0}>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              Get the exact system installed in your business that we{" "}
-              <br className="hidden md:block" />
-              used to book 400+ calls in 2025 for B2B marketing agencies over 1m/year.
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-white">
+              Banks route capital.
+              <br />
+              <span className="text-[#0d9488]">We route access.</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection variant="fadeUp" delay={0.2}>
-            <p className="text-xl md:text-2xl text-[#0d9488] font-bold mb-12">
-              We&apos;ll build &amp; run it for you for 90 days, land you 15
-              high-
-              <br className="hidden md:block" />
-              ticket meetings and you own the entire system forever.
+            <p className="inline-block text-sm uppercase tracking-wide text-white border border-[#0d9488] rounded-md px-4 py-2 mb-6">
+              INFRASTRUCTURE • NOT A SERVICE
+            </p>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl">
+              Trusted in over $1B of routed B2B transactions (2023-2025).
             </p>
           </AnimatedSection>
         </div>
@@ -44,92 +43,6 @@ export default function Home() {
           <AnimatedSection variant="fadeUp">
             <CalendlyEmbed url={CALENDLY_URL} />
           </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section className="pt-8 pb-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection variant="fadeUp">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Recent <span className="text-[#0d9488]">Case Studies</span>
-            </h2>
-          </AnimatedSection>
-          <StaggerContainer className="space-y-8">
-            <StaggerItem>
-              <CaseStudyCard
-                companyName="Outbound Consulting"
-                companyUrl="https://outbound.consulting/"
-                logoSrc="/case-studies/outbound-consulting-logo.png"
-                screenshotSrc="/case-studies/outbound-consulting-results.png"
-                description="Outbound Consulting are consultants who specialise in consulting B2B firms on Outbound measures that drive revenue."
-                result={{
-                  headline: "68 Closed Clients",
-                  subtext: "After four 90 Day Engagements",
-                }}
-                process={[
-                  "14-day domain warmup per engagement",
-                  "First call booked 3 days after each campaign launch",
-                  "1 Million emails sent across all engagements",
-                  "68 clients closed",
-                ]}
-                costEfficiency={{
-                  previousCost: "$550",
-                  newCost: "$222",
-                  reduction: "60%",
-                }}
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <CaseStudyCard
-                companyName="Scribe Media"
-                companyUrl="https://scribemedia.com/"
-                logoSrc="/case-studies/scribe-media-logo.png"
-                screenshotSrc="/case-studies/scribe-media-results.png"
-                description="Scribe Media publishes books. It enables leaders' book authorship. Served clients like David Goggins. Secured 23 NYT Best Sellers."
-                result={{
-                  headline: "60 Meetings",
-                  subtext:
-                    "$50k Closed Up Front Revenue. Delivered in 30 days.",
-                }}
-                process={[
-                  "14-day domain warmup period",
-                  "First qualified call booked 3 days after campaign launch",
-                  "1,923 emails sent over 30 days",
-                  "60 meetings booked, $50K closed upfront",
-                ]}
-                costEfficiency={{
-                  previousCost: "$485",
-                  newCost: "$222",
-                  reduction: "54%",
-                }}
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <CaseStudyCard
-                companyName="Arch Visualizations"
-                companyUrl="https://www.archvisualizations.com/"
-                logoSrc="/case-studies/arch-visualizations-logo.png"
-                screenshotSrc="/case-studies/arch-visualizations-results.png"
-                description="Arch Visualisations needed to penetrate new market segments. We installed the revenue engine. Secured pipeline within 30 days."
-                result={{
-                  headline: "$290K Pipeline",
-                  subtext: "Secured within 30 days.",
-                }}
-                process={[
-                  "14-day domain warmup period",
-                  "First call booked 2 days after campaign launch",
-                  "80,000 emails sent over 30 days",
-                  "$290K pipeline secured within 30 days",
-                ]}
-                costEfficiency={{
-                  previousCost: "$520",
-                  newCost: "$222",
-                  reduction: "57.3%",
-                }}
-              />
-            </StaggerItem>
-          </StaggerContainer>
         </div>
       </section>
 
