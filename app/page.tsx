@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 bg-[#0f172a] text-white">
+      <section className="py-16 md:py-24 px-4 bg-black text-white">
         <div className="max-w-5xl mx-auto text-left">
           <AnimatedSection variant="fadeDown" delay={0}>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-white">
@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* Calendly Section */}
-      <section className="pt-16 pb-8 px-4 bg-[#0f172a] text-white">
+      <section className="pt-16 pb-8 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fadeUp">
             <CalendlyEmbed url={CALENDLY_URL} />
@@ -43,7 +43,7 @@ export default function Home() {
       </section>
 
       {/* Infrastructure Performance Section */}
-      <section className="py-16 px-4 bg-[#0f172a] text-white">
+      <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection variant="fadeDown">
             <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* The Routing Layer Section */}
-      <section className="py-16 px-4 bg-[#0f172a] text-white">
+      <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection variant="fadeDown">
             <p className="text-sm uppercase tracking-wide text-[#0d9488] mb-4">
@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* Old Way vs. New Way (What&apos;s Included) */}
-      <section className="py-16 px-4 bg-[#0f172a] text-white">
+      <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection variant="fadeDown">
             <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">

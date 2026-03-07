@@ -10,7 +10,7 @@ export default function Footer({
   linkedinUrl = "#",
 }: FooterProps) {
   return (
-    <footer className="py-16 border-t border-white/10 bg-[#0f172a]">
+    <footer className="py-16 border-t border-white/10 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-center gap-6 mb-8">
           <a
