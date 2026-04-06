@@ -53,7 +53,7 @@ export default function Home() {
               Connect with Your Ideal Clients
             </h2>
             <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
-              B2B executives and business owners partner with myoProcess to get
+              B2B executives and business owners partner with Caldenmoore to get
               connected directly with their ideal client profile through our
               intelligent routing infrastructure.
             </p>
@@ -159,7 +159,7 @@ export default function Home() {
                     strokeWidth={1.5}
                   />
                   <h3 className="text-xl md:text-2xl font-bold text-white">
-                    myoProcess
+                    Caldenmoore
                   </h3>
                 </div>
                 <p className="text-sm text-[#0d9488] mb-6">
