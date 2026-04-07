@@ -1,17 +1,17 @@
 "use client";
 
 import { Radio, Layers, Zap, ChevronDown, Network, Activity, RefreshCcw, TrendingUp, Users, Building2, ArrowRight, CircleAlert } from "lucide-react";
-import CalendlyEmbed from "@/components/CalendlyEmbed";
+import CalComEmbed from "@/components/CalComEmbed";
 import RoutingLayerCard from "@/components/RoutingLayerCard";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Home() {
-  const CALENDLY_URL =
-    "https://calendly.com/sumit-leadsprospectr/leadsprospectr";
+  const CAL_URL = "https://cal.com/sumitdatta/partner-call";
 
   return (
     <main className="min-h-screen">
+
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 bg-black text-white">
         <div className="max-w-5xl mx-auto text-left">
@@ -37,7 +37,7 @@ export default function Home() {
       <section id="calendar" className="pt-16 pb-8 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fadeUp">
-            <CalendlyEmbed url={CALENDLY_URL} />
+            <CalComEmbed url={CAL_URL} />
           </AnimatedSection>
         </div>
       </section>
@@ -203,9 +203,9 @@ export default function Home() {
               THE FUNDAMENTAL SHIFT
             </p>
             <p className="text-lg md:text-xl text-white/90 text-center max-w-3xl mx-auto leading-relaxed">
-              Banks don&apos;t facilitate transactions—they route capital.
-              Telecoms don&apos;t connect calls—they route data. B2B companies
-              don&apos;t search for their ICP—their ICP routes through them.
+              Banks don&apos;t facilitate transactions, they route capital.
+              Telecoms don&apos;t connect calls, they route data. B2B companies
+              don&apos;t search for their ICP, their ICP routes through them.
             </p>
           </AnimatedSection>
         </div>
@@ -451,6 +451,101 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Case Studies / Social Proof */}
+      <section className="py-16 px-4 bg-black text-white">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection variant="fadeDown">
+            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
+              CASE STUDIES
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
+              Results From the Network
+            </h2>
+            <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
+              Real outcomes from companies routed through the infrastructure.
+            </p>
+          </AnimatedSection>
+
+          {/* Featured — with full doc links */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6">
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/20 p-6 md:p-8 h-full flex flex-col">
+                <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-4">Recruitment</p>
+                <p className="text-2xl md:text-3xl font-bold text-white mb-1">$123,039</p>
+                <p className="text-white/60 text-sm mb-6 flex-1">in new revenue</p>
+                <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
+                  <p className="font-semibold text-white">Crawford Thomas Recruiting</p>
+                  <a
+                    href="https://docs.google.com/document/d/1U6jeaaXL6tjp5OL1MYvTmAccmxGv_0XNcFG7G5P4Z00/edit?tab=t.0#heading=h.f0c6zuxl544m"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
+                  >
+                    Read case study
+                    <ArrowRight className="w-4 h-4" strokeWidth={2} />
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection variant="fadeUp" delay={0.2}>
+              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/20 p-6 md:p-8 h-full flex flex-col">
+                <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-4">Wealth Management</p>
+                <p className="text-2xl md:text-3xl font-bold text-white mb-1">6 introductions</p>
+                <p className="text-white/60 text-sm mb-6 flex-1">in 46 days</p>
+                <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
+                  <p className="font-semibold text-white">Regent Peak Wealth Advisors</p>
+                  <a
+                    href="https://docs.google.com/document/d/1ZA6VorBEKbuGPt49lBcgQnTCxfX9YmgcbZP8YQNpq7Q/edit?tab=t.0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
+                  >
+                    Read case study
+                    <ArrowRight className="w-4 h-4" strokeWidth={2} />
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Supporting results grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { niche: "Industrial Automation", company: "Vention", result: "+$85K revenue", timeframe: "in one quarter", link: "https://docs.google.com/document/d/1891NffXpCAx1DGIgj5Meww_xEWpwsp_6m7hfMhmivE8/edit?usp=sharing" },
+              { niche: "Recruitment", company: "Connect Group", result: "+$105K revenue", timeframe: "in 1 quarter", link: "https://docs.google.com/document/d/1GgZ01wRM6gcDQsYoO5rkfBhYzuUJ8DnDNtwfqBDa1UM/edit?usp=sharing" },
+              { niche: "E-Sports", company: "ForPlayers", result: "+€70K revenue", timeframe: "in 3 months", link: "https://docs.google.com/document/d/1cPXYCc0Q3Yd3r5rAyDsv0NJIEVEnKmShkOdR6T1-13o/edit?usp=sharing" },
+              { niche: "Recruitment", company: "Elate Staffing LTD", result: "22 placements", timeframe: "in 55 days", link: "https://docs.google.com/document/d/1J0n-_eRMzLnbW1Y45Pyhnz0mfLPKMkUPuNSHic5-k2w/edit?usp=sharing" },
+              { niche: "Healthcare IT", company: "HelpCare AI", result: "4 key clients", timeframe: "secured", link: "https://docs.google.com/document/d/1OgaP_EIZV84XooC-Nh0p5BR-ZzhbcE1jwlZi1Gcy7EQ/edit?usp=sharing" },
+              { niche: "Healthcare", company: "Hippocratic AI", result: "2 new partners", timeframe: "in 60 days", link: "https://docs.google.com/document/d/1xnSKqN8Eahu3dqmi88anDo6CGHlxYBhr53o7dtMkNFU/edit?tab=t.0" },
+              { niche: "SaaS", company: "FabuLingua", result: "5 new clients", timeframe: "in 48 days", link: "https://docs.google.com/document/d/1gAPAk439J1HUzM72YVSAbyusGS_NYAEvtux1nDMtfIA/edit?tab=t.0#heading=h.3vfzw9f9odgn" },
+            ].map((item, i) => (
+              <AnimatedSection key={item.company} variant="fadeUp" delay={0.05 * (i + 1)}>
+                <div className="rounded-xl border border-white/10 bg-white/5 p-5 h-full flex flex-col">
+                  <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-3">{item.niche}</p>
+                  <p className="text-xl font-bold text-white">{item.result}</p>
+                  <p className="text-sm text-white/60 mb-4">{item.timeframe}</p>
+                  <div className="mt-auto flex items-center justify-between gap-2">
+                    <p className="text-sm font-medium text-white/80">{item.company}</p>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
+                      >
+                        Read
+                        <ArrowRight className="w-3 h-3" strokeWidth={2} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA: Access the Routing Layer */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -523,10 +618,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <Footer
-        youtubeUrl="https://www.youtube.com/@dainfernalsumit"
-        linkedinUrl="https://www.linkedin.com/in/sumit-d/"
-      />
+      <Footer linkedinUrl="https://www.linkedin.com/in/sumit-d/" />
     </main>
   );
 }
