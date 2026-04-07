@@ -508,41 +508,6 @@ export default function Home() {
               </div>
             </AnimatedSection>
           </div>
-
-          {/* Supporting results grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { niche: "Industrial Automation", company: "Vention", result: "+$85K revenue", timeframe: "in one quarter", link: "https://docs.google.com/document/d/1891NffXpCAx1DGIgj5Meww_xEWpwsp_6m7hfMhmivE8/edit?usp=sharing" },
-              { niche: "Recruitment", company: "Connect Group", result: "+$105K revenue", timeframe: "in 1 quarter", link: "https://docs.google.com/document/d/1GgZ01wRM6gcDQsYoO5rkfBhYzuUJ8DnDNtwfqBDa1UM/edit?usp=sharing" },
-              { niche: "E-Sports", company: "ForPlayers", result: "+€70K revenue", timeframe: "in 3 months", link: "https://docs.google.com/document/d/1cPXYCc0Q3Yd3r5rAyDsv0NJIEVEnKmShkOdR6T1-13o/edit?usp=sharing" },
-              { niche: "Recruitment", company: "Elate Staffing LTD", result: "22 placements", timeframe: "in 55 days", link: "https://docs.google.com/document/d/1J0n-_eRMzLnbW1Y45Pyhnz0mfLPKMkUPuNSHic5-k2w/edit?usp=sharing" },
-              { niche: "Healthcare IT", company: "HelpCare AI", result: "4 key clients", timeframe: "secured", link: "https://docs.google.com/document/d/1OgaP_EIZV84XooC-Nh0p5BR-ZzhbcE1jwlZi1Gcy7EQ/edit?usp=sharing" },
-              { niche: "Healthcare", company: "Hippocratic AI", result: "2 new partners", timeframe: "in 60 days", link: "https://docs.google.com/document/d/1xnSKqN8Eahu3dqmi88anDo6CGHlxYBhr53o7dtMkNFU/edit?tab=t.0" },
-              { niche: "SaaS", company: "FabuLingua", result: "5 new clients", timeframe: "in 48 days", link: "https://docs.google.com/document/d/1gAPAk439J1HUzM72YVSAbyusGS_NYAEvtux1nDMtfIA/edit?tab=t.0#heading=h.3vfzw9f9odgn" },
-            ].map((item, i) => (
-              <AnimatedSection key={item.company} variant="fadeUp" delay={0.05 * (i + 1)}>
-                <div className="rounded-xl border border-white/10 bg-white/5 p-5 h-full flex flex-col">
-                  <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-3">{item.niche}</p>
-                  <p className="text-xl font-bold text-white">{item.result}</p>
-                  <p className="text-sm text-white/60 mb-4">{item.timeframe}</p>
-                  <div className="mt-auto flex items-center justify-between gap-2">
-                    <p className="text-sm font-medium text-white/80">{item.company}</p>
-                    {item.link && (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
-                      >
-                        Read
-                        <ArrowRight className="w-3 h-3" strokeWidth={2} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
 
