@@ -476,7 +476,7 @@ export default function Home() {
                 <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
                   <p className="font-semibold text-white">Crawford Thomas Recruiting</p>
                   <a
-                    href="https://docs.google.com/document/d/1U6jeaaXL6tjp5OL1MYvTmAccmxGv_0XNcFG7G5P4Z00/edit?tab=t.0#heading=h.f0c6zuxl544m"
+                    href="https://docs.google.com/document/d/1EGH5NDerUzlzj-HGmLbAujdUTJSXlEgW93ChrMkV__E/edit?tab=t.0#heading=h.f0c6zuxl544m"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
@@ -496,7 +496,7 @@ export default function Home() {
                 <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
                   <p className="font-semibold text-white">Regent Peak Wealth Advisors</p>
                   <a
-                    href="https://docs.google.com/document/d/1ZA6VorBEKbuGPt49lBcgQnTCxfX9YmgcbZP8YQNpq7Q/edit?tab=t.0"
+                    href="https://docs.google.com/document/d/10LYadrsOuVxB0q0U_4XTFRbmjnIfr4yETMXhH6upq_k/edit?tab=t.0#heading=h.rayxiji9he49"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
