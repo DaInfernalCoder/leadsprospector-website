@@ -451,66 +451,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Studies / Social Proof */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection variant="fadeDown">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
-              CASE STUDIES
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
-              Results From the Network
-            </h2>
-            <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-              Real outcomes from companies routed through the infrastructure.
-            </p>
-          </AnimatedSection>
-
-          {/* Featured — with full doc links */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6">
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/20 p-6 md:p-8 h-full flex flex-col">
-                <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-4">Recruitment</p>
-                <p className="text-2xl md:text-3xl font-bold text-white mb-1">$123,039</p>
-                <p className="text-white/60 text-sm mb-6 flex-1">in new revenue</p>
-                <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
-                  <p className="font-semibold text-white">Crawford Thomas Recruiting</p>
-                  <a
-                    href="https://docs.google.com/document/d/1EGH5NDerUzlzj-HGmLbAujdUTJSXlEgW93ChrMkV__E/edit?tab=t.0#heading=h.f0c6zuxl544m"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
-                  >
-                    Read case study
-                    <ArrowRight className="w-4 h-4" strokeWidth={2} />
-                  </a>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/20 p-6 md:p-8 h-full flex flex-col">
-                <p className="text-xs uppercase tracking-wide text-[#0d9488] mb-4">Wealth Management</p>
-                <p className="text-2xl md:text-3xl font-bold text-white mb-1">6 introductions</p>
-                <p className="text-white/60 text-sm mb-6 flex-1">in 46 days</p>
-                <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/10">
-                  <p className="font-semibold text-white">Regent Peak Wealth Advisors</p>
-                  <a
-                    href="https://docs.google.com/document/d/10LYadrsOuVxB0q0U_4XTFRbmjnIfr4yETMXhH6upq_k/edit?tab=t.0#heading=h.rayxiji9he49"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:text-emerald-400 transition-colors"
-                  >
-                    Read case study
-                    <ArrowRight className="w-4 h-4" strokeWidth={2} />
-                  </a>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
       {/* CTA: Access the Routing Layer */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
