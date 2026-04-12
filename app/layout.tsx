@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const cormorant = Cormorant({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["300", "400", "500"],
 });
 
 const title = "Caldenmoore | Qualified wealth introductions after liquidity events";
@@ -38,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${cormorant.variable} ${dmSans.variable} antialiased`}>{children}</body>
     </html>
   );
 }

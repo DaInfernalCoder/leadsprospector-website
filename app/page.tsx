@@ -11,34 +11,35 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-[#FAFAF6]">
 
         {/* Hero */}
-        <section className="py-24 md:py-36 px-4 md:px-6 bg-white">
+        <section className="py-24 md:py-36 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown" delay={0}>
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-6">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-6">
                 Wealth Introduction Service
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 leading-[1.08] tracking-tight mb-6 max-w-3xl">
-                Qualified introductions to high-net-worth families.
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] leading-[1.08] tracking-tight mb-6 max-w-3xl">
+                Qualified introductions to{" "}
+                <em className="italic font-light">high-net-worth</em> families.
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
-              <p className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-[#6B6B65] max-w-2xl mb-10 leading-relaxed">
                 Caldenmoore connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="#calendar"
-                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-medium px-6 py-3.5 rounded-lg hover:bg-gray-700 transition-colors text-base"
+                  className="inline-flex items-center gap-2 bg-[#1C2B3A] text-[#F5F0E8] font-medium px-6 py-3.5 rounded-lg hover:bg-[#2C3F52] transition-colors text-base"
                 >
                   Schedule a Partner Call
                   <ArrowRight className="w-4 h-4" strokeWidth={2} />
                 </a>
                 <a
                   href="#signal-finder"
-                  className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-medium px-6 py-3.5 rounded-lg hover:border-gray-400 hover:text-gray-900 transition-colors text-base"
+                  className="inline-flex items-center gap-2 border border-[#E2DDD5] text-[#6B6B65] font-medium px-6 py-3.5 rounded-lg hover:border-[#A07850] hover:text-[#1C1C1A] transition-colors text-base"
                 >
                   Test our system
                 </a>
@@ -46,18 +47,18 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection variant="fade" delay={0.3}>
-              <div className="mt-20 pt-10 border-t border-gray-100 flex flex-wrap gap-x-14 gap-y-8">
+              <div className="mt-20 pt-10 border-t border-[#E2DDD5] flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">$1B+</p>
-                  <p className="text-sm text-gray-500 mt-1">Wealth transitions facilitated, 2023–2025</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">$1B+</p>
+                  <p className="text-sm text-[#6B6B65] mt-1">Wealth transitions facilitated, 2023–2025</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">$1M – $100M</p>
-                  <p className="text-sm text-gray-500 mt-1">Introduceable asset range per engagement</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">$1M – $100M</p>
+                  <p className="text-sm text-[#6B6B65] mt-1">Introduceable asset range per engagement</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">Post-liquidity</p>
-                  <p className="text-sm text-gray-500 mt-1">Exits, inheritance, concentrated equity</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">Post-liquidity</p>
+                  <p className="text-sm text-[#6B6B65] mt-1">Exits, inheritance, concentrated equity</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -65,13 +66,13 @@ export default function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F0EDE6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 How It Works
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-16 max-w-xl leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-16 max-w-xl leading-tight">
                 Simple by design.
               </h2>
             </AnimatedSection>
@@ -95,11 +96,11 @@ export default function Home() {
               ].map((item, i) => (
                 <AnimatedSection key={item.step} variant="fadeUp" delay={i * 0.1}>
                   <div>
-                    <p className="text-xs font-semibold text-teal-700 mb-4 tracking-widest">
+                    <p className="text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#A07850]/40 mb-3 leading-none">
                       {item.step}
                     </p>
-                    <h3 className="text-base font-semibold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="text-gray-500 leading-relaxed text-sm md:text-base">{item.body}</p>
+                    <h3 className="text-base font-medium text-[#1C1C1A] mb-3">{item.title}</h3>
+                    <p className="text-[#6B6B65] leading-relaxed text-sm md:text-base">{item.body}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -108,16 +109,16 @@ export default function Home() {
         </section>
 
         {/* ICP Signal Finder */}
-        <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-white">
+        <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 Your Signal Strategy
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
                 See exactly how we would find your clients.
               </h2>
-              <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
+              <p className="text-[#6B6B65] text-lg max-w-2xl mb-10 leading-relaxed">
                 Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a typical introduction looks like for your practice.
               </p>
             </AnimatedSection>
@@ -128,16 +129,16 @@ export default function Home() {
         </section>
 
         {/* Signal Intelligence */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 Signal Intelligence
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
                 How we find the right families.
               </h2>
-              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+              <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
                 We monitor a network of public and proprietary signals that surface HNWIs at genuine inflection points — before they have found an advisor.
               </p>
             </AnimatedSection>
@@ -177,10 +178,10 @@ export default function Home() {
               ].map((item, i) => (
                 <AnimatedSection key={item.label} variant="fadeUp" delay={i * 0.07}>
                   <div className="h-full">
-                    <div className="w-6 h-px bg-teal-600 mb-5" />
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.label}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">{item.body}</p>
-                    <p className="text-xs text-teal-700 font-medium">{item.tag}</p>
+                    <div className="w-6 h-px bg-[#A07850] mb-5" />
+                    <h3 className="text-base font-medium text-[#1C1C1A] mb-2">{item.label}</h3>
+                    <p className="text-sm text-[#6B6B65] leading-relaxed mb-3">{item.body}</p>
+                    <p className="text-xs text-[#A07850] font-medium">{item.tag}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -189,21 +190,21 @@ export default function Home() {
         </section>
 
         {/* Who We Introduce */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 The Families We Work With
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
                 Individuals at a genuine inflection point.
               </h2>
-              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+              <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
                 Every introduction comes from a real transition. A liquidity event, an inheritance, a material change in a family&apos;s financial picture. These are not lists. These are conversations.
               </p>
             </AnimatedSection>
 
-            <div className="grid sm:grid-cols-2 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
+            <div className="grid sm:grid-cols-2 gap-px bg-[#E2DDD5] rounded-2xl overflow-hidden border border-[#E2DDD5]">
               {[
                 {
                   title: "Business owners after exit",
@@ -223,9 +224,9 @@ export default function Home() {
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.05} className="h-full">
-                  <div className="bg-white p-8 md:p-10 h-full">
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+                  <div className="bg-[#FAFAF6] p-8 md:p-10 h-full">
+                    <h3 className="text-base font-medium text-[#1C1C1A] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#6B6B65] leading-relaxed">{item.body}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -234,13 +235,13 @@ export default function Home() {
         </section>
 
         {/* Why Caldenmoore */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F0EDE6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 Why Caldenmoore
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-16 max-w-xl leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-16 max-w-xl leading-tight">
                 Built for advisors who value their time.
               </h2>
             </AnimatedSection>
@@ -266,9 +267,9 @@ export default function Home() {
               ].map((item, i) => (
                 <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.1}>
                   <div>
-                    <div className="w-6 h-px bg-teal-600 mb-5" />
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+                    <div className="w-6 h-px bg-[#A07850] mb-5" />
+                    <h3 className="text-base font-medium text-[#1C1C1A] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#6B6B65] leading-relaxed">{item.body}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -277,24 +278,24 @@ export default function Home() {
         </section>
 
         {/* Old Way vs New Way */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 The Difference
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
                 How most advisors grow, and how our partners do.
               </h2>
-              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+              <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
                 The traditional path to acquiring high-net-worth clients is slow, expensive, and unpredictable. There is a better model.
               </p>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               <AnimatedSection variant="fadeUp" delay={0.1}>
-                <div className="rounded-2xl border border-gray-200 p-8 md:p-10 h-full">
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8">
+                <div className="rounded-2xl border border-[#E2DDD5] p-8 md:p-10 h-full bg-[#F5F2EC]">
+                  <p className="text-xs font-medium text-[#6B6B65]/70 uppercase tracking-widest mb-8">
                     Traditional Approach
                   </p>
                   <ul className="space-y-5">
@@ -306,8 +307,8 @@ export default function Home() {
                       "Chase introductions that may not close",
                       "Manage pipeline with uncertain quality",
                     ].map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-gray-500">
-                        <span className="w-4 h-4 rounded-full border border-gray-300 mt-0.5 shrink-0" />
+                      <li key={item} className="flex items-start gap-3 text-sm text-[#6B6B65]">
+                        <span className="w-4 h-4 rounded-full border border-[#C5BEB4] mt-0.5 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -316,8 +317,8 @@ export default function Home() {
               </AnimatedSection>
 
               <AnimatedSection variant="fadeUp" delay={0.2}>
-                <div className="rounded-2xl border border-teal-200 bg-teal-50/40 p-8 md:p-10 h-full">
-                  <p className="text-xs font-semibold text-teal-700 uppercase tracking-widest mb-8">
+                <div className="rounded-2xl bg-[#1C2B3A] p-8 md:p-10 h-full">
+                  <p className="text-xs font-medium text-[#A07850] uppercase tracking-widest mb-8">
                     With Caldenmoore
                   </p>
                   <ul className="space-y-5">
@@ -329,8 +330,8 @@ export default function Home() {
                       "Full context delivered with every introduction",
                       "Pipeline that reflects real intent and asset size",
                     ].map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-gray-800">
-                        <span className="w-4 h-4 rounded-full bg-teal-600 mt-0.5 shrink-0 flex items-center justify-center">
+                      <li key={item} className="flex items-start gap-3 text-sm text-[#E8E4DC]">
+                        <span className="w-4 h-4 rounded-full bg-[#A07850] mt-0.5 shrink-0 flex items-center justify-center">
                           <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
                             <path d="M1 4l2.5 2.5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
@@ -346,21 +347,21 @@ export default function Home() {
         </section>
 
         {/* CTA + Calendar */}
-        <section id="calendar" className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+        <section id="calendar" className="py-20 md:py-28 px-4 md:px-6 bg-[#F0EDE6]">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
                 Get Started
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
                 Ready to meet your next client?
               </h2>
-              <p className="text-gray-500 text-lg mb-12 max-w-xl leading-relaxed">
+              <p className="text-[#6B6B65] text-lg mb-12 max-w-xl leading-relaxed">
                 Schedule a short call to discuss your ideal client profile and whether we are a fit.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp">
-              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+              <div className="bg-white rounded-2xl border border-[#E2DDD5] overflow-hidden">
                 <CalComEmbed url={CAL_URL} />
               </div>
             </AnimatedSection>
