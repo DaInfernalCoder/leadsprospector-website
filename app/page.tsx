@@ -28,13 +28,21 @@ export default function Home() {
               <p className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
                 Caldenmoore connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
               </p>
-              <a
-                href="#calendar"
-                className="inline-flex items-center gap-2 bg-gray-900 text-white font-medium px-6 py-3.5 rounded-lg hover:bg-gray-700 transition-colors text-base"
-              >
-                Schedule a Partner Call
-                <ArrowRight className="w-4 h-4" strokeWidth={2} />
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="#calendar"
+                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-medium px-6 py-3.5 rounded-lg hover:bg-gray-700 transition-colors text-base"
+                >
+                  Schedule a Partner Call
+                  <ArrowRight className="w-4 h-4" strokeWidth={2} />
+                </a>
+                <a
+                  href="#signal-finder"
+                  className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-medium px-6 py-3.5 rounded-lg hover:border-gray-400 hover:text-gray-900 transition-colors text-base"
+                >
+                  Test our system
+                </a>
+              </div>
             </AnimatedSection>
 
             <AnimatedSection variant="fade" delay={0.3}>
@@ -318,7 +326,7 @@ export default function Home() {
         </section>
 
         {/* ICP Signal Finder */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+        <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection variant="fadeDown">
               <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
