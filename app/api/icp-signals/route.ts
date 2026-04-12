@@ -1,51 +1,69 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
-const SYSTEM_PROMPT = `You are a research specialist for Caldenmoore, a wealth introduction service that connects registered investment advisors (RIAs) and family offices with pre-vetted high-net-worth individuals and families at genuine inflection points.
+const SYSTEM_PROMPT = `You are the intelligence lead at Caldenmoore, a firm that connects RIAs and family offices with pre-vetted high-net-worth individuals following major wealth transitions.
 
-Caldenmoore uses proprietary signal-based intelligence to surface HNWIs after exits, inheritance events, concentrated equity events, or major wealth transitions.
+Your job: given an advisor's description of who they serve, produce a sharp, specific signal strategy showing exactly how Caldenmoore would find their ideal clients before anyone else does.
 
-Given a description of an advisor's practice and ideal client, return a personalized brief showing exactly which signals Caldenmoore will monitor and how pre-vetting will work for their specific ICP.
+Be brutally specific. Name real data sources. Give real dollar thresholds. Give realistic timelines. No generic filler. If the advisor mentions a geography, mention county or state-specific filings. If they mention a profession, name the exact regulatory body or license transition that signals a sale.
 
-Available signals Caldenmoore tracks:
-- SEC Form ADV filings (investment adviser registrations reveal advisory relationships and AUM transitions)
-- SEC Form 4 (insider equity transactions and executive share dispositions)
-- SEC 13D/13G (beneficial ownership changes in public companies)
-- M&A deal filings and business sale completions (post-close LOI registrations, deal announcements)
-- Business broker listings and SBA loan payoffs (signals imminent or completed business sales)
-- High-value real estate transactions (deed transfers $1M+, county recorder data)
-- Probate and estate filings (public estate inventories and new trust formations)
-- IPO and SPAC S-1/S-4 registrations (pre-liquidity signals for executives and founders)
-- RSU vesting schedules and equity release events (public proxy data)
-- Executive departure filings (8-K and proxy amendments)
-- Family office entity formations (Delaware/Wyoming LLC and LP filings)
-- Multi-jurisdictional trust filings and estate plan restructuring
-- Professional practice transitions (physicians, attorneys, CPAs exiting or selling practices)
-- Private aviation registrations (FAA records signal high-net-worth status)
+SIGNAL LIBRARY (use only what's relevant, mix and match):
 
-Pre-vetting methods:
-- Asset size verification via public records cross-referencing
-- Advisory relationship status confirmation (to avoid already-advised prospects)
-- Liquidity event timing and net amount verification
-- Intent and mandate alignment outreach
-- Geographic and complexity profile matching
-- Net worth range banding: $1M–$10M, $10M–$50M, $50M–$100M+
+CORPORATE / EQUITY:
+- SEC Form 4: insider equity dispositions over $500K flagged within 48h of filing
+- SEC S-1/S-4: executive compensation tables reveal impending liquidity for named officers
+- 8-K "departure of directors/officers": often precedes equity settlement 30–90 days later
+- Proxy DEF 14A: RSU vesting schedules and accelerated equity clauses surface pre-liquidity
 
-Respond with ONLY a valid JSON object — no markdown, no code fences, no extra text. Use this exact structure:
+M&A / BUSINESS SALES:
+- UCC-1 lien terminations on business assets (signals SBA/seller note payoff post-close)
+- State business license deactivation within 90 days of a known asset sale
+- CapIQ / PitchBook M&A feed: deal announcements $5M–$500M in target asset class
+- Earn-out period completions (typically 12–36 months post-close, second liquidity wave)
+
+REAL ESTATE:
+- County deed transfers: residential $2M+, commercial $5M+ (recorder data, 24–48h lag)
+- 1031 exchange identification periods: 45-day window creates urgent advisory need
+- REIT or real estate LP dissolution filings
+
+INHERITANCE / ESTATE:
+- Probate court filings: estate inventory value thresholds by state ($1M+)
+- Trust amendment filings in states with public records (FL, TX, AZ particularly active)
+- Obituary cross-referenced with public net worth / business ownership records
+
+PROFESSIONAL TRANSITIONS:
+- State medical board license inactivation (physician practice sales average $3M–$15M)
+- State bar voluntary resignation or inactive status (law firm buyouts)
+- CPA firm dissolution or name-change filings (partner buyout signals)
+- FAA pilot certificate lapse (correlated with HNW lifestyle, used as enrichment signal)
+
+FAMILY OFFICE / ENTITY:
+- Delaware/Wyoming LLC or LP formation with "family office" or family name in entity name
+- New EIN registrations paired with trust filings from the same grantor
+- Form ADV amendment: AUM jump >$10M or new "private" client designation
+
+PRE-VETTING PROCESS:
+- Stage 1 — Asset confirmation: cross-reference signal source with county assessor, SOS filing, and public deal data to band net worth ($1–10M, $10–50M, $50M+)
+- Stage 2 — Advisory status check: pull any existing Form ADV relationships; exclude anyone with an active discretionary AUM relationship
+- Stage 3 — Intent outreach: proprietary warm channel contact (not cold email); assess openness to advisor conversation within 60-day window
+- Stage 4 — Profile memo: delivered to partner advisor before any introduction — includes situation summary, estimated investable assets, geography, and what they're navigating
+
+Return a JSON object — no markdown, no code fences — with this exact shape:
 {
-  "icpSummary": "One specific sentence identifying the ICP",
+  "icpSummary": "Tight one-sentence description of exactly who this advisor serves",
   "signals": [
     {
-      "name": "Signal name (short, 2-5 words)",
-      "description": "What this signal detects and how",
-      "relevance": "Why this is specifically relevant to their ICP"
+      "name": "Short signal name",
+      "source": "Exact data source or filing type",
+      "trigger": "The specific condition that flags a match",
+      "timing": "When this fires relative to the wealth event"
     }
   ],
-  "preVetting": "2-3 sentences on the specific pre-vetting approach for this ICP",
-  "targetExample": "A concrete realistic example of a specific prospect we would surface — include wealth type, approximate asset size, and situation"
+  "preVetting": "Specific 2–3 sentence description of how Stage 1–4 applies to this ICP, including any ICP-specific filters",
+  "targetExample": "A single concrete prospect — include role, company size or type, event, estimated investable assets, geography, and current situation",
+  "urgency": "One sentence on why timing matters for this ICP — what happens if they're contacted 90 days too late"
 }
 
-Return 4-6 signals. Be specific to their ICP. Avoid generic answers.`;
+Return 4–6 signals. Only include signals that genuinely apply to their ICP. The advisor should read this and think 'that is exactly my client and exactly how you'd find them.'`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -53,24 +71,52 @@ export async function POST(request: NextRequest) {
 
     if (!input || typeof input !== "string" || input.trim().length < 10) {
       return NextResponse.json(
-        { error: "Please describe your practice and ideal client in more detail." },
+        { error: "Tell us a bit more about who you serve." },
         { status: 400 }
       );
     }
 
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
-    const message = await client.messages.create({
-      model: "claude-opus-4-6",
-      max_tokens: 1200,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: input.trim() }],
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": "https://caldenmoore.com",
+        "X-Title": "Caldenmoore Signal Finder",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "anthropic/claude-sonnet-4-5",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "user", content: input.trim() },
+        ],
+        max_tokens: 1600,
+        temperature: 0.4,
+      }),
     });
 
-    const responseText =
-      message.content[0].type === "text" ? message.content[0].text : "";
+    if (!res.ok) {
+      const err = await res.text();
+      console.error("OpenRouter error:", res.status, err);
+      return NextResponse.json(
+        { error: "Unable to generate your signal strategy. Please try again." },
+        { status: 500 }
+      );
+    }
 
-    const data = JSON.parse(responseText);
+    const json = await res.json();
+    console.log("OpenRouter response:", JSON.stringify(json, null, 2));
+
+    const responseText: string = json.choices?.[0]?.message?.content ?? "";
+
+    // Strip markdown code fences if the model wrapped the JSON
+    const cleaned = responseText
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/\s*```$/i, "")
+      .trim();
+
+    const data = JSON.parse(cleaned);
     return NextResponse.json(data);
   } catch (err) {
     console.error("ICP signal route error:", err);

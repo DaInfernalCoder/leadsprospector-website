@@ -3,6 +3,7 @@ import CalComEmbed from "@/components/CalComEmbed";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import Navbar from "@/components/Navbar";
+import ICPSignalFinder from "@/components/ICPSignalFinder";
 
 export default function Home() {
   const CAL_URL = "https://cal.com/sumitdatta/partner-call";
@@ -91,6 +92,67 @@ export default function Home() {
                     </p>
                     <h3 className="text-base font-semibold text-gray-900 mb-3">{item.title}</h3>
                     <p className="text-gray-500 leading-relaxed text-sm md:text-base">{item.body}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Signal Intelligence */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                Signal Intelligence
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+                How we find the right families.
+              </h2>
+              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+                We monitor a network of public and proprietary signals that surface HNWIs at genuine inflection points — before they have found an advisor.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+              {[
+                {
+                  label: "Regulatory Filings",
+                  body: "SEC Form ADV, Form 4, and 13D/13G filings flag advisory relationship changes, insider equity dispositions, and significant ownership shifts in public companies.",
+                  tag: "Post-exit founders, executives",
+                },
+                {
+                  label: "M&A Activity",
+                  body: "Business broker listings, LOI registrations, SBA loan payoffs, and deal announcements identify owners who have completed or are nearing a sale.",
+                  tag: "Business owners after exit",
+                },
+                {
+                  label: "Real Estate Records",
+                  body: "County deed transfers and title changes on properties valued $1M+ surface individuals deploying or repositioning capital after a wealth event.",
+                  tag: "Liquidity event indicators",
+                },
+                {
+                  label: "Probate & Estate Filings",
+                  body: "Public estate inventories and new trust formations flag inheritance recipients who are navigating a material change in their financial picture.",
+                  tag: "Inheritance recipients",
+                },
+                {
+                  label: "Corporate Events",
+                  body: "IPO and SPAC S-1/S-4 registrations, RSU vesting schedules, and executive departure filings identify individuals ahead of or immediately following a liquidity event.",
+                  tag: "Concentrated equity holders",
+                },
+                {
+                  label: "Entity Formations",
+                  body: "Delaware and Wyoming LLC and LP filings, family office formations, and multi-jurisdictional trust restructurings signal first-time or transitional wealth management needs.",
+                  tag: "Families mid-transition",
+                },
+              ].map((item, i) => (
+                <AnimatedSection key={item.label} variant="fadeUp" delay={i * 0.07}>
+                  <div className="h-full">
+                    <div className="w-6 h-px bg-teal-600 mb-5" />
+                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.label}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">{item.body}</p>
+                    <p className="text-xs text-teal-700 font-medium">{item.tag}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -252,6 +314,26 @@ export default function Home() {
                 </div>
               </AnimatedSection>
             </div>
+          </div>
+        </section>
+
+        {/* ICP Signal Finder */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+          <div className="max-w-3xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                Your Signal Strategy
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+                See exactly how we would find your clients.
+              </h2>
+              <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
+                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a typical introduction looks like for your practice.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <ICPSignalFinder />
+            </AnimatedSection>
           </div>
         </section>
 
