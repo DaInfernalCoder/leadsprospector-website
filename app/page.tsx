@@ -1,529 +1,284 @@
-"use client";
-
-import { Radio, Layers, Zap, ChevronDown, Network, Activity, RefreshCcw, TrendingUp, Users, Building2, ArrowRight, CircleAlert } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CalComEmbed from "@/components/CalComEmbed";
-import RoutingLayerCard from "@/components/RoutingLayerCard";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const CAL_URL = "https://cal.com/sumitdatta/partner-call";
 
   return (
-    <main className="min-h-screen">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-white">
 
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 bg-black text-white">
-        <div className="max-w-5xl mx-auto text-left">
-          <AnimatedSection variant="fadeDown" delay={0}>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-white">
-              Banks route capital.
-              <br />
-              <span className="text-[#0d9488]">We route access.</span>
-            </h1>
-          </AnimatedSection>
-          <AnimatedSection variant="fadeUp" delay={0.2}>
-            <p className="inline-block text-sm uppercase tracking-wide text-white border border-[#0d9488] rounded-md px-4 py-2 mb-6">
-              INFRASTRUCTURE • NOT A SERVICE
-            </p>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl">
-              Trusted in over $1B of routed B2B transactions (2023-2025).
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Calendly Section */}
-      <section id="calendar" className="pt-16 pb-8 px-4 bg-black text-white">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection variant="fadeUp">
-            <CalComEmbed url={CAL_URL} />
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* The Routing Layer Section */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection variant="fadeDown">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] mb-4">
-              THE ROUTING LAYER
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Connect with Your Ideal Clients
-            </h2>
-            <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
-              B2B executives and business owners partner with Caldenmoore to get
-              connected directly with their ideal client profile through our
-              intelligent routing infrastructure.
-            </p>
-          </AnimatedSection>
-          <div className="space-y-4">
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <RoutingLayerCard
-                stepNumber={1}
-                title="Signal Layer"
-                description="Incoming buyer signals, intent data, and qualification triggers"
-                icon={<Radio className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
-              />
-            </AnimatedSection>
-            <div className="flex justify-center text-[#0d9488]">
-              <ChevronDown className="w-8 h-8" strokeWidth={2} />
-            </div>
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <RoutingLayerCard
-                stepNumber={2}
-                title="Routing Layer"
-                description="Real-time matching, qualification filtering, and pathway control"
-                icon={<Layers className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
-                youAreHere
-              />
-            </AnimatedSection>
-            <div className="flex justify-center text-[#0d9488]">
-              <ChevronDown className="w-8 h-8" strokeWidth={2} />
-            </div>
-            <AnimatedSection variant="fadeUp" delay={0.3}>
-              <RoutingLayerCard
-                stepNumber={3}
-                title="Connection Layer"
-                description="Executed routes, completed handoffs, and transaction flow"
-                icon={<Zap className="w-8 h-8 md:w-9 md:h-9" strokeWidth={1.5} />}
-              />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Old Way vs. New Way (What&apos;s Included) */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection variant="fadeDown">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
-              TRADITIONAL METHODS VS. ROUTING INFRASTRUCTURE
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
-              Old Way vs. New Way
-            </h2>
-            <p className="text-lg text-white/80 text-center mb-12">
-              Traditional methods make you search. Infrastructure brings them to
-              you.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 h-full flex flex-col">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
-                  Traditional Methods
-                </h3>
-                <p className="text-sm text-[#0d9488] mb-6">
-                  Manual outreach and searching
-                </p>
-                <ul className="space-y-3 text-white/90 mb-6">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Search for prospects
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Run campaigns
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Hire teams to prospect
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Pay per contact
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Chase conversations
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Hope to be discovered
-                  </li>
-                </ul>
-                <p className="mt-auto text-sm font-medium text-[#0d9488] uppercase tracking-wide">
-                  Operating Level: Individual
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-teal-950/30 p-6 md:p-8 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-1">
-                  <Network
-                    className="w-8 h-8 md:w-9 md:h-9 text-[#0d9488] shrink-0"
-                    strokeWidth={1.5}
-                  />
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
-                    Caldenmoore
-                  </h3>
-                </div>
-                <p className="text-sm text-[#0d9488] mb-6">
-                  Routing infrastructure
-                </p>
-                <ul className="space-y-3 text-white/90 mb-6">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Prospects route to you
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Introductions flow automatically
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Infrastructure handles routing
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Pay for infrastructure access
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    Conversations come to you
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#0d9488] mt-1.5 shrink-0">•</span>
-                    ICP routes through you
-                  </li>
-                </ul>
-                <p className="mt-auto text-sm font-medium text-[#0d9488] uppercase tracking-wide">
-                  Operating Level: Systems
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection variant="fadeUp">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
-              THE FUNDAMENTAL SHIFT
-            </p>
-            <p className="text-lg md:text-xl text-white/90 text-center max-w-3xl mx-auto leading-relaxed">
-              Banks don&apos;t facilitate transactions, they route capital.
-              Telecoms don&apos;t connect calls, they route data. B2B companies
-              don&apos;t search for their ICP, their ICP routes through them.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Two-Sided Routing Network Section */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection variant="fadeDown">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
-              NETWORK ARCHITECTURE
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
-              Two-Sided Routing Network
-            </h2>
-            <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-              Compatible nodes connect through the routing layer. Incompatible
-              signals are filtered at the edge.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-start mb-12">
-            {/* Buyer Nodes */}
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Users className="w-6 h-6 text-[#0d9488]" strokeWidth={1.5} />
-                  <h3 className="text-xl font-bold text-white">Buyer Nodes</h3>
-                </div>
-                <p className="text-sm text-white/70 mb-6">Inbound signal sources</p>
-                <ul className="space-y-3">
-                  {[
-                    { title: "Enterprise Buyers", desc: "Active RFP", routable: true },
-                    { title: "Growth Stage", desc: "Budget Approved", routable: true },
-                    { title: "Strategic Partners", desc: "Qualified Intent", routable: true },
-                    { title: "Early Stage", desc: "Exploratory", routable: false },
-                  ].map((node) => (
-                    <li
-                      key={node.title}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
-                    >
-                      <div>
-                        <p className="font-medium text-white">{node.title}</p>
-                        <p className="text-sm text-white/70">{node.desc}</p>
-                      </div>
-                      {node.routable ? (
-                        <span className="shrink-0 text-xs font-medium uppercase tracking-wide text-white border border-[#0d9488] rounded px-2 py-1">
-                          ROUTABLE
-                        </span>
-                      ) : (
-                        <CircleAlert className="w-5 h-5 shrink-0 text-red-400" />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
-
-            {/* Routing Layer (center) */}
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <div className="flex flex-col items-center justify-center py-8 md:py-0">
-                <div className="rounded-xl border-2 border-[#0d9488] bg-[#0d9488]/10 px-6 py-8 text-center min-w-[200px]">
-                  <p className="text-sm font-bold uppercase tracking-wide text-white mb-2">
-                    ROUTING LAYER
-                  </p>
-                  <p className="text-white/90 text-sm mb-1">Match • Filter • Route</p>
-                  <p className="text-xs text-white/70 mb-4">
-                    87% of signals qualify for routing
-                  </p>
-                  <ArrowRight className="w-8 h-8 mx-auto text-[#0d9488]" strokeWidth={2} />
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Seller Nodes */}
-            <AnimatedSection variant="fadeUp" delay={0.3}>
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Building2 className="w-6 h-6 text-[#0d9488]" strokeWidth={1.5} />
-                  <h3 className="text-xl font-bold text-white">Seller Nodes</h3>
-                </div>
-                <p className="text-sm text-white/70 mb-6">Destination endpoints</p>
-                <ul className="space-y-3">
-                  {[
-                    { title: "Solution Providers", desc: "High Volume", active: true },
-                    { title: "Service Partners", desc: "Mid-Market Focus", active: true },
-                    { title: "Enterprise Vendors", desc: "Strategic Only", active: true },
-                    { title: "Early Vendors", desc: "Unverified", active: false },
-                  ].map((node) => (
-                    <li
-                      key={node.title}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
-                    >
-                      <div>
-                        <p className="font-medium text-white">{node.title}</p>
-                        <p className="text-sm text-white/70">{node.desc}</p>
-                      </div>
-                      {node.active ? (
-                        <span className="shrink-0 text-xs font-medium uppercase tracking-wide text-white bg-[#0d9488] rounded px-2 py-1">
-                          ACTIVE
-                        </span>
-                      ) : (
-                        <CircleAlert className="w-5 h-5 shrink-0 text-red-400" />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection variant="fadeUp">
-            <p className="text-sm md:text-base text-white/70 text-center max-w-3xl mx-auto leading-relaxed">
-              Network effects compound as node density increases. Each compatible
-              connection strengthens the routing layer. Incompatible signals are
-              rejected before consuming system resources.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Infrastructure Performance Section */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection variant="fadeDown">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-4">
-              NETWORK METRICS
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3">
-              Infrastructure Performance
-            </h2>
-            <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-              Real-time visibility into routing operations. Scale measured in
-              throughput, not transactions.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
-            <AnimatedSection variant="fadeUp" delay={0.05}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  ROUTES PROCESSED
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">
-                  847k <span className="text-sm font-normal text-white/70">total</span>
-                </p>
-                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
-                  <TrendingUp className="w-4 h-4" /> +23%
-                </p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <Activity className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  ROUTING VELOCITY
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">
-                  2.4k <span className="text-sm font-normal text-white/70">/day</span>
-                </p>
-                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
-                  <TrendingUp className="w-4 h-4" /> +18%
-                </p>
-              </div>
+        {/* Hero */}
+        <section className="py-24 md:py-36 px-4 md:px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown" delay={0}>
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-6">
+                Wealth Introduction Service
+              </p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 leading-[1.08] tracking-tight mb-6 max-w-3xl">
+                Qualified introductions to high-net-worth families.
+              </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <Network className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  QUALIFICATION RATE
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">87%</p>
-                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
-                  <TrendingUp className="w-4 h-4" /> +5%
-                </p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <RefreshCcw className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  CONNECTION DENSITY
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">94%</p>
-                <p className="flex items-center gap-1 mt-2 text-sm text-[#0d9488] font-medium">
-                  <TrendingUp className="w-4 h-4" /> +12%
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12">
-            <AnimatedSection variant="fadeUp" delay={0.25}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  NETWORK UPTIME
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">99.97%</p>
-                <p className="text-sm text-white/70 mb-3">Last 30 days</p>
-                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-linear-to-r from-[#0d9488] to-emerald-500"
-                    style={{ width: "99.97%" }}
-                  />
-                </div>
-                <p className="text-sm text-[#0d9488] font-medium mt-2 text-right">
-                  Operational
-                </p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.3}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <Zap className="w-8 h-8 text-[#0d9488] mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  AVG RESPONSE TIME
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">
-                  &lt;120ms
-                </p>
-                <p className="text-sm text-white/70 mb-3">P95 latency</p>
-                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-linear-to-r from-[#0d9488] to-emerald-500"
-                    style={{ width: "65%" }}
-                  />
-                </div>
-                <p className="text-sm text-white mt-2 text-right">185ms</p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection variant="fadeUp">
-            <p className="text-sm uppercase tracking-wide text-[#0d9488] text-center mb-3">
-              INFRASTRUCTURE SCOPE
-            </p>
-            <p className="text-base md:text-lg text-white/90 text-center">
-              $1.2B+ in total routed transaction value • 450+ active network
-              nodes • 12 enterprise sectors
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* CTA: Access the Routing Layer */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <AnimatedSection variant="fadeDown">
-            <p className="inline-block text-sm uppercase tracking-wide text-white border border-[#0d9488] rounded-md px-4 py-2 mb-4">
-              JOIN THE NETWORK
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
-              Access the Routing Layer
-            </h2>
-            <p className="text-lg text-white/80 mb-10">
-              Network capacity is controlled to maintain signal quality and
-              routing velocity.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-white/5 p-5 md:p-6 text-center">
-                <Zap className="w-8 h-8 text-[#0d9488] mx-auto mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  ACTIVE ROUTES
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">2.4k/day</p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.15}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-white/5 p-5 md:p-6 text-center">
-                <Zap className="w-8 h-8 text-[#0d9488] mx-auto mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  NETWORK CAPACITY
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">87%</p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.2}>
-              <div className="rounded-xl border border-[#0d9488]/40 bg-white/5 p-5 md:p-6 text-center">
-                <Network className="w-8 h-8 text-[#0d9488] mx-auto mb-3" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-wide text-white/70 mb-1">
-                  CURRENT NODES
-                </p>
-                <p className="text-2xl md:text-3xl font-bold text-white">450+</p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection variant="fadeUp">
-            <div className="rounded-xl border border-[#0d9488]/40 bg-white/5 p-6 md:p-8 mb-10 text-left max-w-3xl mx-auto">
-              <p className="font-semibold text-white mb-3">Network access is controlled.</p>
-              <p className="text-white/80 mb-3">
-                We maintain strict qualification standards to protect routing
-                integrity. Both buyer and seller nodes must meet network
-                compatibility requirements.
+              <p className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
+                Caldenmoore connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
               </p>
-              <p className="text-white/80">
-                If your signals are high-quality and your intent is clear,
-                request access to join the routing layer.
+              <a
+                href="#calendar"
+                className="inline-flex items-center gap-2 bg-gray-900 text-white font-medium px-6 py-3.5 rounded-lg hover:bg-gray-700 transition-colors text-base"
+              >
+                Schedule a Partner Call
+                <ArrowRight className="w-4 h-4" strokeWidth={2} />
+              </a>
+            </AnimatedSection>
+
+            <AnimatedSection variant="fade" delay={0.3}>
+              <div className="mt-20 pt-10 border-t border-gray-100 flex flex-wrap gap-x-14 gap-y-8">
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">$1B+</p>
+                  <p className="text-sm text-gray-500 mt-1">Wealth transitions facilitated, 2023–2025</p>
+                </div>
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">$1M – $100M</p>
+                  <p className="text-sm text-gray-500 mt-1">Introduceable asset range per engagement</p>
+                </div>
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-gray-900">Post-liquidity</p>
+                  <p className="text-sm text-gray-500 mt-1">Exits, inheritance, concentrated equity</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                How It Works
               </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-16 max-w-xl leading-tight">
+                Simple by design.
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+              {[
+                {
+                  step: "01",
+                  title: "Define your ideal client",
+                  body: "We learn the profile of families you serve best — asset size, complexity, geography, and the specific situations where you add the most value.",
+                },
+                {
+                  step: "02",
+                  title: "We identify and vet matches",
+                  body: "When an individual or family fits your profile, we verify intent, asset size, and readiness before any introduction is made.",
+                },
+                {
+                  step: "03",
+                  title: "Receive warm introductions",
+                  body: "You meet qualified prospects with full context already in hand. No cold outreach. No wasted conversations.",
+                },
+              ].map((item, i) => (
+                <AnimatedSection key={item.step} variant="fadeUp" delay={i * 0.1}>
+                  <div>
+                    <p className="text-xs font-semibold text-teal-700 mb-4 tracking-widest">
+                      {item.step}
+                    </p>
+                    <h3 className="text-base font-semibold text-gray-900 mb-3">{item.title}</h3>
+                    <p className="text-gray-500 leading-relaxed text-sm md:text-base">{item.body}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
             </div>
+          </div>
+        </section>
 
-            <a
-              href="#calendar"
-              className="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-lg font-semibold text-white bg-linear-to-r from-[#0d9488] to-emerald-500 hover:opacity-90 transition-opacity"
-            >
-              Request Network Access
-              <ArrowRight className="w-5 h-5" strokeWidth={2} />
-            </a>
-          </AnimatedSection>
-        </div>
-      </section>
+        {/* Who We Introduce */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                The Families We Work With
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+                Individuals at a genuine inflection point.
+              </h2>
+              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+                Every introduction comes from a real transition. A liquidity event, an inheritance, a material change in a family&apos;s financial picture. These are not lists. These are conversations.
+              </p>
+            </AnimatedSection>
 
-      {/* Footer */}
+            <div className="grid sm:grid-cols-2 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
+              {[
+                {
+                  title: "Business owners after exit",
+                  body: "Founders and owners navigating significant liquidity following a sale, merger, or recapitalization. Often their first time managing wealth at this scale.",
+                },
+                {
+                  title: "Inheritance recipients",
+                  body: "Individuals and families receiving substantial transfers who need trusted guidance on preservation, tax efficiency, and long-term deployment.",
+                },
+                {
+                  title: "Concentrated equity holders",
+                  body: "Executives with significant RSUs, options, or private company shares who require specialized wealth planning before or after a liquidity event.",
+                },
+                {
+                  title: "Families mid-transition",
+                  body: "Multi-generational families restructuring or consolidating wealth across entities, often across multiple advisors and jurisdictions.",
+                },
+              ].map((item, i) => (
+                <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.05} className="h-full">
+                  <div className="bg-white p-8 md:p-10 h-full">
+                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Caldenmoore */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                Why Caldenmoore
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-16 max-w-xl leading-tight">
+                Built for advisors who value their time.
+              </h2>
+            </AnimatedSection>
+
+            <div className="grid sm:grid-cols-2 gap-x-16 gap-y-12">
+              {[
+                {
+                  title: "Pre-vetted, not prospected",
+                  body: "Every individual we introduce has been verified for asset size, intent, and readiness. You receive qualified conversations, not a contact list.",
+                },
+                {
+                  title: "Context-rich handoffs",
+                  body: "Before you speak with anyone, we brief you. You know the situation, the assets in question, and what the individual is looking for.",
+                },
+                {
+                  title: "Ticket sizes that matter",
+                  body: "We work exclusively in the $1M–$100M range. No sub-threshold introductions, no time wasted on accounts that won&apos;t move the needle.",
+                },
+                {
+                  title: "No prospecting overhead",
+                  body: "No marketing budget. No SDR team. No cold calls. The only overhead is taking the introduction.",
+                },
+              ].map((item, i) => (
+                <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.1}>
+                  <div>
+                    <div className="w-6 h-px bg-teal-600 mb-5" />
+                    <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Old Way vs New Way */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                The Difference
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 max-w-xl leading-tight">
+                How most advisors grow, and how our partners do.
+              </h2>
+              <p className="text-gray-500 text-lg max-w-2xl mb-16 leading-relaxed">
+                The traditional path to acquiring high-net-worth clients is slow, expensive, and unpredictable. There is a better model.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              <AnimatedSection variant="fadeUp" delay={0.1}>
+                <div className="rounded-2xl border border-gray-200 p-8 md:p-10 h-full">
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8">
+                    Traditional Approach
+                  </p>
+                  <ul className="space-y-5">
+                    {[
+                      "Build a referral network over years",
+                      "Run expensive marketing campaigns",
+                      "Hire business development staff",
+                      "Attend conferences and events",
+                      "Chase introductions that may not close",
+                      "Manage pipeline with uncertain quality",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-gray-500">
+                        <span className="w-4 h-4 rounded-full border border-gray-300 mt-0.5 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection variant="fadeUp" delay={0.2}>
+                <div className="rounded-2xl border border-teal-200 bg-teal-50/40 p-8 md:p-10 h-full">
+                  <p className="text-xs font-semibold text-teal-700 uppercase tracking-widest mb-8">
+                    With Caldenmoore
+                  </p>
+                  <ul className="space-y-5">
+                    {[
+                      "Define your ideal client profile once",
+                      "Receive introductions as they become available",
+                      "No overhead, no campaigns, no headcount",
+                      "Pre-qualified before the first conversation",
+                      "Full context delivered with every introduction",
+                      "Pipeline that reflects real intent and asset size",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-gray-800">
+                        <span className="w-4 h-4 rounded-full bg-teal-600 mt-0.5 shrink-0 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
+                            <path d="M1 4l2.5 2.5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA + Calendar */}
+        <section id="calendar" className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                Get Started
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+                Ready to meet your next client?
+              </h2>
+              <p className="text-gray-500 text-lg mb-12 max-w-xl leading-relaxed">
+                Schedule a short call to discuss your ideal client profile and whether we are a fit.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp">
+              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <CalComEmbed url={CAL_URL} />
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+      </main>
       <Footer linkedinUrl="https://www.linkedin.com/in/sumit-d/" />
-    </main>
+    </>
   );
 }
