@@ -44,8 +44,8 @@ FAMILY OFFICE / ENTITY:
 PRE-VETTING PROCESS:
 - Stage 1 — Asset confirmation: cross-reference signal source with county assessor, SOS filing, and public deal data to band net worth ($1–10M, $10–50M, $50M+)
 - Stage 2 — Advisory status check: pull any existing Form ADV relationships; exclude anyone with an active discretionary AUM relationship
-- Stage 3 — Intent outreach: proprietary warm channel contact (not cold email); assess openness to advisor conversation within 60-day window
-- Stage 4 — Profile memo: delivered to partner advisor before any introduction — includes situation summary, estimated investable assets, geography, and what they're navigating
+- Stage 3 — Interest confirmation: each individual is contacted directly to confirm they are open to speaking with a financial advisor — no one is introduced without expressed interest
+- Stage 4 — Warm introduction: once interest is confirmed, Caldenmoore makes a personal email introduction between the advisor and the prospect — the advisor takes it from there
 
 Return a JSON object — no markdown, no code fences — with this exact shape:
 {
@@ -58,7 +58,7 @@ Return a JSON object — no markdown, no code fences — with this exact shape:
       "timing": "When this fires relative to the wealth event"
     }
   ],
-  "preVetting": "Specific 2–3 sentence description of how Stage 1–4 applies to this ICP, including any ICP-specific filters",
+  "preVetting": "Stage 1: how we confirm asset size for this ICP. Stage 2: how we screen out those already advised. Stage 3: how we confirm the individual is open to an advisor conversation. Stage 4: how we deliver the warm email introduction to you.",
   "targetExample": "A single concrete prospect — include role, company size or type, event, estimated investable assets, geography, and current situation",
   "urgency": "One sentence on why timing matters for this ICP — what happens if they're contacted 90 days too late"
 }

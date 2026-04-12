@@ -138,7 +138,7 @@ export default function ICPSignalFinder() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-[#E2DDD5] bg-white px-8 py-7">
               <p className="text-xs font-medium text-[#6B6B65]/60 uppercase tracking-widest mb-4">
-                Pre-vetting for your profile
+                Next steps for your profile
               </p>
               <div className="space-y-3">
                 {result.preVetting

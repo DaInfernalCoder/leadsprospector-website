@@ -41,7 +41,7 @@ export default function Home() {
                   href="#signal-finder"
                   className="inline-flex items-center gap-2 border border-[#E2DDD5] text-[#6B6B65] font-medium px-6 py-3.5 rounded-lg hover:border-[#A07850] hover:text-[#1C1C1A] transition-colors text-base"
                 >
-                  Test our system
+                  How would this work for me?
                 </a>
               </div>
             </AnimatedSection>
@@ -91,7 +91,7 @@ export default function Home() {
                 {
                   step: "03",
                   title: "Receive warm introductions",
-                  body: "You meet qualified prospects with full context already in hand. No cold outreach. No wasted conversations.",
+                  body: "You meet qualified prospects with full context already in hand through a warm introduction made by us through email. No wasted conversations trying to figure out who's ready to buy.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.step} variant="fadeUp" delay={i * 0.1}>
