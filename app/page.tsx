@@ -107,6 +107,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ICP Signal Finder */}
+        <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
+                Your Signal Strategy
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+                See exactly how we would find your clients.
+              </h2>
+              <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
+                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a typical introduction looks like for your practice.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection variant="fadeUp" delay={0.1}>
+              <ICPSignalFinder />
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* Signal Intelligence */}
         <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
           <div className="max-w-5xl mx-auto">
@@ -322,26 +342,6 @@ export default function Home() {
                 </div>
               </AnimatedSection>
             </div>
-          </div>
-        </section>
-
-        {/* ICP Signal Finder */}
-        <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-[#F7F6F3]">
-          <div className="max-w-3xl mx-auto">
-            <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-teal-700 font-semibold mb-4">
-                Your Signal Strategy
-              </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
-                See exactly how we would find your clients.
-              </h2>
-              <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
-                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a typical introduction looks like for your practice.
-              </p>
-            </AnimatedSection>
-            <AnimatedSection variant="fadeUp" delay={0.1}>
-              <ICPSignalFinder />
-            </AnimatedSection>
           </div>
         </section>
 

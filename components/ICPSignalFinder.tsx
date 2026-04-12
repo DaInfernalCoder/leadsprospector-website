@@ -140,7 +140,14 @@ export default function ICPSignalFinder() {
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
                 Pre-vetting for your profile
               </p>
-              <p className="text-sm text-gray-600 leading-relaxed">{result.preVetting}</p>
+              <div className="space-y-3">
+                {result.preVetting
+                  .split(/(?=Stage\s+\d+)/i)
+                  .filter(Boolean)
+                  .map((stage, i) => (
+                    <p key={i} className="text-sm text-gray-600 leading-relaxed">{stage.trim()}</p>
+                  ))}
+              </div>
             </div>
             <div className="rounded-2xl border border-amber-100 bg-amber-50/50 px-8 py-7">
               <p className="text-xs font-semibold text-amber-700 uppercase tracking-widest mb-4">
