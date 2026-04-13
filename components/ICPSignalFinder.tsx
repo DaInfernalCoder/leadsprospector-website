@@ -142,11 +142,14 @@ export default function ICPSignalFinder() {
               </p>
               <div className="space-y-3">
                 {result.preVetting
-                  .split(/(?=Stage\s+\d+)/i)
+                  .split(/(?=Stage\s+[12])/i)
                   .filter(Boolean)
+                  .filter((s) => /Stage\s+[12]/i.test(s))
                   .map((stage, i) => (
                     <p key={i} className="text-sm text-[#6B6B65] leading-relaxed">{stage.trim()}</p>
                   ))}
+                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 3: We reach out directly to each individual to confirm they are open to speaking with a financial advisor. No one is introduced without expressed interest.</p>
+                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 4: We make a warm introduction over email between you and the prospect with context already included. From there, it is yours to run.</p>
               </div>
             </div>
             <div className="rounded-2xl border border-[#E2DDD5] bg-[#F0EDE6] px-8 py-7">
