@@ -74,7 +74,7 @@ export default function ICPSignalFinder() {
           {loading ? (
             <>
               <span className="w-4 h-4 border-2 border-[#F5F0E8]/30 border-t-[#F5F0E8] rounded-full animate-spin" />
-              Building your signal strategy...
+              Building your signal strategy — up to a minute...
             </>
           ) : (
             <>
@@ -142,7 +142,7 @@ export default function ICPSignalFinder() {
               </p>
               <div className="space-y-3">
                 {result.preVetting
-                  .split(/(?=Stage\s+[12])/i)
+                  .split(/(?=Stage\s+\d+)/i)
                   .filter(Boolean)
                   .filter((s) => /Stage\s+[12]/i.test(s))
                   .map((stage, i) => (
