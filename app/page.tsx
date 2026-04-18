@@ -11,35 +11,40 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#FAFAF6]">
+      <main className="min-h-screen">
 
         {/* Hero */}
-        <section className="py-24 md:py-36 px-4 md:px-6 bg-[#FAFAF6]">
-          <div className="max-w-5xl mx-auto">
+        <section className="relative py-24 md:py-36 px-4 md:px-6 overflow-hidden bg-[#111E2A]">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+            style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#111E2A]" />
+          <div className="relative max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown" delay={0}>
-              <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-6">
+              <p className="text-xs uppercase tracking-widest text-[#C9A87C] font-medium mb-6">
                 Wealth Introduction Service
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] leading-[1.08] tracking-tight mb-6 max-w-3xl">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
                 Qualified introductions to{" "}
                 <em className="italic font-light">high-net-worth</em> families.
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
-              <p className="text-lg md:text-xl text-[#6B6B65] max-w-2xl mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
                 Caldenmoore connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="#calendar"
-                  className="inline-flex items-center gap-2 bg-[#1C2B3A] text-[#F5F0E8] font-medium px-6 py-3.5 rounded-lg hover:bg-[#2C3F52] transition-colors text-base"
+                  className="inline-flex items-center gap-2 bg-[#A07850] text-[#F5F0E8] font-medium px-6 py-3.5 rounded-lg hover:bg-[#8B6A3E] transition-colors text-base"
                 >
                   Schedule a Partner Call
                   <ArrowRight className="w-4 h-4" strokeWidth={2} />
                 </a>
                 <a
                   href="#signal-finder"
-                  className="inline-flex items-center gap-2 border border-[#E2DDD5] text-[#6B6B65] font-medium px-6 py-3.5 rounded-lg hover:border-[#A07850] hover:text-[#1C1C1A] transition-colors text-base"
+                  className="inline-flex items-center gap-2 border-2 border-[#C9A87C]/50 text-[#F5F0E8] font-medium px-6 py-3.5 rounded-lg hover:bg-[#C9A87C]/10 transition-colors text-base"
                 >
                   How would this work for me?
                 </a>
@@ -47,18 +52,18 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection variant="fade" delay={0.3}>
-              <div className="mt-20 pt-10 border-t border-[#E2DDD5] flex flex-wrap gap-x-14 gap-y-8">
+              <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">$1B+</p>
-                  <p className="text-sm text-[#6B6B65] mt-1">Wealth transitions facilitated, 2023–2025</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$1B+</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Wealth transitions facilitated, 2023–2025</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">$1M – $100M</p>
-                  <p className="text-sm text-[#6B6B65] mt-1">Introduceable asset range per engagement</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$1M – $100M</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Introduceable asset range per engagement</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#1C1C1A]">Post-liquidity</p>
-                  <p className="text-sm text-[#6B6B65] mt-1">Exits, inheritance, concentrated equity</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">Post-liquidity</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Exits, inheritance, concentrated equity</p>
                 </div>
               </div>
             </AnimatedSection>
