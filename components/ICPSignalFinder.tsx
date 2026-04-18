@@ -54,17 +54,17 @@ export default function ICPSignalFinder() {
       {/* Input card */}
       <div className="bg-white rounded-2xl border border-[#E2DDD5] p-8 md:p-10">
         <label className="block text-sm font-medium text-[#1C1C1A] mb-3">
-          Describe your company and who you sell to
+          Describe your practice and who you serve
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          placeholder="e.g. SaaS startup selling to post-Series A companies replacing legacy CRMs. Or: IT consulting firm targeting mid-market companies migrating off on-premise ERP. Or: HR software company focused on companies growing from 50 to 200 employees."
+          placeholder="e.g. RIA serving post-exit founders with $5M–$50M in investable assets, primarily in Texas. We specialize in concentrated equity and business transition planning."
           className="w-full border border-[#E2DDD5] rounded-xl px-4 py-3 text-sm text-[#1C1C1A] placeholder-[#6B6B65]/50 focus:outline-none focus:ring-2 focus:ring-[#A07850]/40 focus:border-[#A07850] resize-none leading-relaxed bg-[#FAFAF6]"
         />
         <p className="text-xs text-[#6B6B65]/60 mt-2 mb-6">
-          ex: post-Series A &nbsp;·&nbsp; new CTO hire &nbsp;·&nbsp; migrating off Salesforce &nbsp;·&nbsp; expanding to EMEA &nbsp;·&nbsp; 50–200 employees
+          ex: HNWI investing assets $1–100M &nbsp;·&nbsp; family office &nbsp;·&nbsp; post-exit founders &nbsp;·&nbsp; inherited wealth
         </p>
         <button
           onClick={handleSubmit}
@@ -74,7 +74,7 @@ export default function ICPSignalFinder() {
           {loading ? (
             <>
               <span className="w-4 h-4 border-2 border-[#F5F0E8]/30 border-t-[#F5F0E8] rounded-full animate-spin" />
-              Building your signal strategy, up to a minute...
+              Building your signal strategy — up to a minute...
             </>
           ) : (
             <>
@@ -108,7 +108,7 @@ export default function ICPSignalFinder() {
           <div className="rounded-2xl border border-[#E2DDD5] bg-white overflow-hidden">
             <div className="px-8 pt-7 pb-4 border-b border-[#E2DDD5]">
               <p className="text-xs font-medium text-[#6B6B65]/70 uppercase tracking-widest">
-                Signals we will monitor, {result.signals.length} active for your ICP
+                Signals we will monitor — {result.signals.length} active for your ICP
               </p>
             </div>
             <div className="divide-y divide-[#EDE9E1]">
@@ -148,7 +148,7 @@ export default function ICPSignalFinder() {
                   .map((stage, i) => (
                     <p key={i} className="text-sm text-[#6B6B65] leading-relaxed">{stage.trim()}</p>
                   ))}
-                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 3: We reach out directly to each individual to confirm they are open to a conversation. No one is introduced without expressed interest.</p>
+                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 3: We reach out directly to each individual to confirm they are open to speaking with a financial advisor. No one is introduced without expressed interest.</p>
                 <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 4: We make a warm introduction over email between you and the prospect with context already included. From there, they are yours to close.</p>
               </div>
             </div>
