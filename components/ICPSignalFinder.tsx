@@ -54,17 +54,17 @@ export default function ICPSignalFinder() {
       {/* Input card */}
       <div className="bg-white rounded-2xl border border-[#E2DDD5] p-8 md:p-10">
         <label className="block text-sm font-medium text-[#1C1C1A] mb-3">
-          Describe your practice and who you serve
+          Describe your business
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          placeholder="e.g. RIA serving post-exit founders with $5M–$50M in investable assets, primarily in Texas. We specialize in concentrated equity and business transition planning."
+          placeholder="e.g. SaaS business serving mid-market logistics companies, $4M ARR, ~30% margins, bootstrapped, based in the Midwest. Looking at a potential exit in the next 2–3 years. Open to PE or strategic."
           className="w-full border border-[#E2DDD5] rounded-xl px-4 py-3 text-sm text-[#1C1C1A] placeholder-[#6B6B65]/50 focus:outline-none focus:ring-2 focus:ring-[#A07850]/40 focus:border-[#A07850] resize-none leading-relaxed bg-[#FAFAF6]"
         />
         <p className="text-xs text-[#6B6B65]/60 mt-2 mb-6">
-          ex: HNWI investing assets $1–100M &nbsp;·&nbsp; family office &nbsp;·&nbsp; post-exit founders &nbsp;·&nbsp; inherited wealth
+          ex: sector &nbsp;·&nbsp; revenue range &nbsp;·&nbsp; margins &nbsp;·&nbsp; deal structure preference &nbsp;·&nbsp; rough timeline
         </p>
         <button
           onClick={handleSubmit}
@@ -74,11 +74,11 @@ export default function ICPSignalFinder() {
           {loading ? (
             <>
               <span className="w-4 h-4 border-2 border-[#F5F0E8]/30 border-t-[#F5F0E8] rounded-full animate-spin" />
-              Building your signal strategy — up to a minute...
+              Building your buyer match strategy — up to a minute...
             </>
           ) : (
             <>
-              Show my signal strategy
+              Show my buyer match strategy
               <ArrowRight className="w-4 h-4" strokeWidth={2} />
             </>
           )}
@@ -99,7 +99,7 @@ export default function ICPSignalFinder() {
           {/* ICP summary */}
           <div className="rounded-2xl bg-[#F0EDE6] border border-[#E2DDD5] px-8 py-6">
             <p className="text-xs font-medium text-[#A07850] uppercase tracking-widest mb-2">
-              Your ICP
+              Your Business Profile
             </p>
             <p className="text-[#1C1C1A] text-base leading-relaxed">{result.icpSummary}</p>
           </div>
@@ -108,7 +108,7 @@ export default function ICPSignalFinder() {
           <div className="rounded-2xl border border-[#E2DDD5] bg-white overflow-hidden">
             <div className="px-8 pt-7 pb-4 border-b border-[#E2DDD5]">
               <p className="text-xs font-medium text-[#6B6B65]/70 uppercase tracking-widest">
-                Signals we will monitor — {result.signals.length} active for your ICP
+                Buyer signals we monitor — {result.signals.length} active for your profile
               </p>
             </div>
             <div className="divide-y divide-[#EDE9E1]">
@@ -138,7 +138,7 @@ export default function ICPSignalFinder() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-[#E2DDD5] bg-white px-8 py-7">
               <p className="text-xs font-medium text-[#6B6B65]/60 uppercase tracking-widest mb-4">
-                Next steps for your profile
+                How we vet buyers for your business
               </p>
               <div className="space-y-3">
                 {result.preVetting
@@ -154,7 +154,7 @@ export default function ICPSignalFinder() {
             </div>
             <div className="rounded-2xl border border-[#E2DDD5] bg-[#F0EDE6] px-8 py-7">
               <p className="text-xs font-medium text-[#A07850] uppercase tracking-widest mb-4">
-                Why timing matters
+                Why timing matters for your exit
               </p>
               <p className="text-sm text-[#1C1C1A] leading-relaxed">{result.urgency}</p>
             </div>
@@ -163,7 +163,7 @@ export default function ICPSignalFinder() {
           {/* Target example */}
           <div className="rounded-2xl border border-[#E2DDD5] bg-[#F5F2EC] px-8 py-7">
             <p className="text-xs font-medium text-[#6B6B65]/60 uppercase tracking-widest mb-4">
-              Example prospect we would surface for you
+              Example buyer we would introduce you to
             </p>
             <p className="text-sm text-[#6B6B65] leading-relaxed">{result.targetExample}</p>
           </div>
@@ -174,7 +174,7 @@ export default function ICPSignalFinder() {
               href="#calendar"
               className="inline-flex items-center gap-2 bg-[#1C2B3A] text-[#F5F0E8] font-medium px-6 py-3 rounded-lg hover:bg-[#2C3F52] transition-colors text-sm"
             >
-              Ready to get started? Book a call
+              Ready to see which buyers fit your business? Book a call
               <ArrowRight className="w-4 h-4" strokeWidth={2} />
             </a>
           </div>

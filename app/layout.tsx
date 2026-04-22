@@ -15,9 +15,9 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500"],
 });
 
-const title = "Caldenmoore | Qualified wealth introductions after liquidity events";
+const title = "Caldenmoore | Buyer introductions for founders before the formal process";
 const description =
-  "Caldenmoore introduces high net worth individuals and families after exits, inheritance, or concentrated equity to RIAs and family offices with proven deployment in tax-efficient strategies, alternatives, private credit, and real assets ($1M–$10M+; family offices to $100M).";
+  "Caldenmoore connects founders approaching an exit with strategic acquirers, private equity firms, and family offices actively deploying capital — before investment bankers get involved. Private introductions in the $5M–$500M transaction range.";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
