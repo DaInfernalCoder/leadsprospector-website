@@ -163,7 +163,7 @@ export default function ICPSignalFinder() {
           {/* Target example */}
           <div className="rounded-2xl border border-[#E2DDD5] bg-[#F5F2EC] px-8 py-7">
             <p className="text-xs font-medium text-[#6B6B65]/60 uppercase tracking-widest mb-4">
-              Example prospect we would surface for you
+              Live client profile
             </p>
             <p className="text-sm text-[#6B6B65] leading-relaxed">{result.targetExample}</p>
           </div>

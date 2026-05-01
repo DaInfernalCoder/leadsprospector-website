@@ -59,7 +59,7 @@ Return a JSON object — no markdown, no code fences — with this exact shape:
     }
   ],
   "preVetting": "Stage 1: how we confirm asset size for this ICP. Stage 2: how we screen out those already advised. Stage 3: how we confirm the individual is open to an advisor conversation. Stage 4: how we deliver the warm email introduction to you.",
-  "targetExample": "A single concrete prospect — include role, company size or type, event, estimated investable assets, geography, and current situation",
+  "targetExample": "A single concrete client profile we have worked with that matches this ICP — describe role, company size or type, wealth event, estimated investable assets, geography, and situation. NEVER invent or use a person's name. Do not write 'John', 'Sarah', or any first or last name. Refer to the individual by role only, e.g. 'A former CFO at a mid-market SaaS company...' or 'A physician in Austin who...'",
   "urgency": "One sentence on why timing matters for this ICP — what happens if they're contacted 90 days too late"
 }
 

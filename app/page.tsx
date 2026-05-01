@@ -124,7 +124,7 @@ export default function Home() {
                 See exactly how we would find your clients.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-10 leading-relaxed">
-                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a typical introduction looks like for your practice.
+                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a client profile that we have worked with that matches your firm.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.1}>
