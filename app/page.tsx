@@ -23,7 +23,7 @@ export default function Home() {
           <div className="relative max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown" delay={0}>
               <p className="text-xs uppercase tracking-widest text-[#C9A87C] font-medium mb-6">
-                Wealth Introduction Service
+                Advisory &amp; Research Firm
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
                 Qualified introductions to{" "}
@@ -32,7 +32,7 @@ export default function Home() {
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
+                Caldenmoore is an advisory and research firm that connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
