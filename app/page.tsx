@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import ICPSignalFinder from "@/components/ICPSignalFinder";
 
 export default function Home() {
-  const CAL_URL = "https://cal.com/sumitdatta/partner-qualification?overlayCalendar=true";
+  const CAL_URL = "https://cal.com/michaelvcaldenmoore/partnerqualification?overlayCalendar=true";
 
   return (
     <>
