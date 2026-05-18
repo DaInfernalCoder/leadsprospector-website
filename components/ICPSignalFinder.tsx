@@ -54,17 +54,17 @@ export default function ICPSignalFinder() {
       {/* Input card */}
       <div className="bg-white rounded-2xl border border-[#E2DDD5] p-8 md:p-10">
         <label className="block text-sm font-medium text-[#1C1C1A] mb-3">
-          Describe your practice and who you serve
+          Describe your business and who you&apos;re trying to reach
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          placeholder="e.g. RIA serving post-exit founders with $5M–$50M in investable assets, primarily in Texas. We specialize in concentrated equity and business transition planning."
+          placeholder="e.g. B2B SaaS platform targeting HR directors at mid-market companies (200–2,000 employees) in North America. We replace spreadsheet-based onboarding processes."
           className="w-full border border-[#E2DDD5] rounded-xl px-4 py-3 text-sm text-[#1C1C1A] placeholder-[#6B6B65]/50 focus:outline-none focus:ring-2 focus:ring-[#A07850]/40 focus:border-[#A07850] resize-none leading-relaxed bg-[#FAFAF6]"
         />
         <p className="text-xs text-[#6B6B65]/60 mt-2 mb-6">
-          ex: HNWI investing assets $1–100M &nbsp;·&nbsp; family office &nbsp;·&nbsp; post-exit founders &nbsp;·&nbsp; inherited wealth
+          ex: recruitment firm &nbsp;·&nbsp; healthcare IT vendor &nbsp;·&nbsp; wealth manager &nbsp;·&nbsp; industrial automation &nbsp;·&nbsp; SaaS
         </p>
         <button
           onClick={handleSubmit}
@@ -148,7 +148,7 @@ export default function ICPSignalFinder() {
                   .map((stage, i) => (
                     <p key={i} className="text-sm text-[#6B6B65] leading-relaxed">{stage.trim()}</p>
                   ))}
-                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 3: We reach out directly to each individual to confirm they are open to speaking with a financial advisor. No one is introduced without expressed interest.</p>
+                <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 3: We reach out directly to each prospect to confirm they are open to a conversation. No one is introduced without expressed interest.</p>
                 <p className="text-sm text-[#6B6B65] leading-relaxed">Stage 4: We make a warm introduction over email between you and the prospect with context already included. From there, they are yours to close.</p>
               </div>
             </div>

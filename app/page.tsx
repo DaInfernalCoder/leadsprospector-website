@@ -8,6 +8,72 @@ import ICPSignalFinder from "@/components/ICPSignalFinder";
 export default function Home() {
   const CAL_URL = "https://cal.com/michaelvcaldenmoore/partnerqualification?overlayCalendar=true";
 
+  const caseStudies = [
+    {
+      niche: "Industrial Automation",
+      result: "$85K",
+      qualifier: "revenue added",
+      timeframe: "in under 60 days",
+      description: "Identified and introduced key decision-makers at target accounts, resulting in signed contracts ahead of forecast.",
+    },
+    {
+      niche: "Recruitment",
+      result: "$105K",
+      qualifier: "revenue added",
+      timeframe: "in a single quarter",
+      description: "Built a qualified pipeline of hiring managers and HR leaders, converting introductions to retained searches.",
+    },
+    {
+      niche: "Recruitment",
+      result: "$100K",
+      qualifier: "revenue added",
+      timeframe: "in 6 months",
+      description: "Systematic prospecting into mid-market companies expanding headcount produced consistent placement volume.",
+    },
+    {
+      niche: "E-Sports",
+      result: "€70K",
+      qualifier: "new revenue",
+      timeframe: "in 3 months",
+      description: "Connected a European operator with brand partnership and sponsorship decision-makers across the sector.",
+    },
+    {
+      niche: "Recruitment",
+      result: "20 placements",
+      qualifier: "closed",
+      timeframe: "in 55 days",
+      description: "High-velocity introduction campaign to HR directors at scaling technology companies.",
+    },
+    {
+      niche: "Healthcare IT",
+      result: "4 dream clients",
+      qualifier: "secured",
+      timeframe: "in under 90 days",
+      description: "Navigated complex enterprise buying committees to land introductions with qualified healthcare system decision-makers.",
+    },
+    {
+      niche: "Healthcare",
+      result: "2 new partners",
+      qualifier: "added",
+      timeframe: "in 60 days",
+      description: "Identified and introduced strategic partnership candidates to accelerate market expansion.",
+    },
+    {
+      niche: "SaaS",
+      result: "5 new clients",
+      qualifier: "closed",
+      timeframe: "in 48 days",
+      description: "Targeted outreach to ideal customer profile companies produced high-quality pipeline that closed quickly.",
+    },
+    {
+      niche: "Wealth Management",
+      result: "6 introductions",
+      qualifier: "delivered",
+      timeframe: "in 46 days",
+      description: "Pre-vetted individuals matched to advisor profile, delivered via warm email introduction with full context.",
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -27,12 +93,12 @@ export default function Home() {
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
                 Qualified introductions to{" "}
-                <em className="italic font-light">high-net-worth</em> families.
+                <em className="italic font-light">your ideal clients.</em>
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore is an advisory and research firm that connects RIAs and family offices with pre-vetted individuals and families following exits, inheritance, or concentrated equity events. Typical engagements: $1M to $10M+, with family office mandates to $100M.
+                Caldenmoore is an advisory and research firm that identifies, vets, and introduces qualified prospects to B2B companies across industries. We handle the research and outreach. You receive warm introductions to clients ready to engage.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -54,16 +120,16 @@ export default function Home() {
             <AnimatedSection variant="fade" delay={0.3}>
               <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$1B+</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Wealth transitions facilitated, 2023–2025</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$85K – $105K</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Typical new revenue per engagement</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$1M – $100M</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Introduceable asset range per engagement</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">9 industries</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Active verticals, 2023–2025</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">Post-liquidity</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Exits, inheritance, concentrated equity</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 60 days</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Average time to first results</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -86,17 +152,17 @@ export default function Home() {
                 {
                   step: "01",
                   title: "Define your ideal client",
-                  body: "We learn the profile of families you serve best — asset size, complexity, geography, and the specific situations where you add the most value.",
+                  body: "We learn the profile of clients you serve best — industry, company size, geography, and the specific situations where you add the most value.",
                 },
                 {
                   step: "02",
                   title: "We identify and vet matches",
-                  body: "When an individual or family fits your profile, we verify intent, asset size, and readiness before any introduction is made.",
+                  body: "When a company or individual fits your profile, we verify intent, fit, and readiness before any introduction is made.",
                 },
                 {
                   step: "03",
                   title: "Receive warm introductions",
-                  body: "You meet qualified prospects with full context already in hand through a warm introduction made by us through email. No wasted conversations trying to figure out who's ready to buy.",
+                  body: "You meet qualified prospects with full context already in hand through a warm introduction made by us over email. No wasted conversations trying to figure out who&apos;s ready to buy.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.step} variant="fadeUp" delay={i * 0.1}>
@@ -124,7 +190,7 @@ export default function Home() {
                 See exactly how we would find your clients.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-10 leading-relaxed">
-                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a client profile that we have worked with that matches your firm.
+                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a client profile we have worked with that matches your business.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.1}>
@@ -141,44 +207,44 @@ export default function Home() {
                 Signal Intelligence
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                How we find the right families.
+                How we find the right prospects.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                We monitor a network of public and proprietary signals that surface HNWIs at genuine inflection points — before they have found an advisor.
+                We monitor a network of public and proprietary signals that surface qualified buyers at genuine inflection points — before they have found a vendor.
               </p>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
               {[
                 {
-                  label: "Regulatory Filings",
-                  body: "SEC Form ADV, Form 4, and 13D/13G filings flag advisory relationship changes, insider equity dispositions, and significant ownership shifts in public companies.",
-                  tag: "Post-exit founders, executives",
+                  label: "Hiring Intent",
+                  body: "Job postings for VP Sales, Head of Revenue, and RevOps roles at 50–500 person companies correlate with active vendor evaluation within 60 days of the first listing.",
+                  tag: "SaaS, technology, services",
                 },
                 {
-                  label: "M&A Activity",
-                  body: "Business broker listings, LOI registrations, SBA loan payoffs, and deal announcements identify owners who have completed or are nearing a sale.",
-                  tag: "Business owners after exit",
+                  label: "Funding & Growth Events",
+                  body: "Series A/B announcements signal a 30–90 day expansion sprint. PE platform acquisitions signal immediate add-on sourcing and vendor onboarding across portfolio companies.",
+                  tag: "Venture-backed & PE-owned companies",
                 },
                 {
-                  label: "Real Estate Records",
-                  body: "County deed transfers and title changes on properties valued $1M+ surface individuals deploying or repositioning capital after a wealth event.",
-                  tag: "Liquidity event indicators",
+                  label: "Staffing Firm Triggers",
+                  body: "ATS purchases, job board spend increases, and LinkedIn Recruiter license expansions signal a recruiting firm entering a growth phase with new placement targets.",
+                  tag: "Staffing, recruitment, RPO",
                 },
                 {
-                  label: "Probate & Estate Filings",
-                  body: "Public estate inventories and new trust formations flag inheritance recipients who are navigating a material change in their financial picture.",
-                  tag: "Inheritance recipients",
+                  label: "Healthcare Procurement Cycles",
+                  body: "EHR migration announcements, CMS compliance deadlines, and GPO contract renewals open 60–120 day evaluation windows for healthcare IT and services vendors.",
+                  tag: "Healthcare IT, medtech, clinical services",
                 },
                 {
-                  label: "Corporate Events",
-                  body: "IPO and SPAC S-1/S-4 registrations, RSU vesting schedules, and executive departure filings identify individuals ahead of or immediately following a liquidity event.",
-                  tag: "Concentrated equity holders",
+                  label: "Leadership Transitions",
+                  body: "C-suite and VP-level departures trigger vendor reviews within 30–90 days as incoming leaders audit existing relationships and establish new supplier preferences.",
+                  tag: "Cross-industry",
                 },
                 {
-                  label: "Entity Formations",
-                  body: "Delaware and Wyoming LLC and LP filings, family office formations, and multi-jurisdictional trust restructurings signal first-time or transitional wealth management needs.",
-                  tag: "Families mid-transition",
+                  label: "Entity & Expansion Filings",
+                  body: "New subsidiary registrations, state business license filings, and geographic expansion announcements surface companies entering new markets with immediate advisory and vendor needs.",
+                  tag: "Multi-market operators",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.label} variant="fadeUp" delay={i * 0.07}>
@@ -194,38 +260,38 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Who We Introduce */}
+        {/* Who We Work With */}
         <section className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown">
               <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
-                The Families We Work With
+                Who We Work With
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                Individuals at a genuine inflection point.
+                B2B companies that compete on relationships.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                Every introduction comes from a real transition. A liquidity event, an inheritance, a material change in a family&apos;s financial picture. These are not lists. These are conversations.
+                We work best with businesses where a single qualified introduction can materially change the quarter. Across verticals, the pattern is the same: the right conversation at the right time.
               </p>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 gap-px bg-[#E2DDD5] rounded-2xl overflow-hidden border border-[#E2DDD5]">
               {[
                 {
-                  title: "Business owners after exit",
-                  body: "Founders and owners navigating significant liquidity following a sale, merger, or recapitalization. Often their first time managing wealth at this scale.",
+                  title: "Staffing & Recruitment",
+                  body: "Firms growing placement volume that need consistent access to HR directors and hiring managers at scaling companies — not job boards, but real conversations.",
                 },
                 {
-                  title: "Inheritance recipients",
-                  body: "Individuals and families receiving substantial transfers who need trusted guidance on preservation, tax efficiency, and long-term deployment.",
+                  title: "SaaS & Technology",
+                  body: "Software companies targeting defined buyer personas in competitive markets where pipeline quality matters more than pipeline volume.",
                 },
                 {
-                  title: "Concentrated equity holders",
-                  body: "Executives with significant RSUs, options, or private company shares who require specialized wealth planning before or after a liquidity event.",
+                  title: "Healthcare & Life Sciences",
+                  body: "Medical technology, health IT, and clinical services businesses navigating complex procurement cycles and multi-stakeholder buying committees.",
                 },
                 {
-                  title: "Families mid-transition",
-                  body: "Multi-generational families restructuring or consolidating wealth across entities, often across multiple advisors and jurisdictions.",
+                  title: "Financial & Advisory Services",
+                  body: "Wealth management, fintech, and professional services firms requiring pre-vetted introductions to qualified individuals and organizations.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.05} className="h-full">
@@ -247,7 +313,7 @@ export default function Home() {
                 Why Caldenmoore
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-16 max-w-xl leading-tight">
-                Built for advisors who value their time.
+                Built for businesses that value their time.
               </h2>
             </AnimatedSection>
 
@@ -255,15 +321,15 @@ export default function Home() {
               {[
                 {
                   title: "Pre-vetted, not prospected",
-                  body: "Every individual we introduce has been verified for asset size, intent, and readiness. You receive qualified conversations, not a contact list.",
+                  body: "Every introduction has been verified for fit, intent, and readiness. You receive qualified conversations, not a contact list.",
                 },
                 {
                   title: "Context-rich handoffs",
-                  body: "Before you speak with anyone, we brief you. You know the situation, the assets in question, and what the individual is looking for.",
+                  body: "Before you speak with anyone, we brief you. You know the situation, the opportunity, and what the prospect is looking for.",
                 },
                 {
-                  title: "Ticket sizes that matter",
-                  body: "We work exclusively in the $1M–$100M range. No sub-threshold introductions, no time wasted on accounts that won&apos;t move the needle.",
+                  title: "Engagements that move the needle",
+                  body: "We focus on introductions that can materially change a quarter — not volume for the sake of activity metrics.",
                 },
                 {
                   title: "No prospecting overhead",
@@ -290,10 +356,10 @@ export default function Home() {
                 The Difference
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                How most advisors grow, and how our partners do.
+                How most businesses grow, and how our partners do.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                The traditional path to acquiring high-net-worth clients is slow, expensive, and unpredictable. There is a better model.
+                The traditional path to acquiring qualified clients is slow, expensive, and unpredictable. There is a better model.
               </p>
             </AnimatedSection>
 
@@ -333,7 +399,7 @@ export default function Home() {
                       "No overhead, no campaigns, no headcount",
                       "Pre-qualified before the first conversation",
                       "Full context delivered with every introduction",
-                      "Pipeline that reflects real intent and asset size",
+                      "Pipeline that reflects real intent and fit",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-[#E8E4DC]">
                         <span className="w-4 h-4 rounded-full bg-[#A07850] mt-0.5 shrink-0 flex items-center justify-center">
@@ -347,6 +413,46 @@ export default function Home() {
                   </ul>
                 </div>
               </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies */}
+        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#111E2A]">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection variant="fadeDown">
+              <p className="text-xs uppercase tracking-widest text-[#C9A87C] font-medium mb-4">
+                Results
+              </p>
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] mb-4 max-w-xl leading-tight">
+                What our partners have built.
+              </h2>
+              <p className="text-[#A8A49E] text-lg max-w-2xl mb-16 leading-relaxed">
+                Across nine industries. Client names withheld under NDA.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+              {caseStudies.map((cs, i) => (
+                <AnimatedSection key={i} variant="fadeUp" delay={i * 0.06}>
+                  <div className="bg-[#1C2B3A] border border-white/8 rounded-2xl p-7 h-full flex flex-col">
+                    <p className="text-xs font-medium text-[#C9A87C] uppercase tracking-widest mb-5">
+                      {cs.niche}
+                    </p>
+                    <p className="text-4xl md:text-5xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-none mb-1">
+                      {cs.result}
+                    </p>
+                    <p className="text-sm text-[#A07850] font-medium mb-1">{cs.qualifier}</p>
+                    <p className="text-sm text-[#A8A49E] mb-5">{cs.timeframe}</p>
+                    <p className="text-sm text-[#A8A49E]/70 leading-relaxed mt-auto">
+                      {cs.description}
+                    </p>
+                    <p className="text-xs text-[#A8A49E]/40 mt-5 italic">
+                      Client name withheld under NDA
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </section>
