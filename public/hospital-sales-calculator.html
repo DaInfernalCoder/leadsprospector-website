@@ -712,6 +712,42 @@ textarea.audit-textarea::placeholder { color: var(--gray-4); font-style: italic;
   margin-top: 6px;
   font-style: italic;
 }
+.url-fetch-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+.url-fetch-row input[type="url"] {
+  flex: 1;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 9px 12px;
+  border: 1.5px solid var(--gray-2);
+  background: var(--off-white);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s;
+}
+.url-fetch-row input[type="url"]:focus { border-color: var(--gray-5); }
+.url-fetch-row input[type="url"]::placeholder { color: var(--gray-4); }
+.url-fetch-row .btn-ghost { white-space: nowrap; }
+.url-fetch-divider {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: var(--gray-4);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.url-fetch-error {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: #c0392b;
+  margin-top: 4px;
+  display: none;
+}
 
 .btn-row { display: flex; gap: 10px; margin-top: 14px; align-items: center; }
 .btn-primary {
@@ -1289,6 +1325,12 @@ textarea.audit-textarea::placeholder { color: var(--gray-4); font-style: italic;
         <span class="analyzer-header-text">Input — Homepage Copy or Product Description</span>
       </div>
       <div class="analyzer-body">
+        <div class="url-fetch-row">
+          <input type="url" id="auditUrlInput" placeholder="https://yourcompany.com" />
+          <button class="btn-ghost" onclick="fetchFromUrl()">Fetch Page</button>
+        </div>
+        <p id="urlFetchError" class="url-fetch-error"></p>
+        <p class="url-fetch-divider">— or paste copy below —</p>
         <textarea class="audit-textarea" id="analyzerInput"
           placeholder="Copy and paste text from your company website — hero section, about page, or any marketing copy. More context yields more precise scoring..."></textarea>
         <p class="audit-input-hint">Tip: Select all text on your homepage (Ctrl+A) then paste it here for the most accurate analysis.</p>
@@ -1808,6 +1850,43 @@ function genObs(results) {
   else
     obs.push({ type: 'neu', text: 'Strong overall positioning. The marginal opportunity is in ' + lo.name.toLowerCase() + ' — small improvements there typically unlock faster procurement progression.' });
   return obs;
+}
+
+async function fetchFromUrl() {
+  const input = document.getElementById('auditUrlInput');
+  const errEl = document.getElementById('urlFetchError');
+  const btn = input.nextElementSibling;
+  errEl.style.display = 'none';
+
+  let url = input.value.trim();
+  if (!url) { errEl.textContent = 'Enter a URL first.'; errEl.style.display = 'block'; return; }
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+  btn.textContent = 'Fetching…';
+  btn.disabled = true;
+
+  try {
+    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+    const res = await fetch(proxy);
+    if (!res.ok) throw new Error('Proxy error ' + res.status);
+    const data = await res.json();
+    if (!data.contents) throw new Error('Empty response');
+
+    const doc = new DOMParser().parseFromString(data.contents, 'text/html');
+    ['script','style','noscript','nav','footer','header'].forEach(tag => {
+      doc.querySelectorAll(tag).forEach(el => el.remove());
+    });
+    const text = (doc.body?.innerText || doc.body?.textContent || '').replace(/\s+/g, ' ').trim();
+    if (text.length < 50) throw new Error('Not enough readable text found on page');
+
+    document.getElementById('analyzerInput').value = text;
+  } catch(e) {
+    errEl.textContent = 'Could not fetch page: ' + e.message + '. Paste copy manually instead.';
+    errEl.style.display = 'block';
+  } finally {
+    btn.textContent = 'Fetch Page';
+    btn.disabled = false;
+  }
 }
 
 function runAnalysis() {
