@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Sales Cycle Cost Calculator — Caldenmoore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0B0908;
+  --ink:     #1A1916;
+  --gray-1:  #F7F6F2;
+  --gray-2:  #EEEDE8;
+  --gray-3:  #D8D7D0;
+  --gray-4:  #AEADA5;
+  --gray-5:  #6E6D66;
+  --gray-6:  #3A3934;
+  --white:   #FAFAF6;
+  --rule:    #D0CFC8;
+  --rule-dk: #3A3934;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 72px;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--black);
+  color: var(--white);
+  padding: 0 32px;
+}
+.header-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0 16px;
+  border-bottom: 1px solid var(--rule-dk);
+}
+.header-wordmark {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FAFAF6;
+}
+.header-type-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  color: var(--gray-4);
+  text-transform: uppercase;
+}
+.header-title-block {
+  padding: 28px 0 24px;
+  border-bottom: 1px solid var(--rule-dk);
+}
+.header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 62px);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: #FAFAF6;
+  max-width: 640px;
+}
+.header-desc-line {
+  margin-top: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-4);
+  max-width: 540px;
+  line-height: 1.65;
+}
+.header-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 0;
+  flex-wrap: wrap;
+}
+.header-stat {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gray-4);
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid var(--rule-dk);
+  white-space: nowrap;
+}
+.header-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.header-stat strong {
+  color: #FAFAF6;
+  font-weight: 600;
+}
+
+/* ── PROGRESS ── */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 2px;
+  background: var(--gray-2);
+}
+.progress-fill {
+  height: 100%;
+  background: var(--ink);
+  width: 0%;
+  transition: width 0.12s linear;
+}
+
+/* ── TAB NAV ── */
+.tab-nav {
+  position: sticky;
+  top: 2px;
+  z-index: 199;
+  background: var(--white);
+  border-bottom: 1.5px solid var(--ink);
+}
+.tab-nav-inner {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tab-nav-inner::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 24px 10px 0;
+  margin-right: 8px;
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  gap: 2px;
+}
+.tab-roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--gray-4);
+  letter-spacing: 0.05em;
+  transition: color 0.15s;
+  line-height: 1;
+}
+.tab-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-5);
+  white-space: nowrap;
+  transition: color 0.15s;
+  line-height: 1;
+}
+.tab-btn:hover .tab-text  { color: var(--ink); }
+.tab-btn:hover .tab-roman { color: var(--gray-5); }
+.tab-btn.active { border-bottom-color: var(--ink); }
+.tab-btn.active .tab-text  { color: var(--ink); }
+.tab-btn.active .tab-roman { color: var(--gray-5); }
+
+/* ── PANELS ── */
+.tab-panels { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.tab-panel {
+  display: none;
+  padding: 48px 0 72px;
+  animation: panelIn 0.22s ease-out;
+}
+.tab-panel.active { display: block; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION LABELS ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gray-3);
+  flex-shrink: 0;
+}
+.eyebrow-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-4);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-5);
+  max-width: 580px;
+  margin-bottom: 36px;
+  line-height: 1.65;
+}
+
+/* ── RULED DIVIDER ── */
+.rule { border: none; border-top: 1px solid var(--rule); margin: 44px 0; }
+.rule-heavy { border: none; border-top: 1.5px solid var(--ink); margin: 44px 0; }
+
+/* ── STAT ROW ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+.stat-cell {
+  padding: 20px 0 18px;
+  border-right: 1px solid var(--rule);
+  padding-right: 24px;
+  padding-left: 0;
+  transition: background 0.15s;
+}
+.stat-cell:first-child { padding-left: 0; }
+.stat-cell:last-child { border-right: none; }
+.stat-cell:not(:first-child) { padding-left: 24px; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.stat-num.muted { color: var(--gray-5); }
+.stat-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--gray-5);
+  line-height: 1.45;
+}
+
+/* ── PROSE ── */
+.prose { max-width: 660px; }
+.prose p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray-6);
+  line-height: 1.78;
+  margin-bottom: 18px;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; }
+.callout {
+  border-left: 2px solid var(--ink);
+  padding: 14px 20px;
+  margin: 24px 0;
+  background: var(--gray-1);
+}
+.callout p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--gray-6);
+  margin: 0;
+  line-height: 1.7;
+}
+.callout strong { color: var(--black); font-weight: 600; }
+
+/* ── CALCULATOR ── */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1.5px solid var(--ink);
+  margin-bottom: 40px;
+}
+@media (max-width: 640px) { .calc-layout { grid-template-columns: 1fr; } }
+
+.calc-col {
+  padding: 28px 28px 24px;
+}
+.calc-col:first-child {
+  border-right: 1px solid var(--rule);
+}
+@media (max-width: 640px) {
+  .calc-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
+.input-group { margin-bottom: 24px; }
+.input-group:last-child { margin-bottom: 0; }
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.input-lbl {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--gray-5);
+}
+.input-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 1px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--rule);
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.1s;
+  box-shadow: none;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.3); }
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  border-radius: 0;
+  border: none;
+}
+.range-marks {
+  display: flex;
+  justify-content: space-between;
+}
+.range-mark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--gray-4);
+}
+
+.num-input {
+  width: 100%;
+  padding: 9px 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.12s;
+  -moz-appearance: textfield;
+}
+.num-input::-webkit-outer-spin-button,
+.num-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.num-input:focus {
+  border-color: var(--ink);
+  background: var(--gray-1);
+}
+
+/* ── OUTPUT DISPLAY ── */
+.output-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 40px;
+}
+@media (max-width: 680px) {
+  .output-row { grid-template-columns: 1fr; }
+  .out-cell { border-right: none !important; border-bottom: 1px solid var(--rule); }
+  .out-cell:last-child { border-bottom: none; }
+}
+.out-cell {
+  padding: 24px 24px 22px 0;
+  border-right: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+.out-cell:not(:first-child) { padding-left: 24px; }
+.out-cell:last-child { border-right: none; }
+.out-cell.primary { border-right: 1px solid var(--rule); }
+
+.out-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-4);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.out-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.out-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.12s;
+}
+.out-cell.primary .out-val { font-size: 38px; }
+.out-sublabel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  color: var(--gray-5);
+  line-height: 1.45;
+}
+.out-emphasis {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-5);
+  margin-top: 6px;
+}
+
+.out-pulse { animation: numFlash 0.25s ease-out; }
+@keyframes numFlash {
+  0%   { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* ── SNAPSHOT ── */
+.snapshot-block {
+  border: 1px solid var(--rule);
+  padding: 14px 16px;
+  background: var(--gray-1);
+}
+.snapshot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3px 0;
+}
+.snapshot-key {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: var(--gray-5);
+  font-weight: 400;
+}
+.snapshot-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ── FORMULA BLOCK ── */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+.formula-cell {
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 20px 18px;
+  transition: background 0.15s;
+}
+.formula-cell:hover { background: var(--gray-1); }
+.formula-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-5);
+  margin-bottom: 10px;
+}
+.formula-expr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-6);
+  line-height: 1.8;
+  border-left: 2px solid var(--ink);
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.formula-note {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: var(--gray-5);
+  line-height: 1.55;
+}
+
+/* ── BENCHMARK TABLE ── */
+.bench-table-wrap {
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gray-5);
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+  background: var(--gray-1);
+}
+thead th:first-child { padding-left: 0; }
+tbody tr {
+  border-bottom: 1px solid var(--gray-2);
+  transition: background 0.1s;
+}
+tbody tr:hover { background: var(--gray-1); }
+tbody tr:last-child { border-bottom: none; }
+td {
+  padding: 13px 14px;
+  font-family: 'Outfit', sans-serif;
+  color: var(--gray-6);
+  vertical-align: middle;
+}
+td:first-child { font-weight: 600; color: var(--ink); padding-left: 0; }
+td.mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sig {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  padding: 2px 8px;
+  border: 1px solid;
+}
+.sig-ok   { color: var(--ink);    border-color: var(--gray-3); background: var(--gray-1); }
+.sig-warn { color: var(--gray-5); border-color: var(--gray-2); background: transparent; }
+.sig-dk   { color: var(--gray-5); border-color: var(--gray-2); background: transparent; font-style: italic; }
+
+/* ── THRESHOLD STRIP ── */
+.threshold-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+@media (max-width: 580px) { .threshold-strip { grid-template-columns: 1fr; } }
+.threshold-cell {
+  padding: 22px 20px;
+  border-right: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+.threshold-cell:hover { background: var(--gray-1); }
+.threshold-cell:last-child { border-right: none; }
+.threshold-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-4);
+  margin-bottom: 6px;
+}
+.threshold-range {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.threshold-range.muted  { color: var(--gray-5); }
+.threshold-range.faded  { color: var(--gray-3); }
+.threshold-note {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: var(--gray-5);
+  line-height: 1.5;
+}
+
+/* ── ANALYZER ── */
+.analyzer-wrap {
+  border: 1.5px solid var(--ink);
+  margin-bottom: 32px;
+}
+.analyzer-header {
+  padding: 14px 20px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.analyzer-header-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-3);
+}
+.analyzer-body { padding: 20px; background: var(--white); }
+
+textarea.audit-textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--gray-1);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  outline: none;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color 0.12s, background 0.12s;
+}
+textarea.audit-textarea:focus {
+  border-color: var(--ink);
+  background: var(--white);
+}
+textarea.audit-textarea::placeholder { color: var(--gray-4); font-style: italic; }
+
+.audit-input-hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: var(--gray-4);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.btn-row { display: flex; gap: 10px; margin-top: 14px; align-items: center; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+}
+.btn-primary:hover { background: var(--black); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  color: var(--gray-5);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 11px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+.btn-ghost:hover { border-color: var(--gray-5); color: var(--ink); }
+
+/* ── AUDIT REPORT ── */
+.audit-results {
+  display: none;
+  margin-top: 32px;
+  animation: panelIn 0.25s ease-out;
+}
+.audit-results.visible { display: block; }
+
+.audit-report-header {
+  background: var(--black);
+  color: var(--white);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid var(--rule-dk);
+}
+.audit-report-meta { flex: 1; min-width: 200px; }
+.audit-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--gray-4);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.audit-report-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.2;
+}
+.audit-score-col { text-align: right; }
+.audit-score-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  line-height: 0.9;
+  display: block;
+  margin-bottom: 6px;
+}
+.audit-stage {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--rule-dk);
+  color: var(--gray-3);
+}
+
+.audit-report-body {
+  border: 1.5px solid var(--ink);
+  border-top: none;
+  padding: 28px;
+  background: var(--white);
+  margin-bottom: 24px;
+}
+
+.dim-list { margin-bottom: 28px; }
+.dim-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 48px;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-2);
+  transition: background 0.1s;
+}
+.dim-row:last-child { border-bottom: none; }
+@media (max-width: 580px) {
+  .dim-row { grid-template-columns: 1fr 48px; }
+  .dim-bar-wrap { grid-column: 1 / -1; margin-top: -8px; }
+}
+.dim-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.dim-bar-wrap { position: relative; }
+.dim-bar-track {
+  height: 3px;
+  background: var(--gray-2);
+  position: relative;
+  overflow: hidden;
+}
+.dim-bar-fill {
+  height: 100%;
+  background: var(--ink);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 0%;
+}
+.dim-note-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: var(--gray-4);
+  margin-top: 4px;
+}
+.dim-score {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.dim-score.hi  { color: var(--black); }
+.dim-score.mid { color: var(--gray-5); }
+.dim-score.lo  { color: var(--gray-4); }
+
+.obs-section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-4);
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.obs-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.obs-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+.obs-marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.obs-marker.pos { background: var(--ink);  color: var(--white); }
+.obs-marker.neg { background: var(--gray-2); color: var(--gray-5); }
+.obs-marker.neu { border: 1px solid var(--rule); color: var(--gray-5); }
+.obs-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--gray-6);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.audit-inline-cta {
+  border-left: 2px solid var(--ink);
+  padding: 14px 18px;
+  background: var(--gray-1);
+  margin-top: 24px;
+}
+.audit-inline-cta p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--gray-6);
+}
+.audit-inline-cta a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── CTA BLOCKS ── */
+.cta-block {
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 52px;
+}
+.cta-block-copy {}
+.cta-block-copy h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: 4px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.cta-block-copy p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--gray-5);
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.12s, transform 0.1s;
+}
+.cta-btn:hover { background: var(--black); transform: translateY(-1px); }
+
+/* ── FEATURE GRID ── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+  margin-bottom: 40px;
+}
+.feature-cell {
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 20px;
+  transition: background 0.15s;
+}
+.feature-cell:hover { background: var(--gray-1); }
+.feature-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gray-3);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.feature-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.feature-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: var(--gray-5);
+  line-height: 1.55;
+}
+
+/* ── TESTIMONIAL ── */
+.testimonial {
+  border-left: 2px solid var(--rule);
+  padding: 18px 22px;
+  margin-bottom: 36px;
+  background: var(--gray-1);
+}
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gray-6);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.testimonial-attr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--gray-4);
+  text-transform: uppercase;
+}
+
+/* ── FIT LIST ── */
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  margin-bottom: 40px;
+}
+@media (max-width: 520px) { .fit-grid { grid-template-columns: 1fr; } }
+.fit-row {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gray-2);
+  align-items: flex-start;
+  transition: background 0.12s;
+}
+.fit-row:hover { background: var(--gray-1); }
+.fit-row:last-child { border-bottom: none; }
+.fit-mark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--ink);
+}
+.fit-mark.no { color: var(--gray-3); }
+.fit-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--gray-6);
+  line-height: 1.5;
+}
+.fit-text.muted { color: var(--gray-4); }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: var(--black);
+  padding: 52px 44px;
+  text-align: center;
+  margin-top: 16px;
+}
+.final-cta-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-5);
+  margin-bottom: 16px;
+}
+.final-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.final-cta-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--gray-5);
+  max-width: 400px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+.final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.12s, transform 0.1s;
+}
+.final-cta-btn:hover { background: var(--gray-2); transform: translateY(-1px); }
+.final-cta-byline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #CCCCCC;
+  letter-spacing: 0.09em;
+  margin-top: 14px;
+}
+
+/* ── STICKY BAR ── */
+.sticky-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--black);
+  border-top: 1px solid var(--rule-dk);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 500;
+}
+.sticky-bar-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sticky-bar-text strong { color: var(--gray-3); font-weight: 500; }
+.sticky-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0;
+  transition: background 0.12s;
+}
+.sticky-bar-btn:hover { background: var(--gray-2); }
+
+@media (max-width: 500px) {
+  .sticky-bar-text { display: none; }
+  .tab-btn { padding-right: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ HEADER ══════════════════════ -->
+<header class="site-header">
+  <div class="header-top-bar">
+    <span class="header-wordmark">Caldenmoore</span>
+    <span class="header-type-label">Research Tool · 2024</span>
+  </div>
+  <div class="header-title-block">
+    <h1 class="header-title">Hospital Sales Cycle<br>Cost Calculator</h1>
+    <p class="header-desc-line">Quantify exactly what your current health system sales motion costs — per logo, per month of runway consumed.</p>
+  </div>
+  <div class="header-stats-bar">
+    <div class="header-stat"><strong>9–18 months</strong> avg. medtech sales cycle</div>
+    <div class="header-stat"><strong>3–5 deals</strong> avg. rep closes annually</div>
+    <div class="header-stat"><strong>40–80% of ACV</strong> typical acquisition cost</div>
+  </div>
+</header>
+
+<!-- PROGRESS -->
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="problem" onclick="switchTab('problem',this)">
+      <span class="tab-roman">i.</span>
+      <span class="tab-text">The Problem</span>
+    </button>
+    <button class="tab-btn" data-tab="calculator" onclick="switchTab('calculator',this)">
+      <span class="tab-roman">ii.</span>
+      <span class="tab-text">The Calculator</span>
+    </button>
+    <button class="tab-btn" data-tab="benchmarks" onclick="switchTab('benchmarks',this)">
+      <span class="tab-roman">iii.</span>
+      <span class="tab-text">Benchmarks</span>
+    </button>
+    <button class="tab-btn" data-tab="nextstep" onclick="switchTab('nextstep',this)">
+      <span class="tab-roman">iv.</span>
+      <span class="tab-text">Next Step</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════ TAB PANELS ══════════════════════ -->
+<main class="tab-panels">
+
+  <!-- ──────────── TAB 1: THE PROBLEM ──────────── -->
+  <section class="tab-panel active" id="tab-problem">
+
+    <div class="eyebrow"><span class="eyebrow-text">The Problem</span></div>
+    <h2 class="section-title">Your hospital sales cycle is consuming runway you haven't measured</h2>
+    <p class="section-sub">The industry has benchmark data. Most founders haven't applied it to their own P&L.</p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-num">9–18</div>
+        <div class="stat-desc">Months, average medtech<br>hospital sales cycle</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">$175K+</div>
+        <div class="stat-desc">Total comp, dedicated<br>hospital sales rep (US)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3–5</div>
+        <div class="stat-desc">Health system deals<br>avg. rep closes/year</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num muted">$35–65K</div>
+        <div class="stat-desc">Rep cost per closed logo<br>before overhead</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>You already know hospital sales are slow. What most medtech founders haven't done is convert that timeline into a dollar figure that shows up on their P&L.</p>
+
+      <p>A dedicated hospital sales rep in the US costs <strong>$150,000–$200,000 in total compensation</strong>. The average medtech rep closes 3–5 health system deals per year — in a good year. That means you're spending $35,000–$65,000 in rep cost alone per closed logo, before you account for travel, solution engineer support, legal review, contracting delays, and executive time.</p>
+
+      <div class="callout">
+        <p><strong>Multiply that by your active pipeline.</strong> If you have 8 deals in motion, each at month 7 of a 14-month cycle, you've already consumed more than half your pipeline investment — with no revenue to show for it.</p>
+      </div>
+
+      <p>The problem isn't that hospital sales are hard. It's that most teams haven't measured the true cost of their current motion — so they can't compare it against alternatives, identify where deals are bleeding, or make the case internally for changing how they go to market.</p>
+
+      <p>The calculator in the next tab turns your actual numbers into a single figure: <strong>what each closed logo costs you in runway.</strong> If that number surprises you, it's supposed to.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- DISTRIBUTION AUDIT -->
+    <div class="eyebrow"><span class="eyebrow-text">Tool</span></div>
+    <h2 class="section-title">Distribution Readiness Audit</h2>
+    <p class="section-sub">Paste your homepage copy below. We'll score your positioning across five dimensions that determine how fast you close health system deals.</p>
+
+    <div class="analyzer-wrap">
+      <div class="analyzer-header">
+        <span class="analyzer-header-text">Input — Homepage Copy or Product Description</span>
+      </div>
+      <div class="analyzer-body">
+        <textarea class="audit-textarea" id="analyzerInput"
+          placeholder="Copy and paste text from your company website — hero section, about page, or any marketing copy. More context yields more precise scoring..."></textarea>
+        <p class="audit-input-hint">Tip: Select all text on your homepage (Ctrl+A) then paste it here for the most accurate analysis.</p>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="runAnalysis()">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="6.5" cy="6.5" r="4.5"/><path d="M11 11l3 3"/>
+            </svg>
+            Run Audit
+          </button>
+          <button class="btn-ghost" onclick="clearAnalysis()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-results" id="analyzerResults">
+      <div class="audit-report-header">
+        <div class="audit-report-meta">
+          <div class="audit-kicker">Caldenmoore Distribution Analysis · <span id="auditDate"></span></div>
+          <div class="audit-report-title">Distribution Readiness Report</div>
+        </div>
+        <div class="audit-score-col">
+          <span class="audit-score-num" id="totalScoreNum">–</span>
+          <div class="audit-stage" id="stageBadge">–</div>
+        </div>
+      </div>
+      <div class="audit-report-body">
+        <div class="dim-list" id="dimensionList"></div>
+        <div class="obs-section-label">Key Observations</div>
+        <div id="observationsList"></div>
+        <div class="audit-inline-cta">
+          <p><strong>Want us to connect you with the right health system buyers?</strong> Caldenmoore makes warm introductions to pre-qualified decision-makers at IDNs and academic medical centers. <a href="https://cal.com/michaelvcaldenmoore/partnerqualification">Book a call →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-copy">
+        <h3>Ready to see what your sales motion costs?</h3>
+        <p>Run your numbers in the calculator — 60 seconds.</p>
+      </div>
+      <button class="cta-btn" onclick="switchTab('calculator', document.querySelector('[data-tab=calculator]'))">
+        Open Calculator →
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ──────────── TAB 2: THE CALCULATOR ──────────── -->
+  <section class="tab-panel" id="tab-calculator">
+
+    <div class="eyebrow"><span class="eyebrow-text">Tool</span></div>
+    <h2 class="section-title">Sales Cycle Cost Calculator</h2>
+    <p class="section-sub">Adjust inputs to match your motion. All three outputs update in real time.</p>
+
+    <!-- OUTPUTS -->
+    <div class="output-row">
+      <div class="out-cell primary">
+        <div class="out-label">Cost Per Logo</div>
+        <div class="out-val" id="outCostPerLogo">—</div>
+        <div class="out-sublabel">Per closed health system deal</div>
+        <div class="out-emphasis" id="outCostVsACV">—</div>
+      </div>
+      <div class="out-cell">
+        <div class="out-label">Runway Consumed</div>
+        <div class="out-val" id="outRunway">—</div>
+        <div class="out-sublabel">Of monthly burn, per logo</div>
+        <div class="out-emphasis" id="outRunwaySub">—</div>
+      </div>
+      <div class="out-cell">
+        <div class="out-label">ARR Upside</div>
+        <div class="out-val" id="outARR">—</div>
+        <div class="out-sublabel">Additional ARR at 40% compression</div>
+        <div class="out-emphasis" id="outARRSub">—</div>
+      </div>
+    </div>
+
+    <!-- INPUTS -->
+    <div class="calc-layout">
+      <div class="calc-col">
+        <div class="input-group">
+          <div class="input-row">
+            <span class="input-lbl">Sales Cycle Length</span>
+            <span class="input-val" id="cycleLabel">9 months</span>
+          </div>
+          <input type="range" id="inputCycle" min="3" max="24" value="9" oninput="updateCalc()">
+          <div class="range-marks">
+            <span class="range-mark">3mo</span>
+            <span class="range-mark">12mo</span>
+            <span class="range-mark">24mo</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="input-row"><span class="input-lbl">Monthly Sales Burn</span></div>
+          <input class="num-input" type="number" id="inputBurn" value="50000" min="0" step="5000" oninput="updateCalc()" placeholder="50000">
+        </div>
+        <div class="input-group">
+          <div class="input-row"><span class="input-lbl">Active Hospital Deals</span></div>
+          <input class="num-input" type="number" id="inputDeals" value="8" min="1" oninput="updateCalc()" placeholder="8">
+        </div>
+      </div>
+      <div class="calc-col">
+        <div class="input-group">
+          <div class="input-row"><span class="input-lbl">Average Contract Value (ACV)</span></div>
+          <input class="num-input" type="number" id="inputACV" value="120000" min="0" step="10000" oninput="updateCalc()" placeholder="120000">
+        </div>
+        <div class="input-group">
+          <div class="input-row"><span class="input-lbl">New Logos Closed / Year</span></div>
+          <input class="num-input" type="number" id="inputLogos" value="4" min="1" oninput="updateCalc()" placeholder="4">
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <div class="snapshot-block">
+            <div class="snapshot-row">
+              <span class="snapshot-key">Active deals</span>
+              <span class="snapshot-val" id="snapshotDeals">8</span>
+            </div>
+            <div class="snapshot-row" style="margin-top:4px;">
+              <span class="snapshot-key">Capital deployed / cycle</span>
+              <span class="snapshot-val" id="snapshotCapital">—</span>
+            </div>
+            <div class="snapshot-row" style="margin-top:4px;">
+              <span class="snapshot-key">Current ARR (new logos)</span>
+              <span class="snapshot-val" id="snapshotARR">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA EXPLAINER -->
+    <div class="eyebrow" style="margin-top:8px;"><span class="eyebrow-text">Framework</span></div>
+    <h3 class="section-title" style="font-size: clamp(20px, 3vw, 28px);">How the numbers are calculated</h3>
+    <p class="section-sub">Three formulas that turn your inputs into actionable metrics.</p>
+
+    <div class="formula-grid">
+      <div class="formula-cell">
+        <div class="formula-title">Cost Per Logo</div>
+        <div class="formula-expr">Monthly Burn × Cycle Length<br>÷ New Logos Per Year</div>
+        <div class="formula-note">Total sales investment consumed per deal closed — the truest CAC for direct medtech sales.</div>
+      </div>
+      <div class="formula-cell">
+        <div class="formula-title">Runway Consumed</div>
+        <div class="formula-expr">Cost Per Logo<br>÷ Monthly Burn × 100</div>
+        <div class="formula-note">How many months of your sales budget each logo acquisition consumes. Above 100% = over a month per logo.</div>
+      </div>
+      <div class="formula-cell">
+        <div class="formula-title">ARR Upside</div>
+        <div class="formula-expr">(ACV × Annual Logos) × 0.4</div>
+        <div class="formula-note">If cycle time compresses 40%, sales capacity frees to close 40% more logos in the same period.</div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-copy">
+        <h3>Compare against industry benchmarks</h3>
+        <p>See what a healthy cost-per-logo looks like at your stage.</p>
+      </div>
+      <button class="cta-btn" onclick="switchTab('benchmarks', document.querySelector('[data-tab=benchmarks]'))">
+        View Benchmarks →
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ──────────── TAB 3: BENCHMARKS ──────────── -->
+  <section class="tab-panel" id="tab-benchmarks">
+
+    <div class="eyebrow"><span class="eyebrow-text">Benchmarks</span></div>
+    <h2 class="section-title">How to interpret your cost-per-logo</h2>
+    <p class="section-sub">The number you calculated isn't just a cost — it's a signal. Here's how to read it at your stage.</p>
+
+    <div class="bench-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>ACV Range</th>
+            <th>Sales Motion</th>
+            <th>Cost-Per-Logo</th>
+            <th>Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seed / Pre-Series A</td>
+            <td class="mono">$30K–$80K</td>
+            <td>Founder-led, direct</td>
+            <td class="mono">$45K–$90K</td>
+            <td><span class="sig sig-warn">Expected — unsustainable past $2M ARR</span></td>
+          </tr>
+          <tr>
+            <td>Series A</td>
+            <td class="mono">$80K–$150K</td>
+            <td>Small direct team</td>
+            <td class="mono">$60K–$130K</td>
+            <td><span class="sig sig-ok">Healthy if cycle &lt; 12 months</span></td>
+          </tr>
+          <tr>
+            <td>Series B+</td>
+            <td class="mono">$150K–$400K</td>
+            <td>Direct + partner mix</td>
+            <td class="mono">$80K–$200K</td>
+            <td><span class="sig sig-warn">Danger above $250K without leverage</span></td>
+          </tr>
+          <tr>
+            <td>Partner-Sourced</td>
+            <td class="mono">Any</td>
+            <td>Channel / warm intro</td>
+            <td class="mono">$15K–$40K</td>
+            <td><span class="sig sig-ok">Benchmark for efficiency</span></td>
+          </tr>
+          <tr>
+            <td>Direct Enterprise</td>
+            <td class="mono">$300K+</td>
+            <td>Multi-stakeholder</td>
+            <td class="mono">$150K–$300K</td>
+            <td><span class="sig sig-dk">Acceptable if CAC:LTV &gt; 5×</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="eyebrow"><span class="eyebrow-text">Framework</span></div>
+    <h3 class="section-title" style="font-size: clamp(20px, 3vw, 30px);">Three thresholds that matter</h3>
+    <p class="section-sub">Where your cost-per-logo lands relative to ACV determines whether your motion is sustainable.</p>
+
+    <div class="threshold-strip">
+      <div class="threshold-cell">
+        <div class="threshold-label">Healthy Zone</div>
+        <div class="threshold-range">&lt; 20% of ACV</div>
+        <div class="threshold-note">At $120K ACV, cost-per-logo under $24K. Year one covers acquisition cost with margin. Typical of partner-sourced deals.</div>
+      </div>
+      <div class="threshold-cell">
+        <div class="threshold-label">Warning Zone</div>
+        <div class="threshold-range muted">20–50% of ACV</div>
+        <div class="threshold-note">Common for direct Series A teams. Viable with strong retention. Cycle time reduction has the highest leverage here.</div>
+      </div>
+      <div class="threshold-cell">
+        <div class="threshold-label">Danger Zone</div>
+        <div class="threshold-range faded">&gt; 50% of ACV</div>
+        <div class="threshold-note">Year one revenue barely covers acquisition cost. At 70–80% ACV, you are financing their evaluation at a structural loss.</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="eyebrow"><span class="eyebrow-text">Benchmark</span></div>
+    <h3 class="section-title" style="font-size: clamp(20px, 3vw, 30px);">Why partner-sourced deals outperform</h3>
+    <p class="section-sub">The lowest cost-per-logo in medtech consistently comes from one source.</p>
+
+    <div class="prose">
+      <p><strong>Partner-sourced deals</strong> — where a pre-existing relationship between the introducer and the health system buyer already exists — consistently deliver cost-per-logo 60–75% lower than cold direct sales.</p>
+      <p>The mechanism is simple: procurement velocity. A buyer who receives a warm introduction from a trusted network contact moves 40–60% faster through the evaluation process. Clinical champions are identified in the first meeting. Legal review gets accelerated. The cycle compresses before it starts.</p>
+      <div class="callout">
+        <p><strong>The target benchmark: cost-per-logo under 25% of ACV.</strong> If you're currently running above 50%, your current sales motion has a structural problem — not a headcount problem. Hiring more reps into the same motion scales the cost, not the efficiency.</p>
+      </div>
+      <p>Most medtech teams at the direct sales stage run 40–80% — meaning the first year of a contract barely covers acquisition cost. The companies that break out of that range do it by changing <em>how</em> they get in the room, not how hard they push once they're there.</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-copy">
+        <h3>See what a different motion could unlock</h3>
+        <p>Caldenmoore places medtech companies in front of qualified health system buyers.</p>
+      </div>
+      <a href="https://cal.com/michaelvcaldenmoore/partnerqualification" class="cta-btn" target="_blank">
+        Book a Call →
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ──────────── TAB 4: NEXT STEP ──────────── -->
+  <section class="tab-panel" id="tab-nextstep">
+
+    <div class="eyebrow"><span class="eyebrow-text">Next Step</span></div>
+    <h2 class="section-title">Your numbers are visible. Here's what to do with them.</h2>
+    <p class="section-sub">The calculator showed you what your current motion costs. The benchmarks showed you what it should cost.</p>
+
+    <div class="callout" style="margin-bottom: 28px;">
+      <p><strong>The gap between those two numbers is your strategic priority.</strong> For most direct medtech teams running 9–18 month cycles, cost-per-logo runs 40–80% of ACV. The benchmark for efficient distribution is under 25%. That gap compounds with every new deal you pursue in the same motion.</p>
+    </div>
+
+    <div class="prose" style="margin-bottom: 36px;">
+      <p>The question isn't whether to close the gap. It's how. Adding headcount scales your current cost structure without changing it. Renegotiating territories shuffles the same deck. The companies that compress their sales cycle and reduce cost-per-logo don't do it by working harder inside the same motion — they change how they get into rooms.</p>
+      <p>That's the problem Caldenmoore was built to solve.</p>
+    </div>
+
+    <div class="eyebrow"><span class="eyebrow-text">Framework</span></div>
+    <h3 class="section-title" style="font-size: clamp(20px, 3vw, 30px);">How Caldenmoore works</h3>
+    <p class="section-sub">Not a lead gen service. Not a list. A network of pre-qualified relationships.</p>
+
+    <div class="feature-grid">
+      <div class="feature-cell">
+        <div class="feature-num">01.</div>
+        <div class="feature-title">Pre-Qualified Buyers</div>
+        <div class="feature-body">Decision-makers at IDNs and academic medical centers actively evaluating vendors in your category — not cold contacts.</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-num">02.</div>
+        <div class="feature-title">Warm Introductions</div>
+        <div class="feature-body">First meetings happen through trusted relationships. Buyers show up primed, not skeptical.</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-num">03.</div>
+        <div class="feature-title">C-Suite Access</div>
+        <div class="feature-body">Direct access to procurement leads, clinical champions, and C-suite sponsors — the people who actually move deals.</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-num">04.</div>
+        <div class="feature-title">Cycle Compression</div>
+        <div class="feature-body">Introductions that skip the discovery phase. When the buyer trusts the introducer, you start at month 3, not month 1.</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="testimonial">
+      <div class="testimonial-text">"We were running 14-month cycles and couldn't figure out if the problem was our product, our pricing, or our process. It was none of those — it was that we were starting from zero with every buyer. Caldenmoore got us in front of the right people at the right time."</div>
+      <div class="testimonial-attr">— Medtech Founder · Series A · Hospital Technology Platform</div>
+    </div>
+
+    <div class="eyebrow"><span class="eyebrow-text">Fit</span></div>
+    <h3 class="section-title" style="font-size: clamp(18px, 2.5vw, 26px);">Who this is for</h3>
+
+    <div class="fit-grid">
+      <div class="fit-row">
+        <span class="fit-mark">✓</span>
+        <span class="fit-text">Medtech companies at <strong>$1M+ ARR</strong> scaling into health systems</span>
+      </div>
+      <div class="fit-row">
+        <span class="fit-mark">✓</span>
+        <span class="fit-text">Founders and CEOs with <strong>validated product-market fit</strong> ready to accelerate GTM</span>
+      </div>
+      <div class="fit-row">
+        <span class="fit-mark">✓</span>
+        <span class="fit-text">Teams where <strong>cost-per-logo gap</strong> is a recognized constraint on growth</span>
+      </div>
+      <div class="fit-row">
+        <span class="fit-mark no">✗</span>
+        <span class="fit-text muted">Pre-revenue companies or teams still determining product fit</span>
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <div class="final-cta-kicker">30-Minute Qualification Call</div>
+      <div class="final-cta-title">No pitch. No deck.<br>Just a conversation about fit.</div>
+      <p class="final-cta-sub">If your calculator output showed a cost-per-logo worth fixing, the next step is finding out whether Caldenmoore can move you toward the benchmark. We only work with companies where we can deliver measurable cycle compression.</p>
+      <a href="https://cal.com/michaelvcaldenmoore/partnerqualification" class="final-cta-btn" target="_blank">
+        Book Your Qualification Call →
+      </a>
+      <div class="final-cta-byline">With Michael V. — Managing Partner, Caldenmoore</div>
+    </div>
+
+  </section>
+</main>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <span class="sticky-bar-text"><strong>Caldenmoore</strong> · Pre-qualified health system buyer introductions</span>
+  <a href="https://cal.com/michaelvcaldenmoore/partnerqualification" class="sticky-bar-btn" target="_blank">Book a Call →</a>
+</div>
+
+<script>
+// ── TAB SWITCHING
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn && btn.classList) btn.classList.add('active');
+  else {
+    const el = document.querySelector('[data-tab="' + id + '"]');
+    if (el) el.classList.add('active');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+}
+
+// ── PROGRESS
+function updateProgress() {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+// ── CALCULATOR
+function fmt(n) {
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
+  if (n >= 1000)    return '$' + Math.round(n / 1000) + 'K';
+  return '$' + Math.round(n).toLocaleString();
+}
+function fmtFull(n) { return '$' + Math.round(n).toLocaleString(); }
+
+function updateCalc() {
+  const cycle = parseInt(document.getElementById('inputCycle').value)   || 9;
+  const burn  = parseFloat(document.getElementById('inputBurn').value)  || 50000;
+  const deals = parseInt(document.getElementById('inputDeals').value)   || 8;
+  const acv   = parseFloat(document.getElementById('inputACV').value)   || 120000;
+  const logos = parseFloat(document.getElementById('inputLogos').value) || 4;
+
+  document.getElementById('cycleLabel').textContent = cycle + (cycle === 1 ? ' month' : ' months');
+
+  const costPerLogo = (burn * cycle) / logos;
+  const runwayPct   = (costPerLogo / burn) * 100;
+  const currentARR  = acv * logos;
+  const arrUpside   = currentARR * 0.4;
+  const pctOfACV    = acv > 0 ? (costPerLogo / acv * 100) : 0;
+
+  setVal('outCostPerLogo', fmt(costPerLogo));
+  setVal('outRunway', Math.round(runwayPct) + '%');
+  setVal('outARR', fmt(arrUpside));
+
+  document.getElementById('outCostVsACV').textContent =
+    Math.round(pctOfACV) + '% of ACV — ' + (pctOfACV < 20 ? 'healthy zone' : pctOfACV < 50 ? 'warning zone' : 'danger zone');
+  document.getElementById('outRunwaySub').textContent =
+    (Math.round(runwayPct / 100 * 10) / 10) + '× monthly sales budget per logo';
+  document.getElementById('outARRSub').textContent =
+    'vs ' + fmt(currentARR) + ' current new-logo ARR';
+
+  document.getElementById('snapshotDeals').textContent   = deals;
+  document.getElementById('snapshotCapital').textContent = fmtFull(burn * cycle);
+  document.getElementById('snapshotARR').textContent     = fmtFull(currentARR);
+}
+
+function setVal(id, val) {
+  const el = document.getElementById(id);
+  if (el.textContent !== val) {
+    el.textContent = val;
+    el.classList.remove('out-pulse');
+    void el.offsetWidth;
+    el.classList.add('out-pulse');
+  }
+}
+
+updateCalc();
+
+// ── ANALYZER
+const DIMS = [
+  { key: 'distribution', name: 'Distribution Readiness',
+    signals: [['health system',5],['health systems',5],['hospital',3],['hospitals',3],['IDN',5],['integrated delivery network',5],['health network',4],['academic medical center',5],['AMC',3],['pilot',3],['partnership',2],['distribution partner',4],['GPO',4],['group purchasing',4],['care delivery',3],['health system customer',5],['system deployment',4],['enterprise health',4],['provider',2]],
+    missing: 'No health system or hospital language detected. Buyers cannot tell you sell into their space.',
+    low: 'Limited health system signals. Positioning reads as general healthcare, not hospital-specific.',
+    mid: 'Some health system language present but depth is thin. Procurement buyers want specificity.',
+    high: 'Strong health system signals. Buyers immediately see you understand their environment.' },
+  { key: 'salesmotion', name: 'Sales Motion Clarity',
+    signals: [['enterprise sales',4],['direct sales',4],['channel partner',4],['how we sell',5],['how it works',3],['our process',3],['sales cycle',3],['procurement',4],['RFP',4],['contracting',3],['implementation',3],['onboarding',3],['rollout',3],['success team',3],['account manager',4],['customer success',3]],
+    missing: 'No sales process language. Buyers cannot understand how a deal would work.',
+    low: 'Sales motion is unclear. Buyers are guessing at what engagement looks like.',
+    mid: 'Some process signals. A buyer could infer how deals work, but it is not explicit.',
+    high: 'Sales motion is clear and explicit. Buyers know what to expect from first contact to deployment.' },
+  { key: 'proof', name: 'Proof & Validation',
+    signals: [['case study',5],['case studies',5],['clinical outcome',5],['outcomes',3],['ROI',4],['return on investment',4],['reduced',2],['improved',2],['% reduction',5],['saved',2],['results',2],['evidence',3],['data shows',4],['clinical trial',5],['peer-reviewed',5],['published',3],['customer story',4],['deployed at',5],['used by',4],['proven',3],['validated',4]],
+    missing: 'No proof points found. Health system buyers require evidence before engaging.',
+    low: 'Minimal validation. Claims are present but unsupported — increases buyer friction.',
+    mid: 'Some proof signals. Stronger outcomes data or named customers would accelerate credibility.',
+    high: 'Strong validation. Clinical outcomes and customer evidence substantially reduce buyer skepticism.' },
+  { key: 'targeting', name: 'Decision-Maker Targeting',
+    signals: [['CMO',4],['CNO',4],['CFO',4],['CIO',4],['CMIO',5],['CNIO',4],['Chief',3],['C-suite',5],['VP',3],['Vice President',4],['Director',2],['Administrator',3],['executive',3],['clinical champion',5],['economic buyer',5],['procurement',3],['supply chain',3],['value analysis',4]],
+    missing: 'No decision-maker targeting. Copy speaks to no one specific.',
+    low: 'Weak executive targeting. Messaging is not calibrated to the people who sign health system contracts.',
+    mid: 'Some title or role signals, but targeting is not crisp. Decision-makers may not see themselves here.',
+    high: 'Clear decision-maker targeting. The right buyers will immediately recognize this is for them.' },
+  { key: 'scalability', name: 'Scalability Signal',
+    signals: [['scale',3],['scaling',4],['expand',3],['expansion',4],['growth',2],['growing',2],['nationwide',5],['national',4],['national rollout',5],['accelerate',3],['rapid deployment',4],['multi-site',5],['enterprise deployment',5],['system-wide',5],['health system rollout',5],['regional',3],['enterprise',3],['platform',2],['at scale',4]],
+    missing: 'No scalability language. Buyers cannot tell if you are built to grow with them.',
+    low: 'Limited scale signals. Reads like a point solution, not an enterprise platform.',
+    mid: 'Some growth language but not enterprise-specific. Buyers want system-level scalability evidence.',
+    high: 'Strong scalability signal. Buyers see this is built for enterprise-wide deployment.' }
+];
+
+function scoreText(text, dim) {
+  const lo = text.toLowerCase();
+  let score = 0;
+  for (const [sig, w] of dim.signals) if (lo.includes(sig.toLowerCase())) score += w;
+  return Math.min(100, Math.round((score / 28) * 100));
+}
+function scoreClass(s) { return s >= 65 ? 'hi' : s >= 35 ? 'mid' : 'lo'; }
+function fillClass(s)  { return s >= 65 ? 'fill-hi' : s >= 35 ? 'fill-mid' : 'fill-lo'; }
+function dimNote(d, s) { return s < 20 ? d.missing : s < 45 ? d.low : s < 70 ? d.mid : d.high; }
+
+function getStage(s) {
+  if (s < 26) return { label: 'Early Stage',        klass: '' };
+  if (s < 51) return { label: 'Gaining Traction',   klass: '' };
+  if (s < 76) return { label: 'Scaling',            klass: '' };
+  return              { label: 'Distribution-Ready', klass: '' };
+}
+
+function genObs(results) {
+  const sorted = [...results].sort((a,b) => b.score - a.score);
+  const hi = sorted[0], lo = sorted[sorted.length-1];
+  const avg = results.reduce((s,r) => s + r.score, 0) / results.length;
+  const posMap = {
+    distribution: 'Your copy shows clear health system context, reducing buyer friction at the top of funnel.',
+    salesmotion:  'The sales process language helps buyers understand what a deal looks like — rare in medtech marketing.',
+    proof:        'Clinical validation language is present, accelerating credibility with skeptical procurement teams.',
+    targeting:    'Decision-maker targeting is specific enough that the right buyer can self-qualify quickly.',
+    scalability:  'Enterprise scalability signals are visible — important for IDNs evaluating system-wide adoption.'
+  };
+  const negMap = {
+    distribution: 'Health system language is absent. Buyers cannot tell if your solution is built for their environment.',
+    salesmotion:  'No sales process signals — enterprise buyers want to understand how a deal unfolds before they engage.',
+    proof:        'Clinical or customer proof points are missing. Health system procurement requires evidence, not claims.',
+    targeting:    'Copy does not speak to any specific buyer role. Decision-makers will not see themselves in the messaging.',
+    scalability:  'No scalability language. Buyers evaluating large rollouts need evidence you can grow with them.'
+  };
+  const obs = [
+    { type: 'pos', text: posMap[hi.key] },
+    { type: 'neg', text: negMap[lo.key] }
+  ];
+  if (avg < 35)
+    obs.push({ type: 'neu', text: 'Overall positioning reads as early-stage. The gap between your current copy and what health system buyers need is likely compressing your pipeline velocity.' });
+  else if (avg < 60)
+    obs.push({ type: 'neu', text: 'Foundation is there but execution is uneven. Strengthening ' + sorted[sorted.length-2].name.toLowerCase() + ' would have the highest leverage on deal velocity.' });
+  else
+    obs.push({ type: 'neu', text: 'Strong overall positioning. The marginal opportunity is in ' + lo.name.toLowerCase() + ' — small improvements there typically unlock faster procurement progression.' });
+  return obs;
+}
+
+function runAnalysis() {
+  const raw = document.getElementById('analyzerInput').value.trim();
+  if (!raw)         { alert('Paste your homepage copy above.'); return; }
+  if (raw.length < 50) { alert('Paste more text for an accurate analysis.'); return; }
+
+  const results = DIMS.map(d => ({ ...d, score: scoreText(raw, d) }));
+  const total = Math.round(results.reduce((s,r) => s + r.score, 0) / results.length);
+  const stage = getStage(total);
+
+  document.getElementById('auditDate').textContent =
+    new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  document.getElementById('totalScoreNum').textContent = total;
+  document.getElementById('stageBadge').textContent    = stage.label;
+
+  document.getElementById('dimensionList').innerHTML = results.map(r => `
+    <div class="dim-row">
+      <div class="dim-name">${r.name}</div>
+      <div class="dim-bar-wrap">
+        <div class="dim-bar-track">
+          <div class="dim-bar-fill" style="width:0%" data-w="${r.score}%"></div>
+        </div>
+        <div class="dim-note-text">${dimNote(r, r.score)}</div>
+      </div>
+      <div class="dim-score ${scoreClass(r.score)}">${r.score}</div>
+    </div>
+  `).join('');
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.dim-bar-fill').forEach(b => b.style.width = b.dataset.w);
+  });
+
+  const obs = genObs(results);
+  const icons = { pos: '↑', neg: '↓', neu: '→' };
+  document.getElementById('observationsList').innerHTML = obs.map(o => `
+    <div class="obs-row">
+      <div class="obs-marker ${o.type}">${icons[o.type]}</div>
+      <div class="obs-body">${o.text}</div>
+    </div>
+  `).join('');
+
+  const el = document.getElementById('analyzerResults');
+  el.classList.add('visible');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+}
+
+function clearAnalysis() {
+  document.getElementById('analyzerInput').value = '';
+  document.getElementById('analyzerResults').classList.remove('visible');
+}
+
+document.getElementById('auditDate').textContent =
+  new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+// Fill bar color styles
+const dimBarStyle = document.createElement('style');
+dimBarStyle.textContent = '.fill-hi{background:var(--ink)}.fill-mid{background:var(--gray-4)}.fill-lo{background:var(--gray-3)}';
+document.head.appendChild(dimBarStyle);
+</script>
+</body>
+</html>
