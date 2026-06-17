@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { ArrowRight } from "lucide-react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import Footer from "@/components/Footer";
@@ -159,6 +160,14 @@ export default function ExitSystem() {
 
       </main>
       <Footer linkedinUrl="https://www.linkedin.com/in/sumit-d/" />
+
+      <Script
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="6a32bda31ff543df221d8616"
+        data-source="WEB_USER"
+        strategy="afterInteractive"
+      />
     </>
   );
 }
