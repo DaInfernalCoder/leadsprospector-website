@@ -349,15 +349,11 @@ export default function ExitSystemFlow() {
             Now that you know what it is worth, we do the work of connecting you to a buyer. We help owners sell businesses over $200k in net income, with nothing upfront. Book a call to pressure-test your number with us and start the process.
           </p>
           <a
-            href="#calendar"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
+            href="/exit/book"
             className="inline-flex items-center gap-2 bg-[#A07850] text-[#F5F0E8] font-medium px-7 py-3.5 rounded-lg hover:bg-[#8B6A3E] transition-colors text-base"
           >
             Book your call
-            <ArrowDown className="w-4 h-4" strokeWidth={2} />
+            <ArrowRight className="w-4 h-4" strokeWidth={2} />
           </a>
         </motion.div>
       )}

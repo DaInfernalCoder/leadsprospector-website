@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 import { ArrowRight } from "lucide-react";
-import CalendlyEmbed from "@/components/CalendlyEmbed";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import Navbar from "@/components/Navbar";
@@ -27,8 +27,6 @@ export const metadata: Metadata = {
 };
 
 export default function ExitSystem() {
-  const CALENDLY_URL = "https://calendly.com/sunnymabusinessadvisors/new-meeting";
-
   const steps = [
     { n: "01", name: "Business Valuation Audit", body: "A realistic valuation range from your numbers, and what moves it." },
     { n: "02", name: "Value Optimizer", body: "The highest-leverage moves to make before you go to market." },
@@ -151,9 +149,13 @@ export default function ExitSystem() {
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp">
-              <div className="bg-white rounded-2xl border border-[#E2DDD5] overflow-hidden">
-                <CalendlyEmbed url={CALENDLY_URL} />
-              </div>
+              <Link
+                href="/exit/book"
+                className="inline-flex items-center gap-2 bg-[#A07850] text-[#F5F0E8] font-medium px-7 py-3.5 rounded-lg hover:bg-[#8B6A3E] transition-colors text-base"
+              >
+                Book your call
+                <ArrowRight className="w-4 h-4" strokeWidth={2} />
+              </Link>
             </AnimatedSection>
           </div>
         </section>
