@@ -15,8 +15,8 @@ export default function Footer({ linkedinUrl = "#" }: FooterProps) {
               M&amp;A Business Advisors
             </p>
             <address className="not-italic text-sm text-[#6B6B65] leading-relaxed">
-              AVIS USA, LLC<br />
-              5307 Metzger Court, Sugar Land, TX 77479<br />
+              Avis USA, LLC<br />
+              5307 Metzger Ct, Sugar Land, TX 77479<br />
               <a href="mailto:sunny@mabusinessadvisors.com" className="hover:text-[#A07850] transition-colors">
                 sunny@mabusinessadvisors.com
               </a>

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 
 const title = "Privacy Policy | M&A Business Advisors";
 const description =
-  "Privacy Policy for M&A Business Advisors (AVIS USA, LLC), including how we handle SMS opt-in and personal information.";
+  "Privacy Policy for M&A Business Advisors (Avis USA, LLC), including how we handle SMS opt-in and personal information.";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -32,7 +32,7 @@ export default function Privacy() {
 
             <div className="space-y-8 text-[#3A3A35] leading-relaxed">
               <p>
-                This Privacy Policy explains how M&amp;A Business Advisors, operated by AVIS USA, LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), collects, uses, and protects information you provide through this website.
+                This Privacy Policy explains how M&amp;A Business Advisors, operated by Avis USA, LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), collects, uses, and protects information you provide through this website.
               </p>
 
               <Section title="1. Information We Collect">
@@ -53,7 +53,7 @@ export default function Privacy() {
 
               <Section title="3. SMS / Text Messaging">
                 <p>
-                  When you opt in to receive text messages, your phone number and consent are used solely to send messages from M&amp;A Business Advisors (AVIS USA, LLC) related to your inquiry and our services. Message frequency varies, and message and data rates may apply. You can reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for assistance at any time.
+                  When you opt in to receive text messages, your phone number and consent are used solely to send messages from M&amp;A Business Advisors (Avis USA, LLC) related to your inquiry and our services. Message frequency varies, and message and data rates may apply. You can reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for assistance at any time.
                 </p>
                 <p className="mt-3 font-medium text-[#1C1C1A]">
                   We do not sell, rent, or share your mobile opt-in information or phone number with any third parties or affiliates for their own marketing or promotional purposes. SMS consent and mobile information are never shared with third parties for marketing.
@@ -80,8 +80,8 @@ export default function Privacy() {
 
               <Section title="7. Contact">
                 <p>
-                  AVIS USA, LLC (M&amp;A Business Advisors)<br />
-                  5307 Metzger Court, Sugar Land, TX 77479<br />
+                  Avis USA, LLC (M&amp;A Business Advisors)<br />
+                  5307 Metzger Ct, Sugar Land, TX 77479<br />
                   Email: <a className="text-[#A07850] hover:underline" href="mailto:sunny@mabusinessadvisors.com">sunny@mabusinessadvisors.com</a><br />
                   Phone: <a className="text-[#A07850] hover:underline" href="tel:+18327124162">(832) 712-4162</a>
                 </p>

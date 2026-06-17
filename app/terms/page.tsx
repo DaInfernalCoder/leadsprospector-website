@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 
 const title = "Terms of Service | M&A Business Advisors";
 const description =
-  "Terms of Service for M&A Business Advisors (AVIS USA, LLC), including SMS messaging terms.";
+  "Terms of Service for M&A Business Advisors (Avis USA, LLC), including SMS messaging terms.";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -32,7 +32,7 @@ export default function Terms() {
 
             <div className="space-y-8 text-[#3A3A35] leading-relaxed">
               <p>
-                These Terms of Service govern your use of the website and services of M&amp;A Business Advisors, operated by AVIS USA, LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing this website or contacting us, you agree to these terms.
+                These Terms of Service govern your use of the website and services of M&amp;A Business Advisors, operated by Avis USA, LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing this website or contacting us, you agree to these terms.
               </p>
 
               <Section title="1. Our Services">
@@ -43,7 +43,7 @@ export default function Terms() {
 
               <Section title="2. SMS / Text Messaging Terms">
                 <p>
-                  By providing your phone number and opting in through a form on this website, you consent to receive text messages from M&amp;A Business Advisors (AVIS USA, LLC) related to your inquiry, appointments, and our services. These may include informational, transactional, and promotional messages, possibly sent using automated technology.
+                  By providing your phone number and opting in through a form on this website, you consent to receive text messages from M&amp;A Business Advisors (Avis USA, LLC) related to your inquiry, appointments, and our services. These may include informational, transactional, and promotional messages, possibly sent using automated technology.
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li>Message frequency varies.</li>
@@ -70,14 +70,14 @@ export default function Terms() {
 
               <Section title="5. Limitation of Liability">
                 <p>
-                  To the maximum extent permitted by law, AVIS USA, LLC is not liable for any indirect, incidental, or consequential damages arising from your use of this website or our services.
+                  To the maximum extent permitted by law, Avis USA, LLC is not liable for any indirect, incidental, or consequential damages arising from your use of this website or our services.
                 </p>
               </Section>
 
               <Section title="6. Contact">
                 <p>
-                  AVIS USA, LLC (M&amp;A Business Advisors)<br />
-                  5307 Metzger Court, Sugar Land, TX 77479<br />
+                  Avis USA, LLC (M&amp;A Business Advisors)<br />
+                  5307 Metzger Ct, Sugar Land, TX 77479<br />
                   Email: <a className="text-[#A07850] hover:underline" href="mailto:sunny@mabusinessadvisors.com">sunny@mabusinessadvisors.com</a><br />
                   Phone: <a className="text-[#A07850] hover:underline" href="tel:+18327124162">(832) 712-4162</a>
                 </p>
