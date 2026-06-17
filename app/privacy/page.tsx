@@ -37,7 +37,7 @@ export default function Privacy() {
 
               <Section title="1. Information We Collect">
                 <p>
-                  We collect information you voluntarily provide, such as your name, phone number, email address, and details about your business when you use our tools, fill out a form, or book a call. We may also collect basic usage data through standard web analytics.
+                  We collect information you voluntarily provide, such as your name, phone number, email address, and details about your business when you use our tools, fill out a form, or contact us. We may also collect basic usage data through standard web analytics.
                 </p>
               </Section>
 
