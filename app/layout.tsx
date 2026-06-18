@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -45,7 +46,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${dmSans.variable} antialiased`}>{children}</body>
+      <body className={`${cormorant.variable} ${dmSans.variable} antialiased`}>
+        <Script id="datamoon-pixel" strategy="afterInteractive">
+          {`(function(s, p, i, c, e) {
+    s[e] = s[e] || function() { (s[e].a = s[e].a || []).push(arguments); };
+    s[e].l = 1 * new Date();
+    var t = new Date().getTime();
+    var k = c.createElement("script"), a = c.getElementsByTagName("script")[0];
+    k.async = 1, k.src = p + "?request_id=" + i + "&t=" + t, a.parentNode.insertBefore(k, a);
+    s.pixelClientId = i;
+})(window, "https://app.datamoon.com/script", "calden-moore", document, "script");`}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }
