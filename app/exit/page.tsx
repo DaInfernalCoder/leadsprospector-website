@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -133,7 +134,7 @@ export default function ExitSystem() {
           </div>
         </section>
 
-        {/* Contact */}
+        {/* Booking */}
         <section id="calendar" className="py-20 md:py-28 px-4 md:px-6 bg-[#F0EDE6]">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection variant="fadeDown">
@@ -141,20 +142,20 @@ export default function ExitSystem() {
                 Get Started
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
-                Talk to us.
+                Book your call.
               </h2>
               <p className="text-[#6B6B65] text-lg mb-12 max-w-xl leading-relaxed">
-                Now that you know what it is worth, we do the work of connecting you to a buyer. We help owners sell businesses over $200k in net income, with nothing upfront. Email us your analysis and we will pressure-test your number and start the process.
+                Now that you know what it is worth, we do the work of connecting you to a buyer. We help owners sell businesses over $200k in net income, with nothing upfront. Bring your analysis and we will pressure-test your number and start the process.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp">
-              <a
-                href="mailto:sunny@mabusinessadvisors.com"
+              <Link
+                href="/exit/book"
                 className="inline-flex items-center gap-2 bg-[#A07850] text-[#F5F0E8] font-medium px-7 py-3.5 rounded-lg hover:bg-[#8B6A3E] transition-colors text-base"
               >
-                Email us
+                Book your call
                 <ArrowRight className="w-4 h-4" strokeWidth={2} />
-              </a>
+              </Link>
             </AnimatedSection>
           </div>
         </section>

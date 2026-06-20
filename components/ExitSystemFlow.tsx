@@ -346,13 +346,13 @@ export default function ExitSystemFlow() {
             Turn this analysis into a real exit plan.
           </h3>
           <p className="text-[#A8A49E] leading-relaxed max-w-xl mx-auto mb-8">
-            Now that you know what it is worth, we do the work of connecting you to a buyer. We help owners sell businesses over $200k in net income, with nothing upfront. Email us your analysis to pressure-test your number and start the process.
+            Now that you know what it is worth, we do the work of connecting you to a buyer. We help owners sell businesses over $200k in net income, with nothing upfront. Book a call to pressure-test your number with us and start the process.
           </p>
           <a
-            href="mailto:sunny@mabusinessadvisors.com"
+            href="/exit/book"
             className="inline-flex items-center gap-2 bg-[#A07850] text-[#F5F0E8] font-medium px-7 py-3.5 rounded-lg hover:bg-[#8B6A3E] transition-colors text-base"
           >
-            Email us
+            Book your call
             <ArrowRight className="w-4 h-4" strokeWidth={2} />
           </a>
         </motion.div>
@@ -368,7 +368,7 @@ function SceneError() {
       <div>
         <p className="text-sm font-medium text-[#1C1C1A] mb-1">We could not generate this one.</p>
         <p className="text-sm text-[#6B6B65] leading-relaxed">
-          The rest of your analysis is intact below. Email us and we will cover this part live.
+          The rest of your analysis is intact below. Book a call and we will cover this part live.
         </p>
       </div>
     </div>
