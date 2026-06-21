@@ -29,14 +29,12 @@ HEALTHCARE & LIFE SCIENCES:
 - State medical board new license registrations: physicians entering private practice within 6 months of licensure are active buyers of practice management tools
 - Health system M&A integration periods: acquired hospitals standardize vendor stack within 18 months — high procurement activity
 
-FINANCIAL SERVICES & WEALTH MANAGEMENT:
-- SEC Form 4: insider equity dispositions over $500K flagged within 48h of filing
-- SEC S-1/S-4: executive compensation tables reveal impending liquidity for named officers
-- UCC-1 lien terminations: signals SBA/seller note payoff post-close, second liquidity wave
-- Probate court filings: estate inventory value thresholds by state ($1M+)
-- State medical board license inactivation: physician practice sales average $3M–$15M
-- Form ADV amendment: AUM jump >$10M or new "private" client designation
-- Delaware/Wyoming LLC or LP formation with "family office" or family name: first-time wealth management need
+CONTRACTING & HOME SERVICES:
+- Building permit filings (county/municipal portals): new residential and commercial permits signal active jobs needing trades within 30–90 days
+- Property sale closings and recent-mover records: new homeowners drive renovation, roofing, HVAC, and remodel demand within 6 months
+- Storm and hail event maps (NOAA, insurance loss data): trigger roofing and exterior repair demand windows lasting 60–120 days
+- Code violation and inspection failure notices: create immediate, deadline-driven repair jobs
+- Commercial lease signings and tenant improvement filings: signal fit-out and buildout work for general contractors
 
 INDUSTRIAL & B2B SERVICES:
 - Government contract awards (SAM.gov, FPDS): new prime contractor wins signal sub-vendor procurement within 30–60 days

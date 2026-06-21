@@ -72,6 +72,13 @@ export default function Home() {
       timeframe: "in 46 days",
       description: "Pre-vetted individuals matched to advisor profile, delivered via warm email introduction with full context.",
     },
+    {
+      niche: "Contractor",
+      result: "15 jobs",
+      qualifier: "booked",
+      timeframe: "in 5 days",
+      description: "Performance-based engagement on a split-commission model. Qualified homeowner jobs delivered fast, with payment tied to closed work.",
+    },
   ];
 
   return (

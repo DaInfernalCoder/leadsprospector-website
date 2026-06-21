@@ -16,9 +16,9 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500"],
 });
 
-const title = "Caldenmoore | Qualified wealth introductions after liquidity events";
+const title = "Caldenmoore | Qualified introductions to your ideal clients";
 const description =
-  "Caldenmoore introduces high net worth individuals and families after exits, inheritance, or concentrated equity to RIAs and family offices with proven deployment in tax-efficient strategies, alternatives, private credit, and real assets ($1M–$10M+; family offices to $100M).";
+  "Caldenmoore is an advisory and research firm that identifies, vets, and introduces qualified prospects to B2B companies across industries. We handle the research and outreach. You receive warm introductions to clients ready to engage.";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
