@@ -54,17 +54,17 @@ export default function ICPSignalFinder() {
       {/* Input card */}
       <div className="bg-white rounded-2xl border border-[#E2DDD5] p-8 md:p-10">
         <label className="block text-sm font-medium text-[#1C1C1A] mb-3">
-          Describe your business and who you&apos;re trying to reach
+          Describe your deal mandate or acquisition criteria
         </label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          placeholder="e.g. B2B SaaS platform targeting HR directors at mid-market companies (200–2,000 employees) in North America. We replace spreadsheet-based onboarding processes."
+          placeholder="e.g. M&A advisory firm focused on lower middle market manufacturing and distribution businesses ($3M–$15M EBITDA) in the Midwest. We run sell-side and buy-side mandates and need proprietary deal flow ahead of broker processes."
           className="w-full border border-[#E2DDD5] rounded-xl px-4 py-3 text-sm text-[#1C1C1A] placeholder-[#6B6B65]/50 focus:outline-none focus:ring-2 focus:ring-[#A07850]/40 focus:border-[#A07850] resize-none leading-relaxed bg-[#FAFAF6]"
         />
         <p className="text-xs text-[#6B6B65]/60 mt-2 mb-6">
-          ex: recruitment firm &nbsp;·&nbsp; healthcare IT vendor &nbsp;·&nbsp; wealth manager &nbsp;·&nbsp; industrial automation &nbsp;·&nbsp; SaaS
+          ex: M&amp;A advisory &nbsp;·&nbsp; PE add-on sourcing &nbsp;·&nbsp; business broker &nbsp;·&nbsp; corporate development &nbsp;·&nbsp; family office
         </p>
         <button
           onClick={handleSubmit}

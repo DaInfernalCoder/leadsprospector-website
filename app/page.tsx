@@ -8,79 +8,6 @@ import ICPSignalFinder from "@/components/ICPSignalFinder";
 export default function Home() {
   const CAL_URL = "https://cal.com/sumitdatta/15min?overlayCalendar=true";
 
-  const caseStudies = [
-    {
-      niche: "Industrial Automation",
-      result: "$85K",
-      qualifier: "revenue added",
-      timeframe: "in under 60 days",
-      description: "Identified and introduced key decision-makers at target accounts, resulting in signed contracts ahead of forecast.",
-    },
-    {
-      niche: "Recruitment",
-      result: "$105K",
-      qualifier: "revenue added",
-      timeframe: "in a single quarter",
-      description: "Built a qualified pipeline of hiring managers and HR leaders, converting introductions to retained searches.",
-    },
-    {
-      niche: "Recruitment",
-      result: "$100K",
-      qualifier: "revenue added",
-      timeframe: "in 6 months",
-      description: "Systematic prospecting into mid-market companies expanding headcount produced consistent placement volume.",
-    },
-    {
-      niche: "E-Sports",
-      result: "€70K",
-      qualifier: "new revenue",
-      timeframe: "in 3 months",
-      description: "Connected a European operator with brand partnership and sponsorship decision-makers across the sector.",
-    },
-    {
-      niche: "Recruitment",
-      result: "20 placements",
-      qualifier: "closed",
-      timeframe: "in 55 days",
-      description: "High-velocity introduction campaign to HR directors at scaling technology companies.",
-    },
-    {
-      niche: "Healthcare IT",
-      result: "4 dream clients",
-      qualifier: "secured",
-      timeframe: "in under 90 days",
-      description: "Navigated complex enterprise buying committees to land introductions with qualified healthcare system decision-makers.",
-    },
-    {
-      niche: "Healthcare",
-      result: "2 new partners",
-      qualifier: "added",
-      timeframe: "in 60 days",
-      description: "Identified and introduced strategic partnership candidates to accelerate market expansion.",
-    },
-    {
-      niche: "SaaS",
-      result: "5 new clients",
-      qualifier: "closed",
-      timeframe: "in 48 days",
-      description: "Targeted outreach to ideal customer profile companies produced high-quality pipeline that closed quickly.",
-    },
-    {
-      niche: "Wealth Management",
-      result: "6 introductions",
-      qualifier: "delivered",
-      timeframe: "in 46 days",
-      description: "Pre-vetted individuals matched to advisor profile, delivered via warm email introduction with full context.",
-    },
-    {
-      niche: "Contractor",
-      result: "15 jobs",
-      qualifier: "booked",
-      timeframe: "in 5 days",
-      description: "Performance-based engagement on a split-commission model. Qualified homeowner jobs delivered fast, with payment tied to closed work.",
-    },
-  ];
-
   return (
     <>
       <Navbar />
@@ -96,16 +23,16 @@ export default function Home() {
           <div className="relative max-w-5xl mx-auto">
             <AnimatedSection variant="fadeDown" delay={0}>
               <p className="text-xs uppercase tracking-widest text-[#C9A87C] font-medium mb-6">
-                Advisory &amp; Research Firm
+                Research &amp; Advisory Firm
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
-                Qualified introductions to{" "}
-                <em className="italic font-light">your ideal clients.</em>
+                Qualified deal flow for{" "}
+                <em className="italic font-light">M&amp;A advisors.</em>
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore is an advisory and research firm that identifies, vets, and introduces qualified prospects to B2B companies across industries. We handle the research and outreach. You receive warm introductions to clients ready to engage.
+                Caldenmoore is a research and advisory firm that identifies, vets, and introduces qualified acquisition targets and motivated sellers to M&amp;A advisors, investment banks, and business brokers. We surface the deal. You run the process.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -127,16 +54,16 @@ export default function Home() {
             <AnimatedSection variant="fade" delay={0.3}>
               <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$85K – $105K</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Typical new revenue per engagement</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$2M – $25M</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Typical target deal size</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">9 industries</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Active verticals, 2023–2025</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">Lower middle market</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Primary coverage</p>
                 </div>
                 <div>
                   <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 60 days</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Average time to first results</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Average time to first introduction</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -158,18 +85,18 @@ export default function Home() {
               {[
                 {
                   step: "01",
-                  title: "Define your ideal client",
-                  body: "We learn the profile of clients you serve best — industry, company size, geography, and the specific situations where you add the most value.",
+                  title: "Define your deal mandate",
+                  body: "We learn your deal criteria — industry focus, geography, revenue or EBITDA range, ownership situation, and the deal types where you add the most value.",
                 },
                 {
                   step: "02",
-                  title: "We identify and vet matches",
-                  body: "When a company or individual fits your profile, we verify intent, fit, and readiness before any introduction is made.",
+                  title: "We identify and vet targets",
+                  body: "When a business fits your criteria and signals readiness, we confirm owner intent before any contact is made on your behalf.",
                 },
                 {
                   step: "03",
                   title: "Receive warm introductions",
-                  body: "You meet qualified prospects with full context already in hand through a warm introduction made by us over email. No wasted conversations trying to figure out who&apos;s ready to buy.",
+                  body: "You meet business owners who are genuinely open to a conversation, with full context on the business and motivation already in hand.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.step} variant="fadeUp" delay={i * 0.1}>
@@ -186,18 +113,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ICP Signal Finder */}
+        {/* Deal Flow Signal Finder */}
         <section id="signal-finder" className="py-20 md:py-28 px-4 md:px-6 bg-[#FAFAF6]">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection variant="fadeDown">
               <p className="text-xs uppercase tracking-widest text-[#A07850] font-medium mb-4">
-                Your Signal Strategy
+                Your Deal Flow Strategy
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
-                See exactly how we would find your clients.
+                See exactly how we would source your deal flow.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-10 leading-relaxed">
-                Tell us who you serve and we will show you which signals we monitor, how we pre-vet, and what a client profile we have worked with that matches your business.
+                Tell us your deal mandate and we will show you which signals we monitor, how we pre-vet targets, and what a qualified deal profile looks like for your thesis.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.1}>
@@ -214,44 +141,44 @@ export default function Home() {
                 Signal Intelligence
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                How we find the right prospects.
+                How we surface proprietary deal flow.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                We monitor a network of public and proprietary signals that surface qualified buyers at genuine inflection points — before they have found a vendor.
+                We monitor a network of public and proprietary signals that surface motivated sellers and acquisition targets before they reach broker networks or public listings.
               </p>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
               {[
                 {
-                  label: "Hiring Intent",
-                  body: "Job postings for VP Sales, Head of Revenue, and RevOps roles at 50–500 person companies correlate with active vendor evaluation within 60 days of the first listing.",
-                  tag: "SaaS, technology, services",
+                  label: "Succession Planning Signals",
+                  body: "Owner age and tenure data combined with estate planning activity and industry succession benchmarks surface businesses approaching a transition before any listing appears.",
+                  tag: "Manufacturing, distribution, professional services",
                 },
                 {
-                  label: "Funding & Growth Events",
-                  body: "Series A/B announcements signal a 30–90 day expansion sprint. PE platform acquisitions signal immediate add-on sourcing and vendor onboarding across portfolio companies.",
-                  tag: "Venture-backed & PE-owned companies",
+                  label: "PE Add-on Sourcing",
+                  body: "PE platform acquisitions in fragmented industries trigger active add-on searches within 30–90 days. We identify geographic and product-line adjacencies before the mandate is public.",
+                  tag: "PE-backed roll-up strategies",
                 },
                 {
-                  label: "Staffing Firm Triggers",
-                  body: "ATS purchases, job board spend increases, and LinkedIn Recruiter license expansions signal a recruiting firm entering a growth phase with new placement targets.",
-                  tag: "Staffing, recruitment, RPO",
-                },
-                {
-                  label: "Healthcare Procurement Cycles",
-                  body: "EHR migration announcements, CMS compliance deadlines, and GPO contract renewals open 60–120 day evaluation windows for healthcare IT and services vendors.",
-                  tag: "Healthcare IT, medtech, clinical services",
-                },
-                {
-                  label: "Leadership Transitions",
-                  body: "C-suite and VP-level departures trigger vendor reviews within 30–90 days as incoming leaders audit existing relationships and establish new supplier preferences.",
+                  label: "Leadership Transition Events",
+                  body: "Founder and CEO departures at privately held companies signal readiness for a sale process, often before the owner has engaged an advisor.",
                   tag: "Cross-industry",
                 },
                 {
-                  label: "Entity & Expansion Filings",
-                  body: "New subsidiary registrations, state business license filings, and geographic expansion announcements surface companies entering new markets with immediate advisory and vendor needs.",
-                  tag: "Multi-market operators",
+                  label: "Revenue & EBITDA Milestones",
+                  body: "Companies crossing acquisition thresholds are monitored via SBA filings, state revenue disclosures, and credit facility activity — surfacing deal-ready businesses at the right size.",
+                  tag: "Lower middle market",
+                },
+                {
+                  label: "Business Broker Registrations",
+                  body: "New CIM filings and business-for-sale registrations reveal motivated sellers. We surface these before they reach broad buyer pools or auction processes.",
+                  tag: "All verticals",
+                },
+                {
+                  label: "Strategic Acquirer Intent",
+                  body: "Corporate development hires, M&A-specific job postings, and executive team expansions signal active buy-side mandates before any deal is announced.",
+                  tag: "Corporate buyers",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.label} variant="fadeUp" delay={i * 0.07}>
@@ -275,30 +202,30 @@ export default function Home() {
                 Who We Work With
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                B2B companies that compete on relationships.
+                M&amp;A professionals who compete on deal flow.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                We work best with businesses where a single qualified introduction can materially change the quarter. Across verticals, the pattern is the same: the right conversation at the right time.
+                We work best with advisors where a single qualified introduction to a motivated seller can materially change the year. The pattern is the same across mandates: the right deal at the right time.
               </p>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 gap-px bg-[#E2DDD5] rounded-2xl overflow-hidden border border-[#E2DDD5]">
               {[
                 {
-                  title: "Staffing & Recruitment",
-                  body: "Firms growing placement volume that need consistent access to HR directors and hiring managers at scaling companies — not job boards, but real conversations.",
+                  title: "M&A Advisory Firms",
+                  body: "Boutique and middle market investment banks running sell-side or buy-side mandates that need proprietary deal flow ahead of formal broker processes.",
                 },
                 {
-                  title: "SaaS & Technology",
-                  body: "Software companies targeting defined buyer personas in competitive markets where pipeline quality matters more than pipeline volume.",
+                  title: "Business Brokers",
+                  body: "Professionals representing business owners who need qualified financial and strategic buyers introduced with confirmed acquisition mandates and capital availability.",
                 },
                 {
-                  title: "Healthcare & Life Sciences",
-                  body: "Medical technology, health IT, and clinical services businesses navigating complex procurement cycles and multi-stakeholder buying committees.",
+                  title: "Private Equity",
+                  body: "PE firms and family offices sourcing platform investments and add-on acquisitions in fragmented industries, where off-market access matters most.",
                 },
                 {
-                  title: "Financial & Advisory Services",
-                  body: "Wealth management, fintech, and professional services firms requiring pre-vetted introductions to qualified individuals and organizations.",
+                  title: "Corporate Development",
+                  body: "In-house M&A teams at strategic acquirers building proprietary pipelines before deals reach broker networks or competitive auction processes.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.05} className="h-full">
@@ -320,27 +247,27 @@ export default function Home() {
                 Why Caldenmoore
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-16 max-w-xl leading-tight">
-                Built for businesses that value their time.
+                Built for advisors who close on relationships.
               </h2>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 gap-x-16 gap-y-12">
               {[
                 {
-                  title: "Pre-vetted, not prospected",
-                  body: "Every introduction has been verified for fit, intent, and readiness. You receive qualified conversations, not a contact list.",
+                  title: "Owner intent confirmed, not assumed",
+                  body: "Every introduction has verified the business owner is open to a conversation. You receive qualified meetings, not a contact list.",
                 },
                 {
-                  title: "Context-rich handoffs",
-                  body: "Before you speak with anyone, we brief you. You know the situation, the opportunity, and what the prospect is looking for.",
+                  title: "Deal context included",
+                  body: "Before the first call, you know the business, the ownership situation, and the seller's motivation. No blind introductions.",
                 },
                 {
-                  title: "Engagements that move the needle",
-                  body: "We focus on introductions that can materially change a quarter — not volume for the sake of activity metrics.",
+                  title: "Off-market by design",
+                  body: "Targets are identified before they reach broker networks or public listings. You access deals before they are competitive.",
                 },
                 {
-                  title: "No prospecting overhead",
-                  body: "No marketing budget. No SDR team. No cold calls. The only overhead is taking the introduction.",
+                  title: "No cold outreach overhead",
+                  body: "No marketing budget. No BD staff. No blast campaigns. The only overhead is taking the introduction.",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.title} variant="fadeUp" delay={i * 0.1}>
@@ -363,10 +290,10 @@ export default function Home() {
                 The Difference
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 max-w-xl leading-tight">
-                How most businesses grow, and how our partners do.
+                How most advisors source deals, and how our partners do.
               </h2>
               <p className="text-[#6B6B65] text-lg max-w-2xl mb-16 leading-relaxed">
-                The traditional path to acquiring qualified clients is slow, expensive, and unpredictable. There is a better model.
+                The traditional path to proprietary deal flow is slow, network-dependent, and unpredictable. There is a better model.
               </p>
             </AnimatedSection>
 
@@ -378,12 +305,12 @@ export default function Home() {
                   </p>
                   <ul className="space-y-5">
                     {[
-                      "Build a referral network over years",
-                      "Run expensive marketing campaigns",
-                      "Hire business development staff",
-                      "Attend conferences and events",
-                      "Chase introductions that may not close",
-                      "Manage pipeline with uncertain quality",
+                      "Build a referral network over years through conferences",
+                      "Rely on inbound listings from broker networks",
+                      "Cold outreach to business owners with no intent signal",
+                      "Spend months qualifying deals that miss criteria",
+                      "Pay for database subscriptions with stale contact data",
+                      "Miss off-market opportunities before they reach listing",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-[#6B6B65]">
                         <span className="w-4 h-4 rounded-full border border-[#C5BEB4] mt-0.5 shrink-0" />
@@ -401,12 +328,12 @@ export default function Home() {
                   </p>
                   <ul className="space-y-5">
                     {[
-                      "Define your ideal client profile once",
-                      "Receive introductions as they become available",
-                      "No overhead, no campaigns, no headcount",
-                      "Pre-qualified before the first conversation",
-                      "Full context delivered with every introduction",
-                      "Pipeline that reflects real intent and fit",
+                      "Define your deal mandate once",
+                      "Receive introductions to owners with confirmed interest",
+                      "No wasted conversations on unqualified parties",
+                      "Off-market access before deals reach broker processes",
+                      "Full context on situation, motivation, and business profile",
+                      "Deal flow that reflects real intent and fit",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-[#E8E4DC]">
                         <span className="w-4 h-4 rounded-full bg-[#A07850] mt-0.5 shrink-0 flex items-center justify-center">
@@ -424,46 +351,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Case Studies */}
-        <section className="py-20 md:py-28 px-4 md:px-6 bg-[#111E2A]">
-          <div className="max-w-5xl mx-auto">
-            <AnimatedSection variant="fadeDown">
-              <p className="text-xs uppercase tracking-widest text-[#C9A87C] font-medium mb-4">
-                Results
-              </p>
-              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] mb-4 max-w-xl leading-tight">
-                What our partners have built.
-              </h2>
-              <p className="text-[#A8A49E] text-lg max-w-2xl mb-16 leading-relaxed">
-                Across nine industries. Client names withheld under NDA.
-              </p>
-            </AnimatedSection>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-              {caseStudies.map((cs, i) => (
-                <AnimatedSection key={i} variant="fadeUp" delay={i * 0.06}>
-                  <div className="bg-[#1C2B3A] border border-white/8 rounded-2xl p-7 h-full flex flex-col">
-                    <p className="text-xs font-medium text-[#C9A87C] uppercase tracking-widest mb-5">
-                      {cs.niche}
-                    </p>
-                    <p className="text-4xl md:text-5xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-none mb-1">
-                      {cs.result}
-                    </p>
-                    <p className="text-sm text-[#A07850] font-medium mb-1">{cs.qualifier}</p>
-                    <p className="text-sm text-[#A8A49E] mb-5">{cs.timeframe}</p>
-                    <p className="text-sm text-[#A8A49E]/70 leading-relaxed mt-auto">
-                      {cs.description}
-                    </p>
-                    <p className="text-xs text-[#A8A49E]/40 mt-5 italic">
-                      Client name withheld under NDA
-                    </p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA + Calendar */}
         <section id="calendar" className="py-20 md:py-28 px-4 md:px-6 bg-[#F0EDE6]">
           <div className="max-w-4xl mx-auto">
@@ -472,10 +359,10 @@ export default function Home() {
                 Get Started
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
-                Ready to meet your next client?
+                Ready to expand your deal flow?
               </h2>
               <p className="text-[#6B6B65] text-lg mb-12 max-w-xl leading-relaxed">
-                Schedule a short call to discuss your ideal client profile and whether we are a fit.
+                Schedule a short call to discuss your deal mandate and whether we are a fit.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp">
