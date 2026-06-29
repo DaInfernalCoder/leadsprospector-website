@@ -54,15 +54,11 @@ export default function Home() {
             <AnimatedSection variant="fade" delay={0.3}>
               <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$2M – $25M</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Typical target deal size</p>
-                </div>
-                <div>
                   <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$250K–$5M EBITDA</p>
                   <p className="text-sm text-[#A8A49E] mt-1">Target seller profile</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 60 days</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 5 days</p>
                   <p className="text-sm text-[#A8A49E] mt-1">Average time to first introduction</p>
                 </div>
               </div>
