@@ -32,7 +32,7 @@ export default function Home() {
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore is a research and advisory firm that identifies, vets, and introduces off-market sellers to M&amp;A advisory firms and business brokers focused on the lower middle market. $250K–$5M EBITDA, off-market only.
+                Caldenmoore is a research and advisory firm that identifies, vets, and introduces off-market sellers to M&amp;A advisory firms and business brokers focused on the lower middle market. Off-market only.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -54,8 +54,8 @@ export default function Home() {
             <AnimatedSection variant="fade" delay={0.3}>
               <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-8">
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$250K–$5M EBITDA</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Target seller profile</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">Lower middle market</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Primary coverage</p>
                 </div>
                 <div>
                   <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 5 days</p>
