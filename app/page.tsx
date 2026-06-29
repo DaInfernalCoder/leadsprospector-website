@@ -26,13 +26,14 @@ export default function Home() {
                 Research &amp; Advisory Firm
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
-                Qualified deal flow for{" "}
-                <em className="italic font-light">M&amp;A advisors.</em>
+                Deal flow for{" "}
+                <em className="italic font-light">lower middle market M&amp;A advisors.</em>
+                {" "}$250K–$5M EBITDA, off-market only.
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore is a research and advisory firm that identifies, vets, and introduces qualified acquisition targets and motivated sellers to M&amp;A advisors, investment banks, and business brokers. We surface the deal. You run the process.
+                Caldenmoore is a research and advisory firm that identifies, vets, and introduces off-market sellers to M&amp;A advisory firms and business brokers focused on the lower middle market. We surface the deal. You run the process.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -58,8 +59,8 @@ export default function Home() {
                   <p className="text-sm text-[#A8A49E] mt-1">Typical target deal size</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">Lower middle market</p>
-                  <p className="text-sm text-[#A8A49E] mt-1">Primary coverage</p>
+                  <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">$250K–$5M EBITDA</p>
+                  <p className="text-sm text-[#A8A49E] mt-1">Target seller profile</p>
                 </div>
                 <div>
                   <p className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-medium text-[#F5F0E8]">&lt; 60 days</p>
@@ -213,7 +214,7 @@ export default function Home() {
               {[
                 {
                   title: "M&A Advisory Firms",
-                  body: "Boutique and middle market investment banks running sell-side or buy-side mandates that need proprietary deal flow ahead of formal broker processes.",
+                  body: "Boutique and lower middle market advisory firms running sell-side or buy-side mandates that need proprietary off-market deal flow ahead of formal broker processes.",
                 },
                 {
                   title: "Business Brokers",
@@ -359,10 +360,10 @@ export default function Home() {
                 Get Started
               </p>
               <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1C1C1A] mb-4 leading-tight">
-                Ready to expand your deal flow?
+                Ready to source off-market deal flow?
               </h2>
               <p className="text-[#6B6B65] text-lg mb-12 max-w-xl leading-relaxed">
-                Schedule a short call to discuss your deal mandate and whether we are a fit.
+                Schedule a short call to discuss your lower middle market mandate and whether we are a fit.
               </p>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp">
