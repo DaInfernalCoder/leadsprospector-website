@@ -28,12 +28,11 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-light text-[#F5F0E8] leading-[1.08] tracking-tight mb-6 max-w-3xl">
                 Deal flow for{" "}
                 <em className="italic font-light">lower middle market M&amp;A advisors.</em>
-                {" "}$250K–$5M EBITDA, off-market only.
               </h1>
             </AnimatedSection>
             <AnimatedSection variant="fadeUp" delay={0.15}>
               <p className="text-lg md:text-xl text-[#A8A49E] max-w-2xl mb-10 leading-relaxed">
-                Caldenmoore is a research and advisory firm that identifies, vets, and introduces off-market sellers to M&amp;A advisory firms and business brokers focused on the lower middle market. We surface the deal. You run the process.
+                Caldenmoore is a research and advisory firm that identifies, vets, and introduces off-market sellers to M&amp;A advisory firms and business brokers focused on the lower middle market. $250K–$5M EBITDA, off-market only.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
