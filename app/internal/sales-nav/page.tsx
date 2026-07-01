@@ -7,7 +7,7 @@ import JobHistoryPanel from "@/components/internal/JobHistoryPanel";
 import { JobMeta, SalesNavLead } from "@/lib/internalTypes";
 import { leadsToCsv, downloadCsv } from "@/lib/csv";
 
-type ConnectionState = "loading" | "disconnected" | "finalizing" | "connected";
+type ConnectionState = "loading" | "disconnected" | "connected";
 
 const BATCH_SIZE = 15;
 
@@ -40,24 +40,13 @@ export default function SalesNavPage() {
   }, []);
 
   async function checkConnection() {
-    const params = new URLSearchParams(window.location.search);
-    const justConnected = params.get("connected") === "1";
-    if (justConnected) setConnection("finalizing");
-
-    for (let attempt = 0; attempt < (justConnected ? 15 : 1); attempt++) {
-      try {
-        const res = await fetch("/api/internal/unipile/status");
-        const data = await res.json();
-        if (data.connected) {
-          setConnection("connected");
-          return;
-        }
-      } catch {
-        // fall through to retry/disconnected below
-      }
-      if (justConnected) await sleep(2000);
+    try {
+      const res = await fetch("/api/internal/unipile/status");
+      const data = await res.json();
+      setConnection(data.connected ? "connected" : "disconnected");
+    } catch {
+      setConnection("disconnected");
     }
-    setConnection(justConnected ? "disconnected" : "disconnected");
   }
 
   async function loadJobHistory() {
@@ -197,12 +186,12 @@ export default function SalesNavPage() {
     downloadCsv(`sales-nav-${job?.id ?? "export"}.csv`, leadsToCsv(leads));
   }
 
-  if (connection === "loading" || connection === "finalizing") {
-    return <ConnectAccountCard finalizing={connection === "finalizing"} />;
+  if (connection === "loading") {
+    return null;
   }
 
   if (connection === "disconnected") {
-    return <ConnectAccountCard finalizing={false} />;
+    return <ConnectAccountCard onConnected={() => setConnection("connected")} />;
   }
 
   const openUnenrichedCount = leads.filter(
