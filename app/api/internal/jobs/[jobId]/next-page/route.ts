@@ -37,7 +37,7 @@ export async function POST(
   if (!meta) {
     return NextResponse.json({ error: "Job not found." }, { status: 404 });
   }
-  if (meta.status === "complete" || meta.status === "capped") {
+  if (meta.status === "scraped" || meta.status === "capped" || meta.status === "complete") {
     return NextResponse.json({ job: meta, leads: [] });
   }
 
@@ -72,7 +72,7 @@ export async function POST(
     meta.loadedCount = updatedLeads.length;
     meta.totalCount = data.paging?.total_count ?? meta.totalCount;
     meta.updatedAt = new Date().toISOString();
-    meta.status = !meta.cursor ? "complete" : meta.loadedCount >= meta.cap ? "capped" : "loading";
+    meta.status = !meta.cursor ? "scraped" : meta.loadedCount >= meta.cap ? "capped" : "loading";
     await saveJobMeta(meta);
 
     return NextResponse.json({ job: meta, leads: newLeads });

@@ -38,7 +38,7 @@ export interface SalesNavLead {
   enrichment: LeadEnrichment;
 }
 
-export type JobStatus = "idle" | "loading" | "complete" | "capped" | "error";
+export type JobStatus = "idle" | "loading" | "scraped" | "capped" | "complete" | "error";
 
 export interface JobMeta {
   id: string;

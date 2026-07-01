@@ -112,3 +112,19 @@ export async function searchSalesNavigator(params: {
   const data = await res.json();
   return { status: res.status, data };
 }
+
+export async function viewProfile(params: {
+  accountId: string;
+  identifier: string;
+}): Promise<{ status: number; data: unknown }> {
+  assertConfigured();
+  const query = new URLSearchParams({ account_id: params.accountId, notify: "true" });
+
+  const res = await fetch(
+    `${baseUrl()}/api/v1/users/${encodeURIComponent(params.identifier)}?${query.toString()}`,
+    { method: "GET", headers: headers() }
+  );
+
+  const data = await res.json();
+  return { status: res.status, data };
+}

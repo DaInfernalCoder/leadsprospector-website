@@ -1,16 +1,14 @@
 import { SalesNavLead } from "@/lib/internalTypes";
 
 const HEADERS = [
-  "Name",
-  "Headline",
-  "Company",
-  "Title",
-  "Location",
-  "Open Profile",
-  "LinkedIn URL",
-  "Email",
-  "Phone",
-  "Phone Type",
+  "full_name",
+  "first_name",
+  "last_name",
+  "is_open_profile",
+  "linkedin",
+  "profile_id",
+  "email",
+  "phone",
 ];
 
 function csvCell(value: string | number | boolean | undefined | null): string {
@@ -22,23 +20,20 @@ function csvCell(value: string | number | boolean | undefined | null): string {
 }
 
 export function leadsToCsv(leads: SalesNavLead[]): string {
-  const rows = leads.map((lead) => {
-    const position = lead.currentPositions[0];
-    return [
+  const rows = leads.map((lead) =>
+    [
       lead.name,
-      lead.headline,
-      position?.company,
-      position?.role,
-      lead.location,
-      lead.openProfile ? "Yes" : "No",
+      lead.firstName,
+      lead.lastName,
+      lead.openProfile,
       lead.publicProfileUrl,
+      lead.id,
       lead.enrichment.email,
       lead.enrichment.phone,
-      lead.enrichment.phoneType,
     ]
       .map(csvCell)
-      .join(",");
-  });
+      .join(",")
+  );
 
   return [HEADERS.join(","), ...rows].join("\n");
 }
