@@ -5,11 +5,11 @@ import { useRouter, usePathname } from "next/navigation";
 export default function InternalLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const isLogin = pathname === "/internal/login";
+  const isLogin = pathname === "/login";
 
   async function handleLogout() {
     await fetch("/api/internal/logout", { method: "POST" });
-    router.push("/internal/login");
+    router.push("/login");
   }
 
   return (

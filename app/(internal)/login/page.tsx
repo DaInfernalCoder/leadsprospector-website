@@ -25,7 +25,7 @@ export default function InternalLoginPage() {
         setError(data.error ?? "Login failed.");
         return;
       }
-      router.push("/internal/sales-nav");
+      router.push("/linkedin");
       router.refresh();
     } catch {
       setError("Request failed. Please try again.");

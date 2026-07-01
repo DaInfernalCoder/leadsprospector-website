@@ -18,8 +18,8 @@ export async function POST() {
     const webhookToken = await signValue(WEBHOOK_TOKEN_PAYLOAD);
     const { status, data } = await createHostedAuthLink({
       name: ACCOUNT_NAME,
-      successRedirectUrl: `${siteUrl}/internal/unipile-callback?status=success`,
-      failureRedirectUrl: `${siteUrl}/internal/unipile-callback?status=failure`,
+      successRedirectUrl: `${siteUrl}/unipile-callback?status=success`,
+      failureRedirectUrl: `${siteUrl}/unipile-callback?status=failure`,
       notifyUrl: `${siteUrl}/api/internal/unipile/webhook?t=${encodeURIComponent(webhookToken)}`,
     });
 

@@ -1,11 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SESSION_COOKIE_NAME, verifySessionToken } from "@/lib/internalAuth";
 
-const PUBLIC_PATHS = [
-  "/internal/login",
-  "/api/internal/login",
-  "/api/internal/unipile/webhook",
-];
+const PUBLIC_PATHS = ["/login", "/api/internal/login", "/api/internal/unipile/webhook"];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -25,10 +21,10 @@ export async function proxy(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const loginUrl = new URL("/internal/login", request.url);
+  const loginUrl = new URL("/login", request.url);
   return NextResponse.redirect(loginUrl);
 }
 
 export const config = {
-  matcher: ["/internal/:path*", "/api/internal/:path*"],
+  matcher: ["/linkedin/:path*", "/login", "/unipile-callback/:path*", "/api/internal/:path*"],
 };
